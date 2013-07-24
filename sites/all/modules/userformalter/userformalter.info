@@ -1,0 +1,3 @@
+name = User Form Alter
+description = Add user id to view argument field
+core = 7.x

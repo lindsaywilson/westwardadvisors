@@ -1,0 +1,133 @@
+
+/* ------------GLOBAL */
+
+#zone-branding{ padding-bottom:50px}
+
+.footer-info{ float:left}
+.footer-menu{ float:right}
+
+.tlp-menu{ display:block; position:absolute; right:0; top:-35px; z-index:1}
+.tlp-menu ul.menu{ overflow:hidden}
+.tlp-menu ul.menu, .tlp-menu ul.menu li{ margin:0; padding:0; list-style:none}
+.tlp-menu ul.menu{ padding-right:79px; background:url(../images/nav_lifestep_process.gif) 0 0 no-repeat; z-index:2}
+.tlp-menu ul.menu li,
+.tlp-menu ul.menu li a{ width:46px; height:82px; overflow:hidden; display:block; text-indent:-999em}
+.tlp-menu ul.menu li{ display:inline; float:left; margin-right:3px }
+.tlp-menu ul.menu li a{ background:url(../images/nav_lifestep_process.gif) 0 0 no-repeat; color:#fff; text-decoration:none; font-size:.85em; line-height:1.1; letter-spacing:-.08em}
+.tlp-menu ul.menu li.tdp a{ background-position:0 0}
+.tlp-menu ul.menu li.tdp a:hover{ background-position:0 -82px}
+.tlp-menu ul.menu li.tsb a{ background-position:-49px 0}
+.tlp-menu ul.menu li.tsb a:hover{ background-position:-49px -82px}
+.tlp-menu ul.menu li.tsi a{ background-position:-98px 0}
+.tlp-menu ul.menu li.tsi a:hover{ background-position:-98px -82px}
+.tlp-menu ul.menu li.tpo a{ background-position:-147px 0}
+.tlp-menu ul.menu li.tpo a:hover{ background-position:-147px -82px}
+
+.breadcrumb{ float:left;}
+#breadcrumb #search-block-form{ float:right; width:276px; }
+#breadcrumb #search-block-form input[type="text"]{ width:175px}
+.lt-ie8 #breadcrumb #search-block-form input[type="text"]{ width:170px}
+#breadcrumb #search-block-form input[type="submit"]{ width:92px; }
+
+
+/* ------------ MAIN NAV */
+
+.mobileselect{ display:none}
+#block-nice-menus-1{ position:absolute; right:0; top:0;}
+#block-nice-menus-1 #nice-menu-1{ display:block}
+ul.nice-menu li,
+ul.nice-menu-down li.menuparent{ font-weight:bold; font-size:.95em; margin:0; padding:0; background:none; border:none; line-height:35px; }
+ul.nice-menu-down li:hover,
+ul.nice-menu-down li.menuparent:hover{ background:#e7e7e7 url(../images/tile_nav_li.gif) repeat-x; -moz-box-shadow:5px -4px 4px 2px #f0f0f2; -webkit-box-shadow:5px -4px 4px 2px #f0f0f2; box-shadow:5px -4px 4px 2px #f0f0f2 }
+ul.nice-menu-down li span,
+ul.nice-menu-down li a,
+ul.nice-menu-down li.menuparent a{ color:#4c4c4c; text-decoration:none; padding:0 10px}
+ul.nice-menu ul{ top:35px; border-top:none}
+ul.nice-menu-down li.menuparent li{ line-height:1; border:1px solid #e7e7e7; background: #ebebeb url(../images/tile_nav_li_li.gif) repeat-x}
+ul.nice-menu ul li{ width:15em}
+ul.nice-menu-down li.menuparent li.first{ background-image:url(../images/tile_nav_li_li_first.gif)}
+ul.nice-menu-down li.menuparent li:hover{ background:#fdfdfd;  -moz-box-shadow:none; -webkit-box-shadow:none; box-shadow:none }
+ul.nice-menu-down li.menuparent li a{ display:block; padding:5px 10px; white-space: nowrap;}
+ul.nice-menu-down li ul li ul{ left:15em; border-top:1px solid #f5f5f5;}
+
+
+/* ------------ HTML ELEMENTS */
+
+h1 { font-size: 2.5em; width: 380px;}
+h1 sup{font-size:.4em; top:-.9em}
+h2, h2.block-title{ font-size:1.8em;}
+h3{ font-size:1.5em;}
+h4{ font-size:1.2em}
+
+
+/* ------------ PAGE */
+
+#page-header-image{ display:block; width:100%}
+#page-content{ padding-top:25px}
+#page-header-quote{ font-size:2em;}
+#page-side-bar{ padding-top:0;}
+#page-side-quote{ font-size:1.5em; }
+#page-side-quote .region-inner,
+#page-body .region-inner{ padding:0}
+
+
+/* ------------ HOME PAGE */
+
+.front hgroup h1{ font-size:3em}
+.front hgroup h1 sup{font-size:.3em; top:-1.3em}
+.front hgroup h2{ font-size:1.3em}
+
+#lifestep-process .process{ float:left; width:347px; margin-left:6px;}
+#lifestep-process .process .image{ height:122px; background-position:center 0}
+#lifestep-process .process .content{ padding-right:50px; min-height:70px; height:auto !important; height:70px;}
+#lifestep-process .process h2{ }
+#lifestep-process .process-tdp .image{ background-image:url(../images/tdp_img_tablet.jpg)}
+#lifestep-process .process-tsb .image{ background-image:url(../images/tsb_img_tablet.jpg)}
+#lifestep-process .process-tsi .image{ background-image:url(../images/tsi_img_tablet.jpg)}
+#lifestep-process .process-tpo .image{ background-image:url(../images/tpo_img_tablet.jpg)}
+
+#lifestep-process .process-tdp{ margin-left:0}
+#lifestep-process .process-tsb{ }
+#lifestep-process .process-tsi{ margin-left:0}
+#lifestep-process .process-tpo{ }
+
+#zone-postscript-wrapper{ margin:0}
+#zone-postscript-wrapper .container-12 .grid-3 { width:100% /*190px*/; margin:0}
+.front #zone-postscript-wrapper .container-12 .region-postscript-first{ padding-top:15px; padding-bottom:5px}
+#zone-postscript-wrapper .container-12 .region-postscript-first .region-inner{ padding:0 20px}
+#zone-postscript .inner{  padding-bottom:0; margin:0 10px}
+.zone-postscript .region{ padding:30px 0 20px 0;}
+.block-user-login input[type="submit"]{ font-size:.9em; margin:0; width:auto}
+
+.view-viewpoint.view-display-id-home .views-field-field-header-image{ display:block; float:left; width:170px; margin-right:10px}
+.view-viewpoint.view-display-id-home .views-field-field-blurb{ float:left; width:380px}
+
+
+/* ------------ CONTACT */
+
+#map{ height:230px;}
+
+.page-node-44 #webform-client-form-44{ width:47%; position:absolute;}
+.page-node-44 .block-address,
+.page-node-44 .block-staff-directory{ float:right; width:47%; margin-left:50%}
+.page-node-44 .block-address{ margin-top:0}
+
+
+/* ------------ ADVISOR SECTION */
+
+.page-node-15 .zone-postscript .region-inner{padding-left:80px;}
+.page-node-15 .zone-postscript #region-postscript-first .region-inner{ background-image:url(../images/bg_advisor_icon_viewpoint.jpg)}
+.page-node-15 .zone-postscript #region-postscript-second .region-inner{  background-image:url(../images/bg_advisor_icon_resources.jpg)}
+.page-node-15 .zone-postscript #region-postscript-third .region-inner{  background-image:url(../images/bg_advisor_icon_forum.jpg)}
+.page-node-15 .zone-postscript #region-postscript-fourth .region-inner{ background-image:url(../images/bg_questions.jpg); padding:30px 0 40px 140px}
+.page-node-15 #zone-postscript-wrapper .container-12 .grid-3{ float:none;}
+.page-node-15 .zone-postscript .region-inner{ padding-left:140px}
+.page-node-15 #zone-postscript-wrapper #region-postscript-fourth{ margin:0; width:auto}
+
+.page-node-15 #zone-postscript h2{ font-size:1.6em; margin-bottom:.2em}
+
+#page-side-bar #advisor-nav{ float:left; width:360px; border:none}
+#page-side-bar #advisor-nav li{ width:25%; text-align:center}
+#page-side-bar #questions{ float:right; margin-left:30px; padding:0 0 0 70px; background:url(/sites/all/themes/westward/images/bg_m_questions.jpg) 0 0 no-repeat; display:block}
+#questions h2{ font-size:2em; }
+#questions p{ font-size:1.3em; line-height:1.2em}

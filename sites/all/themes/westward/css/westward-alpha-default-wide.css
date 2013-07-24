@@ -1,0 +1,131 @@
+
+/* ------------GLOBAL */
+
+body{ background:#dbdbdc;}
+.container-12{ background:#fff}
+
+.region-branding-inner,
+.region-content-inner,
+.region-footer-first-inner{ margin:0 25px}
+
+.tlp-menu{ top:-35px; right:25px}
+
+/* ------------ HTML ELEMENTS */
+
+h1{ font-size:2.5em; width:590px}
+h1 sup{font-size:.4em; top:-.9em}
+
+/* ------------ PAGE */
+
+#page-header-image,
+#page-body{ float:left; width:610px}
+#page-header-quote{ height:140px; padding:30px 0}
+#page-header-quote br{ display:inline}
+#page-header-quote,
+#page-side-bar{ float:right; width:276px;}
+#page-header-quote .region-inner,
+#page-side-bar .region-inner{ padding:0 15px 0;}
+#page-body .region-inner{ padding:0 20px}
+#page-body .body{ padding-top:0; border-top: none}
+#page-side-img{ margin-top:30px; display:block}
+
+.page-node-4 #page-header-quote,
+.page-node-5 #page-header-quote,
+.page-node-9 #page-header-quote,
+.page-node-8 #page-header-quote{ font-size:3em; line-height:1.2em}
+
+
+/* ------------ HOME PAGE */
+
+.front hgroup{ margin-bottom:10px}
+.front hgroup h1{ float:right; font-size:5.7em; }
+.front hgroup h1 sup{font-size:.2em; top:-2.2em}
+.front hgroup h2{ float:left; font-size:1.3em; width:170px}
+
+#lifestep-process .process{ width:220px; margin-left:4px}
+#lifestep-process .process .image{ height:132px;}
+#lifestep-process .process h2{ padding-left:8px}
+#lifestep-process .process .content{ padding:0 45px 30px 8px; min-height:140px; height:auto !important; height:140px;}
+#lifestep-process .process .more{ padding-top:50px}
+
+#lifestep-process .process-tdp{ margin-left:0}
+#lifestep-process .process-tsb{ }
+#lifestep-process .process-tsi{ }
+#lifestep-process .process-tpo{ width:218px}
+#lifestep-process .process-tdp .image{ background-image:url(../images/tdp_img.jpg)}
+#lifestep-process .process-tsb .image{ background-image:url(../images/tsb_img.jpg)}
+#lifestep-process .process-tsi .image{ background-image:url(../images/tsi_img.jpg)}
+#lifestep-process .process-tpo .image{ background-image:url(../images/tpo_img.jpg)}
+
+#lifestep-process .process .content{ position:relative}
+#lifestep-process .process .content .book{ position:absolute; bottom:-20px; left:-15px; width:140px; display:none}
+#lifestep-process .process-tdp .content .book{ background:url(../images/book_orange_home.png); height:113px}
+#lifestep-process .process-tsb .content .book{ background:url(../images/book_blue_home.png); bottom:-5px; height:88px}
+#lifestep-process .process-tsi .content .book{ background:url(../images/book_green_home.png); bottom:-20px; height:115px}
+#lifestep-process .process-tpo .content .book{ background:url(../images/book_purple_home.png); bottom:-20px; width:113px; height:120px}
+
+#zone-postscript .inner{ margin:0 35px}
+#zone-postscript-wrapper .container-12 .grid-3{ /*220px*/; margin:0 2px;}
+.front #zone-postscript-wrapper .container-12 .region-postscript-first{ width:480px; margin-right:30px; }
+.front #zone-postscript-wrapper .container-12 #region-postscript-second{ width:350px; display:block}
+#zone-postscript-wrapper .container-12 .region-postscript-first{ margin-left:0;}
+#zone-postscript-wrapper .container-12 .region-postscript-first .region-inner{ padding:0 8px }
+.zone-postscript .region-inner{ padding:0 8px}
+.view-viewpoint.view-display-id-home .views-field-field-blurb{ width:290px}
+.block-lifestep-process img{ width:auto}
+.block-lifestep-process { padding-top: 30px;}
+
+
+/* ------------ ADVISOR SECTION */
+
+.page-node-15 #page-body{ padding-top:0; border-top:none}
+
+.page-node-15 #zone-postscript .inner{ padding-top:30px; background:none}
+.page-node-15 #zone-postscript-wrapper .container-12 .grid-3{ width:197px; margin:0; border-right:1px solid #829ca9; border-left:1px solid #9cb0bb; float:left}
+.page-node-15 #zone-postscript-wrapper #region-postscript-first{ border-left:none; border-bottom:none; }
+.page-node-15 #zone-postscript-wrapper #region-postscript-second{ width:211px; border-top:none; border-bottom:none;}
+.page-node-15 #zone-postscript-wrapper #region-postscript-third{ border-right:none; border-top:none; border-bottom:none;}
+.page-node-15 #zone-postscript-wrapper #region-postscript-fourth{ width:276px; margin-left:5px; border:none;}
+.page-node-15 .zone-postscript .region{ padding:0}
+.page-node-15 .zone-postscript .region-inner{ padding:0 15px}
+.page-node-15 .zone-postscript #region-postscript-first .region-inner{ padding-left:0; background:none}
+.page-node-15 .zone-postscript #region-postscript-second .region-inner{ background:none}
+.page-node-15 .zone-postscript #region-postscript-third .region-inner{ padding-right:0; background:none}
+.page-node-15 .zone-postscript #region-postscript-fourth .region-inner{ padding-left:20px; padding-top:0; background:none; }
+
+.page-node-15 #zone-postscript{ color:#333333;}
+.page-node-15 #zone-postscript h2{ color:#333333; font-size:1.6em; margin-bottom:.8em}
+
+.page-node-15 .zone-postscript .contextual-links-region{ min-height:290px; height:auto !important; height:290px; position:relative}
+#zone-postscript .region-inner a.icon-link{ position:absolute; bottom:0; background:url(../images/bg_advisor_icons.jpg); height:79px; padding:15px 0 0 105px; }
+#zone-postscript .region-inner a.icon-link-viewpoint{ background-position:0 0}
+#zone-postscript .region-inner a.icon-link-viewpoint:hover{ background-position:0 -150px}
+#zone-postscript .region-inner a.icon-link-resources{ background-position:-250px 0}
+#zone-postscript .region-inner a.icon-link-resources:hover{ background-position:-250px -150px}
+#zone-postscript .region-inner a.icon-link-forum{ background-position:-500px 0}
+#zone-postscript .region-inner a.icon-link-forum:hover{ background-position:-500px -150px}
+
+#blocks-side-bar{border-bottom:none}
+#region-postscript-fourth #advisor-nav{ display:block}
+#advisor-nav li{  width:auto; text-align:left}
+#page-side-bar #advisor-nav{ float:none; width:auto; border-bottom:1px solid #b9c6cd;}
+#page-side-bar #advisor-nav li{ width:auto; text-align:left}
+#questions,
+#page-side-bar #questions{ border-top:1px solid #9aafba; background:url(../images/bg_questions.jpg) right bottom no-repeat; padding:15px 0 120px 0; float:none; margin-left:0; }
+#questions h2{ font-size:2em; }
+
+#block-multiblock-2{ margin-top:20px; display:block}
+.page-node-15 .view-viewpoint.view-display-id-home .views-field-field-header-image{ width:auto; margin-right:10px}
+.page-node-15 .view-display-id-home .views-field-field-header-image img{ width:80px}
+.page-node-15 .view-viewpoint.view-display-id-home .views-field-field-blurb{ width:150px}
+
+
+/* ------------ CONTACT FORM */
+
+#map{ height:200px; width:610px}
+.page-node-44 #webform-client-form-44{ width:276px; }
+.page-node-44 .block-address,
+.page-node-44 .block-staff-directory{ float:left; width:276px}
+.page-node-44 .block-address{ margin-left:310px}
+.page-node-44 .block-staff-directory{ float:right; margin: 0 0 50px 0}
+

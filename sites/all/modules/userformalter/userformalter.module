@@ -1,0 +1,76 @@
+<?php
+/**
+* Implements hook_form_alter().
+*/
+function userformalter_form_alter(&$form, $form_state, $form_id) {
+  
+  //drupal_set_message("Form ID is : " . $form_id);
+  
+	// add advsiors to client files in the content list
+    if ($form_id == 'node_admin_content') {
+		
+		$advisors_column = array('advisors' => array(
+			'data'  => 'Advisors',
+			'field' => 'n.advisors'
+		));
+		$form['admin']['nodes']['#header'] = $form['admin']['nodes']['#header'] +  $advisors_column;
+
+		foreach($form['admin']['nodes']['#options'] as $key => $row) {
+			
+			$form['admin']['nodes']['#options'][$key]['advisors'] = '';
+			
+			if($form['admin']['nodes']['#options'][$key]['type'] == 'Client File'){
+				$uid = db_query('SELECT field_client_uid FROM {field_data_field_client} WHERE entity_id = :entity_id', array(':entity_id' => $key))->fetchField();
+				$userProfile = user_load($uid);
+
+				if(isset($userProfile->field_advisor['und'])){
+					foreach ($userProfile->field_advisor['und'] as $a){
+						$advisor = user_load($a['uid']);
+						$advisorFirstName = (isset($advisor->field_first_name['und']) ? $advisor->field_first_name['und'][0]['value'] : '');
+						$advisorLastName = (isset($advisor->field_last_name['und']) ? $advisor->field_last_name['und'][0]['value'] : '');
+						$advisorUserName = (isset($advisor->name) ? str_replace(' ', '-', $advisor->name) : '');
+						
+						$form['admin']['nodes']['#options'][$key]['advisors'] .= '<a href="/users/'.$advisorUserName.'">'.$advisorFirstName.' '.$advisorLastName.'</a><br />';
+					}
+				}     	
+			}
+			
+		}
+		
+	}
+  
+  
+  // add advisors column to users table
+  if($form_id == 'user_admin_account') {
+    
+	$advisors_column = array('advisors' => array(
+		'data'  => 'ADVISORS',
+		'field' => 'u.advisors'
+	));
+	$form['accounts']['#header'] = $form['accounts']['#header'] +  $advisors_column;
+	
+	foreach ($form['accounts']['#options'] as $key => $row) {
+		$userProfile = user_load($key);
+		$form['accounts']['#options'][$key]['advisors'] = '';
+		
+		if(isset($userProfile->field_advisor['und'])){
+			foreach ($userProfile->field_advisor['und'] as $a){
+				$advisor = user_load($a['uid']);
+				$advisorFirstName = (isset($advisor->field_first_name['und']) ? $advisor->field_first_name['und'][0]['value'] : '');
+				$advisorLastName = (isset($advisor->field_last_name['und']) ? $advisor->field_last_name['und'][0]['value'] : '');
+				$advisorUserName = (isset($advisor->name) ? str_replace(' ', '-', $advisor->name) : '');
+				$form['accounts']['#options'][$key]['advisors'] .= '<a href="/users/'.$advisorUserName.'">'.$advisorFirstName.' '.$advisorLastName.'</a><br />';
+			}
+		}
+		
+	}
+	
+  }
+  
+  //auto fill client-files view arguments with UID
+  if($form_id == 'user_profile_form') {
+	$form['field_client_files']['und']['0']['vargs']['#default_value'] = $form['#user']->uid;
+  }
+  
+}
+?>
