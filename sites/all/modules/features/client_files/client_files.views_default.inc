@@ -95,7 +95,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['field_file']['field'] = 'field_file';
   $handler->display->display_options['fields']['field_file']['label'] = '';
   $handler->display->display_options['fields']['field_file']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_file']['alter']['text'] = 'Added: [created] - <a class="client_file" href="[field_file]">[title]</a>
+  $handler->display->display_options['fields']['field_file']['alter']['text'] = 'Added: [created] - <a class="client_file" href="[field_file]" >[title]</a>
 <span>[field_file-description]</span>
 <strong>[field_progress]</strong>';
   $handler->display->display_options['fields']['field_file']['element_label_colon'] = FALSE;
@@ -146,6 +146,8 @@ function client_files_views_default_views() {
 
   /* Display: Admin */
   $handler = $view->new_display('page', 'Admin', 'admin');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Client Files';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = array(
@@ -285,6 +287,14 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['field_last_name']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_last_name']['alter']['text'] = '<h2 class="user-toggle"><a href="#">[field_last_name], [field_first_name]</a></h2>';
   $handler->display->display_options['fields']['field_last_name']['element_label_colon'] = FALSE;
+  /* Field: User: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['element_type'] = '0';
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
   /* Field: User: Client Files */
   $handler->display->display_options['fields']['field_client_files']['id'] = 'field_client_files';
   $handler->display->display_options['fields']['field_client_files']['table'] = 'field_data_field_client_files';
