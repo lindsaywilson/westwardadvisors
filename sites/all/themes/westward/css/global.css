@@ -333,6 +333,13 @@ h2.block-title{ margin-bottom:5px}
 .view-videos .views-field-title,
 .view-videos .views-field-body{ float:right; width:70%}
 
+.view-client-files.view-display-id-admin{ display:block}
+.view-client-files.view-display-id-admin .views-row-even .views-field-field-file .field-content{ background:none;}
+.view-client-files.view-display-id-admin .views-field-field-file .field-content{  border-bottom:none}
+.view-client-files.view-display-id-admin .views-row{ border-bottom:1px solid #CCCCCC}
+.view-client-files.view-display-id-admin .views-field-nid{ padding:4px 8px}
+.view-client-files.view-display-id-admin .accessed{ margin-right:10px}
+
 @media (max-width: 480px) {
 	.view-videos .video-thumb{ margin:0 0 15px 0; width:100%; float:none}
 	.view-videos .views-field-title,

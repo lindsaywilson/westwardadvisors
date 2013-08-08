@@ -49,5 +49,39 @@ jQuery(document).ready(function($){
 			}
 		});	
 	});
+	
+	
+	// add when downloaded to files db table when user clicks on a client file
+	
+	$('a.client_file').mousedown( function(event){
+		
+		switch (event.which) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+   		}
+		
+		uid = $(this).parents('.views-row').find('.file-data').attr('data-uid');
+		nid = $(this).parents('.views-row').find('.file-data').attr('data-nid');
+		url = $(this).attr('href');
+		
+		$.ajax({
+			type: "POST",
+			url: "/sites/all/themes/westward/templates/files_db.php",
+			data: { uid: uid, nid: nid},
+			success:function(){
+			  window.location = url;
+			}
+		});
+		
+        return false;
+		
+	});
+
+
+
 
 })
