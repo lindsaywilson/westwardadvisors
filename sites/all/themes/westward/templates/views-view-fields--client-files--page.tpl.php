@@ -47,15 +47,13 @@
 			$uids = array();
 			$dates = array();
 			$accessed = '';
-			$sql = 'SELECT * FROM files WHERE nid = '.$nid.' ORDER BY id DESC  ';
-			$result = mysql_query( $sql, $conn );
+			$files = db_query('SELECT * FROM {files} n WHERE n.nid = :nid ORDER BY n.id DESC', array(':nid' => $nid));
 			
-			while($row = mysql_fetch_array($result)){
-				if(array_search($row['uid'], $uids) === false){
-					array_push($uids, $row['uid']);
-					array_push($dates, $row['date']);
-				}
-
+			foreach( $files as $file){
+				if(array_search($file->uid, $uids) === false){
+					array_push($uids, $file->uid);
+					array_push($dates, $file->date);
+				}	
 			}
 			
 			foreach( $uids as $key => $uid){
