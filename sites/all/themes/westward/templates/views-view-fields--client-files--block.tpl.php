@@ -25,6 +25,26 @@
  */
 
  global $user;
+ $nid = $fields['nid']->content;
+ $isrecent = '';
+ $created = strtotime($fields['created']->content);
+ $timeframe = strtotime('-2 week');
+ $uids = array();
+ 
+ if($created >= $timeframe){
+ 	$isrecent = '<span class="red">NEW </span>';
+ }
+ 
+ $query = db_query('SELECT uid FROM {files} n WHERE n.nid = :nid', array(':nid' => $nid));
+ foreach ($query as $file) {
+	 array_push($uids, $file->uid);	
+ }
+ foreach ($uids as $uid){
+ 	if($uid == $user->uid){
+		$isrecent = '';
+	}
+ }
+ 
  
 ?>
 <?php foreach ($fields as $id => $field): ?>
@@ -41,6 +61,13 @@
 		
 		case "nid":
 			print '<div class="file-data" data-uid="'.$user->uid.'" data-nid="'.$field->content.'"></div>';
+		break;
+		
+		case "field-file":
+			print '<div class="field-content">'.$isrecent.$field->content.'</div>';
+		break;
+		
+		case "created":
 		break;
 		
 		default:

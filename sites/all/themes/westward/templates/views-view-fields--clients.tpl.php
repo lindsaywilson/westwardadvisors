@@ -23,6 +23,8 @@
  *
  * @ingroup views_templates
  */
+ global $user;
+ 
 ?>
 <?php foreach ($fields as $id => $field): ?>
   <?php if (!empty($field->separator)): ?>
@@ -45,10 +47,17 @@
 			
 			foreach ($uids as $uid) {	
 
-				$nodes = db_query('SELECT created FROM {node} n WHERE n.nid = :nid', array(':nid' => $uid->entity_id));
+				$nodes = db_query('SELECT created, nid FROM {node} n WHERE n.nid = :nid', array(':nid' => $uid->entity_id));
 				foreach ($nodes as $node) {
 					if($node->created >= $timeframe){
 						$isrecent = 1;
+						// check here against if current user id is in files table with nid
+						$files = db_query('SELECT uid FROM {files} n WHERE n.nid = :nid', array(':nid' => $node->nid));
+						foreach ($files as $file) {
+							if($file->uid == $user->uid){
+								$isrecent = 0;
+							}
+						}
 					}
 				}
 			}

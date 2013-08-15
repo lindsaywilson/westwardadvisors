@@ -79,6 +79,7 @@ th{ font-weight:bold; text-transform:uppercase}
 blockquote{ color:#5e8193; font-size:1.2em}
 .node ul{ list-style:none; }
 .node ul li{ padding-left:1.2em; background:url(../images/bg_li.gif) 0 5px no-repeat}
+.red{color:#ff0000; font-weight:bold}
 
 img{ width:100%; max-width:100%}
 img#logo, #forum img, .file img, .feed-icon img, .feed-link img, .krumo-root img{ width:auto; max-width:auto}
@@ -235,7 +236,7 @@ h2.block-title{ margin-bottom:5px}
 .view-clients div.views-field-edit-node{ top:4px; right:8px}
 .view-clients .views-field-uid{ position:absolute; top:5px; right:80px; color:#ff0000; font-weight:bold}
 
-.view-client-files .views-field-field-file span:before{ content:'- ';}
+.view-client-files .views-field-field-file span.dash:before{ content:'- ';}
 .view-client-files{ display:none; border:1px solid #CCCCCC; border-bottom:none; }
 .view-client-files h3{ margin:0; }
 .view-client-files h3 div{ padding:4px 8px; color:#fff}
@@ -243,16 +244,26 @@ h2.block-title{ margin-bottom:5px}
 .view-client-files h3 .b-the-strategy-builder{ background:#0073AE}
 .view-client-files h3 .c-the-strategic-implementor{ background:#B2BB1C}
 .view-client-files h3 .d-the-performance-optimizer{ background:#514E86}
+.view-client-files h3 .e-other{ background:#ccc; color:#333}
 .view-client-files .views-field-field-file .field-content{ padding:4px 8px; border-bottom:1px solid #CCCCCC;}
-.view-client-files .views-row-even .views-field-field-file .field-content{ background:#eee}
+.view-client-files .views-row-even{ background:#eee}
 .view-client-files .views-row-last .views-field-field-file .field-content{ border:none}
 
 .view-client-files.view-display-id-admin{ display:block}
-.view-client-files.view-display-id-admin .views-row-even .views-field-field-file .field-content{ background:none;}
+.view-client-files.view-display-id-admin h3{ margin-left:8px}
+.view-client-files.view-display-id-admin .views-row-even{ background:none;}
 .view-client-files.view-display-id-admin .views-field-field-file .field-content{  border-bottom:none}
 .view-client-files.view-display-id-admin .views-row{ border-bottom:1px solid #CCCCCC}
 .view-client-files.view-display-id-admin .views-field-nid{ padding:4px 8px}
 .view-client-files.view-display-id-admin .accessed{ margin-right:10px}
+
+
+/* ------------ CLIENT SECTION */
+
+.view-client-files.view-display-id-client_files_client{ display:block; margin-bottom:50px}
+.view-client-files.view-display-id-client_files_client .views-row-last .views-field-field-file .field-content{border-bottom:1px solid #ccc}
+.view-client-files.view-display-id-client_files_client .view-empty{ padding:4px 8px; border-bottom:1px solid #ccc}
+.view-client-files.view-display-id-client_files_client .view-empty p{ margin:0}
 
 
 /* ------------ RESOURCES */

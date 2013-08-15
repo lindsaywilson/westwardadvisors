@@ -25,7 +25,6 @@
  */
  
  global $user;
- include 'connection.php';
  
 ?>
 <?php foreach ($fields as $id => $field): ?>
@@ -81,4 +80,3 @@
     
   <?php print $field->wrapper_suffix; ?>
 <?php endforeach; ?>
-<?php mysql_close($conn); ?>

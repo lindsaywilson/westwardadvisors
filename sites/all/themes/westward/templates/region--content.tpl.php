@@ -23,7 +23,13 @@
 		$lastname = ($user->field_last_name != '' ? $user->field_last_name['und']['0']['value'] : '');
 		$company = ($user->field_company ? '- '.$user->field_company['und']['0']['value'] : '');
 		print $firstname.' '.$lastname.' '.$company;
-    } else{
+    } elseif(arg(0) == 'node' && arg(1) == '494'){
+		global $user;
+		$user = user_load($user->uid);
+		$firstname = ($user->field_first_name != '' ? $user->field_first_name['und']['0']['value'] : '');
+		$lastname = ($user->field_last_name != '' ? $user->field_last_name['und']['0']['value'] : '');
+		print $firstname.' '.$lastname;
+    }else{
     	print $title; 
 	}
 	?>

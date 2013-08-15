@@ -1,28 +1,28 @@
 
 <?php
 
+define('DRUPAL_ROOT', $_SERVER['DOCUMENT_ROOT']);
+$base_url = 'http://'.$_SERVER['HTTP_HOST'];
+require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
+drupal_bootstrap(DRUPAL_BOOTSTRAP_DATABASE);
+
+
+
+
 $uid = $_POST['uid'];
 $nid = $_POST['nid'];
 $date = strtotime('now');
 
 if(isset($_POST['uid']) && isset($_POST['nid'])){
-    
-	include 'connection.php';
 	
-	$sql = 	"INSERT INTO files ".
-			"(uid,nid,date) ".
-			"VALUES ".
-			"('$uid','$nid','$date')";
-	
-	$retval = mysql_query( $sql, $conn );
-	
-	if(! $retval ){
-		die('Could not enter data: ' . mysql_error());
-	} else{
-		echo "Entered data successfully\n";
-	}
-	mysql_close($conn);
-	
+	$file = db_insert('files') // Table name no longer needs {}
+			->fields(array(
+			  'uid' => $uid,
+			  'nid' => $nid,
+			  'date' => $date
+			))
+			->execute();
+			dpm($file);
 	
 }
 
