@@ -234,7 +234,7 @@ h2.block-title{ margin-bottom:5px}
 .view-clients h2 a{ text-decoration:none; display:block; color:#333}
 .view-clients h3{ font-size:1em; margin:0}
 .view-clients div.views-field-edit-node{ top:4px; right:8px}
-.view-clients .views-field-uid{ position:absolute; top:5px; right:80px; color:#ff0000; font-weight:bold}
+/*.view-clients .views-field-uid{ position:absolute; top:5px; right:80px; color:#ff0000; font-weight:bold}*/
 
 .view-client-files .views-field-field-file span.dash:before{ content:'- ';}
 .view-client-files{ display:none; border:1px solid #CCCCCC; border-bottom:none; }
@@ -249,9 +249,7 @@ h2.block-title{ margin-bottom:5px}
 .view-client-files .views-row-even{ background:#eee}
 .view-client-files .views-row-last .views-field-field-file .field-content{ border:none}
 
-.view-client-files.view-display-id-admin{ display:block}
-.view-client-files.view-display-id-admin h3{ margin-left:8px}
-.view-client-files.view-display-id-admin .views-row-even{ background:none;}
+.view-clients.view-display-id-admin .views-field-uid .view-client-files{ display:none}
 .view-client-files.view-display-id-admin .views-field-field-file .field-content{  border-bottom:none}
 .view-client-files.view-display-id-admin .views-row{ border-bottom:1px solid #CCCCCC}
 .view-client-files.view-display-id-admin .views-field-nid{ padding:4px 8px}

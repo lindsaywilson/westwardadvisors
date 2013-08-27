@@ -12,6 +12,33 @@ function client_files_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
+  $export['views-client_files-admin'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'client_files-admin',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'westward' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'westward',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['views-client_files-client_files'] = array(
     'cache' => -1,
     'css_class' => '',
