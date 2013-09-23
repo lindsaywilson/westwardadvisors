@@ -442,6 +442,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
+    4 => '4',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -528,7 +529,21 @@ function client_files_views_default_views() {
   $handler = $view->new_display('page', 'Admin', 'admin');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Client Files';
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+  );
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Advisor */
+  $handler->display->display_options['fields']['field_advisor']['id'] = 'field_advisor';
+  $handler->display->display_options['fields']['field_advisor']['table'] = 'field_data_field_advisor';
+  $handler->display->display_options['fields']['field_advisor']['field'] = 'field_advisor';
+  $handler->display->display_options['fields']['field_advisor']['label'] = '';
+  $handler->display->display_options['fields']['field_advisor']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_advisor']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_advisor']['type'] = 'user_reference_plain';
+  $handler->display->display_options['fields']['field_advisor']['delta_offset'] = '0';
   /* Field: User: First Name */
   $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
   $handler->display->display_options['fields']['field_first_name']['table'] = 'field_data_field_first_name';
@@ -542,7 +557,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['field_last_name']['field'] = 'field_last_name';
   $handler->display->display_options['fields']['field_last_name']['label'] = '';
   $handler->display->display_options['fields']['field_last_name']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_last_name']['alter']['text'] = '<h2 class="user-toggle"><a href="#">[field_last_name], [field_first_name]</a></h2>';
+  $handler->display->display_options['fields']['field_last_name']['alter']['text'] = '<h2 class="user-toggle"><a href="#">[field_last_name], [field_first_name] <span class="advisor">Advisors: [field_advisor] </span></a></h2>';
   $handler->display->display_options['fields']['field_last_name']['element_label_colon'] = FALSE;
   /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';

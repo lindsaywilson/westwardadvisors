@@ -232,6 +232,7 @@ h2.block-title{ margin-bottom:5px}
 .view-clients h2{ font-size:1em; border:1px solid #CCCCCC; border-bottom:none; background:#F7F7F7; margin:0; padding:4px 8px; text-transform:uppercase}
 .view-clients .views-row-last{ border-bottom: 1px solid #CCCCCC}
 .view-clients h2 a{ text-decoration:none; display:block; color:#333}
+.view-clients h2 span.advisor{ font-size:.9em; position:absolute; left:30%; top:6px}
 .view-clients h3{ font-size:1em; margin:0}
 .view-clients div.views-field-edit-node{ top:4px; right:8px}
 .view-clients.view-display-id-block .views-field-uid{ position:absolute; top:5px; right:80px; color:#ff0000; font-weight:bold}
