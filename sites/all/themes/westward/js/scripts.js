@@ -9,7 +9,12 @@ jQuery(document).ready(function($){
   })
   
   $('h2.user-toggle a').click(function(){
-  	$(this).parents('.views-row').children().find('.view-client-files').slideToggle('fast');
+  	$(this).parents('.views-row').first().children().find('.view-client-files').slideToggle('fast');
+	return false;
+  });
+  
+  $('h2.advisor-toggle a').click(function(){
+  	$(this).parents('.views-row').find('.views-field-uid').slideToggle('fast');
 	return false;
   });
   

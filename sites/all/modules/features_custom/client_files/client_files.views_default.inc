@@ -442,7 +442,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
-    4 => '4',
+    6 => '6',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -585,6 +585,60 @@ function client_files_views_default_views() {
     5 => '5',
   );
   $handler->display->display_options['path'] = 'client-files';
+
+  /* Display: Advisors */
+  $handler = $view->new_display('page', 'Advisors', 'advisor_files');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Advisors Files';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: First Name */
+  $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['table'] = 'field_data_field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['field'] = 'field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['label'] = '';
+  $handler->display->display_options['fields']['field_first_name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_first_name']['element_label_colon'] = FALSE;
+  /* Field: User: Last Name */
+  $handler->display->display_options['fields']['field_last_name']['id'] = 'field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['table'] = 'field_data_field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['field'] = 'field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['label'] = '';
+  $handler->display->display_options['fields']['field_last_name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_last_name']['alter']['text'] = '<h2 class="advisor-toggle"><a href="#">[field_last_name], [field_first_name]</a></h2>';
+  $handler->display->display_options['fields']['field_last_name']['element_label_colon'] = FALSE;
+  /* Field: User: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['element_type'] = '0';
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+  /* Field: User: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'users';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit Advisor';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: User: Roles */
+  $handler->display->display_options['filters']['rid']['id'] = 'rid';
+  $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
+  $handler->display->display_options['filters']['rid']['field'] = 'rid';
+  $handler->display->display_options['filters']['rid']['value'] = array(
+    4 => '4',
+  );
+  $handler->display->display_options['path'] = 'advisor-files';
   $export['clients'] = $view;
 
   return $export;
