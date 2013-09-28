@@ -19,7 +19,7 @@ function video_feature_default_fe_block_settings() {
     'delta' => 'videos-block',
     'module' => 'views',
     'node_types' => array(),
-    'pages' => 'node/458',
+    'pages' => 'node/471',
     'roles' => array(),
     'themes' => array(
       'seven' => array(
@@ -36,7 +36,7 @@ function video_feature_default_fe_block_settings() {
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   return $export;

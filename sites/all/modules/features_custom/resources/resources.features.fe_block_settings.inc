@@ -20,8 +20,13 @@ function resources_default_fe_block_settings() {
     'module' => 'views',
     'node_types' => array(),
     'pages' => 'node/19
-node/497',
-    'roles' => array(),
+node/498',
+    'roles' => array(
+      'administrator' => 3,
+      'advisor' => 4,
+      'client' => 5,
+      'staff' => 6,
+    ),
     'themes' => array(
       'seven' => array(
         'region' => '',
@@ -66,7 +71,7 @@ node/497',
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   return $export;
