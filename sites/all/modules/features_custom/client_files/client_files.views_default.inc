@@ -442,6 +442,8 @@ function client_files_views_default_views() {
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
+    4 => '4',
+    7 => '7',
     6 => '6',
   );
   $handler->display->display_options['cache']['type'] = 'none';
@@ -525,8 +527,8 @@ function client_files_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
 
-  /* Display: Admin */
-  $handler = $view->new_display('page', 'Admin', 'admin');
+  /* Display: Client Files - Admin */
+  $handler = $view->new_display('page', 'Client Files - Admin', 'admin');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Client Files';
   $handler->display->display_options['defaults']['access'] = FALSE;
@@ -586,10 +588,16 @@ function client_files_views_default_views() {
   );
   $handler->display->display_options['path'] = 'client-files';
 
-  /* Display: Advisors */
-  $handler = $view->new_display('page', 'Advisors', 'advisor_files');
+  /* Display: Advisors Files - Admin */
+  $handler = $view->new_display('page', 'Advisors Files - Admin', 'advisor_files');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Advisors Files';
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    6 => '6',
+  );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: User: First Name */
   $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';

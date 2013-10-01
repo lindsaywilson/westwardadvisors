@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Advisor Files feature.
+ */
+
+include_once 'advisor_files.features.inc';

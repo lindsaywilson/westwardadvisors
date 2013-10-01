@@ -212,21 +212,23 @@ h2.block-title{ margin-bottom:5px}
 #questions a{ color:#333; text-decoration:none}
 #questions a:hover{ text-decoration:underline}
 
-#block-views-advisor-files-files{ display:none}
-.user-John-Hutson #block-views-advisor-files-files{ display:block}
-.view-advisor-files .profile{ margin:0}
-.view-advisor-files th, .view-advisor-files td{ vertical-align:top}
-.view-advisor-files .field-name-field-advisor,
-.view-advisor-files .field-label{ display:none}
-.view-advisor-files .profile div{ display:inline;}
-.field-name-field-first-name .field-items{ margin-right:3px}
-.view-advisor-files .views-field-field-file a{ display:block}
-
 .view-viewpoint.view-display-id-dashboard .item-list ul{ margin:0; padding:10px 0 0}
 .view-viewpoint.view-display-id-dashboard .views-row{border:none; margin:0; padding:0 0 10px 12px}
 
 #block-multiblock-2{ display:none}
 
+/* Advisor Files */
+.view-advisor-files .view-content{ border:1px solid #ccc}
+.view-advisor-files .view-header h2{ margin-bottom:5px}
+.view-advisor-files .view-empty{ display:none}
+.view-advisor-files .views-row-last{ border-bottom:none}
+.view-advisor-files .views-field-field-file .field-content{ padding:4px 8px; border-bottom:1px solid #CCCCCC;}
+.view-advisor-files .views-row-even{ background:#eee}
+.view-advisor-files .views-row-last .views-field-field-file .field-content{ border:none}
+.view-advisor-files div.views-field-edit-node{ top:4px; right:8px}
+
+
+/* Client Files */
 #block-views-clients-block{ margin-top:20px}
 .view-clients .views-row .views-row{ margin:0; border-bottom:none; padding:0}
 .view-clients h2{ font-size:1em; border:1px solid #CCCCCC; border-bottom:none; background:#F7F7F7; margin:0; padding:4px 8px; text-transform:uppercase}
