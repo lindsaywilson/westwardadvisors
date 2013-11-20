@@ -259,6 +259,15 @@ h2.block-title{ margin-bottom:5px}
 .view-client-files.view-display-id-admin .accessed{ margin-right:10px}
 
 
+/* ----------- NEWS AND NOTES */
+
+.view-display-id-all_advisors,
+.view-display-id-all_clients{ margin-bottom:20px}
+.view-news-notes .views-row{ border-bottom:1px solid #ccc; padding:10px 0}
+#block-views-news-notes-all-advisors h2,
+#block-views-news-notes-all-clients h2{ border-bottom:1px solid #ccc;}
+
+
 /* ------------ CLIENT SECTION */
 
 .view-client-files.view-display-id-client_files_client{ display:block; margin-bottom:50px}

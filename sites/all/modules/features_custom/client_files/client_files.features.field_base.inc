@@ -17,6 +17,9 @@ function client_files_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_client',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'uid' => array(
         'columns' => array(
@@ -38,6 +41,8 @@ function client_files_field_default_field_bases() {
         3 => 0,
         4 => 0,
         5 => 5,
+        6 => 0,
+        7 => 0,
       ),
       'referenceable_status' => array(
         0 => 0,
@@ -162,6 +167,9 @@ function client_files_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_visible_to_advisor',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -188,6 +196,9 @@ function client_files_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_visible_to_client',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(

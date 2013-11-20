@@ -12,8 +12,8 @@
 
     <div id="home-content" class="zone clearfix">
     <hgroup class="clearfix">
-    <h1>The LifeStep Process<sup>&trade;</sup></h1>
-    <h2>Insurance solutions for tax and estate planning</h2>
+    <h1>The LifeStep Process<sup>&reg;</sup></h1>
+    <h2>Insurance for tax and estate planning</h2>
     </hgroup>
     	<div id="lifestep-process" class="region clearfix">
 			<div class="region-inner clearfix">

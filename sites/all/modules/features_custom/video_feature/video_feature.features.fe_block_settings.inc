@@ -32,7 +32,7 @@ function video_feature_default_fe_block_settings() {
         'region' => 'content_bottom',
         'status' => 1,
         'theme' => 'westward',
-        'weight' => -29,
+        'weight' => -33,
       ),
     ),
     'title' => '',
