@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * news_notes.features.field_instance.inc
+ * notes_feature.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function news_notes_field_default_field_instances() {
+function notes_feature_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'node-news_notes-body'

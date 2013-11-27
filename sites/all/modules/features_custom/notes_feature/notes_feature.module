@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Notes Feature feature.
+ */
+
+include_once 'notes_feature.features.inc';

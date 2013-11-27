@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * news_notes.features.inc
+ * notes_feature.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function news_notes_ctools_plugin_api($module = NULL, $api = NULL) {
+function notes_feature_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -16,14 +16,14 @@ function news_notes_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function news_notes_views_api($module = NULL, $api = NULL) {
+function notes_feature_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_node_info().
  */
-function news_notes_node_info() {
+function notes_feature_node_info() {
   $items = array(
     'news_notes' => array(
       'name' => t('News & Notes'),
