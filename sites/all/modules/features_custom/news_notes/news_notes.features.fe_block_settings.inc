@@ -12,11 +12,11 @@ function news_notes_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
-  $export['views-news_notes-all_advisors'] = array(
+  $export['views-news_notes-advisors'] = array(
     'cache' => -1,
     'css_class' => '',
     'custom' => 0,
-    'delta' => 'news_notes-all_advisors',
+    'delta' => 'news_notes-advisors',
     'module' => 'views',
     'node_types' => array(),
     'pages' => 'node/15',
@@ -39,11 +39,11 @@ function news_notes_default_fe_block_settings() {
     'visibility' => 0,
   );
 
-  $export['views-news_notes-all_clients'] = array(
+  $export['views-news_notes-clients'] = array(
     'cache' => -1,
     'css_class' => '',
     'custom' => 0,
-    'delta' => 'news_notes-all_clients',
+    'delta' => 'news_notes-clients',
     'module' => 'views',
     'node_types' => array(),
     'pages' => 'node/494',

@@ -57,7 +57,7 @@ function westward_preprocess_page(&$variables) {
 			   $variables['title'] = 'Advisor Forum'; 
 			}
 			if(arg(1)== '4' || arg(1)== '5' || arg(1)== '8' || arg(1)== '9' || arg(1)== '14') {
-				$variables['title'] = 'The LifeStep Process<sup>&trade;</sup>';
+				$variables['title'] = 'The LifeStep Process';
 			}
 		}
 	//}
