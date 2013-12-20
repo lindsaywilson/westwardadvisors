@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Email Template Rules Feature feature.
+ */
+
+include_once 'email_template_rules_feature.features.inc';
