@@ -9,6 +9,7 @@ features[features_api][] = api:2
 features[field_base][] = field_email_template
 features[field_group][] = group_email_templates|node|client_file|form
 features[field_instance][] = node-client_file-field_email_template
+features[rules_config][] = rules_email_client_file_added_generic_message
 features[rules_config][] = rules_test
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][entity] = entity

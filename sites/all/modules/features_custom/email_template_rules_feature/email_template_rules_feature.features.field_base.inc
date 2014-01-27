@@ -31,6 +31,7 @@ function email_template_rules_feature_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         1 => 'Confirmation of Client Amendment Agreement',
+        2 => 'Client File Added - Generic Message',
       ),
       'allowed_values_function' => '',
     ),

@@ -197,14 +197,16 @@ h2.block-title{ margin-bottom:5px}
 #advisor-nav{ padding-bottom:20px; border-bottom:1px solid #b9c6cd;}
 #advisor-nav li{ float:left; width:25%; text-align:center}
 #advisor-nav li a{ text-indent:-999em; display:inline-block; height:62px; background:url(../images/bg_nav_advisor.jpg)}
-#advisor-nav li.home a{ width:46px;}
-#advisor-nav li.home a:hover{ background-position:0 -62px}
+#advisor-nav li.home a{ width:53px; background-position:-269px 0}
+#advisor-nav li.home a:hover{ background-position:-269px -62px}
 #advisor-nav li.viewpoint a{ width:66px; background-position:-48px 0}
 #advisor-nav li.viewpoint a:hover{ background-position:-48px -62px}
 #advisor-nav li.resources a{ width:74px; background-position:-115px 0}
 #advisor-nav li.resources a:hover{ background-position:-115px -62px}
 #advisor-nav li.forum a{ width:55px; background-position:-195px 0}
 #advisor-nav li.forum a:hover{ background-position:-195px -62px}
+#advisor-nav li.video a{ width:48px; background-position:-323px 0}
+#advisor-nav li.video a:hover{ background-position:-323px -62px}
 
 #page-side-bar #questions{ display:none}
 #questions h2{ color:#5e8092; font-weight:normal; font-size:1.5em; margin-bottom:0}

@@ -57,9 +57,21 @@
 			
 			foreach( $uids as $key => $uid){
 				$userProfile = user_load($uid);
-				$firstname = $userProfile->field_first_name['und'][0]['value'];
-				$lastname = $userProfile->field_last_name['und'][0]['value'];
-				$username = $userProfile->name;	
+				if(isset($userProfile->field_first_name['und'])){
+					$firstname = $userProfile->field_first_name['und'][0]['value'];
+				}else{
+					$firstname = '';
+				}
+				if(isset($userProfile->field_last_name['und'])){
+					$lastname = $userProfile->field_last_name['und'][0]['value'];
+				}else{
+					$lastname = '';
+				}
+				if(isset($userProfile->name)){
+					$username = $userProfile->name;	
+				}else{
+					$username = '';	
+				}
 				$accessed .= '<span class="accessed"><a href="/users/'.$username.'">'.$firstname.' '.$lastname.'</a> on '. date('d/m/y G:i',$dates[$key]).'</span>';	
 			}
 			
