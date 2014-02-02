@@ -5,6 +5,7 @@
 function userformalter_form_alter(&$form, $form_state, $form_id) {
   
   //drupal_set_message("Form ID is : " . $form_id);
+  //dpm($form);
   
 	// add advsiors to client files in the content list
     if ($form_id == 'node_admin_content') {
@@ -67,10 +68,29 @@ function userformalter_form_alter(&$form, $form_state, $form_id) {
 	
   }
   
+  
   //auto fill client-files view arguments with UID
   if($form_id == 'user_profile_form') {
 	$form['field_client_files']['und']['0']['vargs']['#default_value'] = $form['#user']->uid;
   }
   
+  
+  // reorder client list by lastname/firstname
+  if($form_id == 'client_file_node_form') {
+		$node = $form_state['node'];
+		if (!isset($node->nid) || isset($node->is_new)) {
+			$form['#after_build'][] = 'userformalter_after_build';
+		}
+  }
+  
 }
+
+
+function userformalter_after_build($form, &$form_state) {
+  $path = drupal_get_path('module', 'userformalter');
+  drupal_add_js ($path.'/userformalter.js');
+  return $form;
+}
+
+
 ?>
