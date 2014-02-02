@@ -5,7 +5,9 @@ jQuery(document).ready(function($){
 	list.children().each(function(){
 		if($(this).attr('value')!='_none'){
 			txt = $(this).text().split(/ (.+)?/);
-			$(this).text(txt[1]+', '+txt[0]);
+			if(typeof txt[1] != 'undefined'){
+				$(this).text(txt[1]+', '+txt[0]);
+			}
 		}
 	});
   
