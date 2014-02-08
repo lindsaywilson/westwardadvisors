@@ -5,7 +5,6 @@
 function userformalter_form_alter(&$form, $form_state, $form_id) {
   
   //drupal_set_message("Form ID is : " . $form_id);
-  //dpm($form);
   
 	// add advsiors to client files in the content list
     if ($form_id == 'node_admin_content') {
@@ -77,6 +76,14 @@ function userformalter_form_alter(&$form, $form_state, $form_id) {
   
   // reorder client list by lastname/firstname
   if($form_id == 'client_file_node_form') {
+		$node = $form_state['node'];
+		if (!isset($node->nid) || isset($node->is_new)) {
+			$form['#after_build'][] = 'userformalter_after_build';
+		}
+  }
+  
+  // reorder advisor list by lastname/firstname
+  if($form_id == 'advisor_file_node_form') {
 		$node = $form_state['node'];
 		if (!isset($node->nid) || isset($node->is_new)) {
 			$form['#after_build'][] = 'userformalter_after_build';

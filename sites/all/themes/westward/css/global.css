@@ -95,6 +95,8 @@ background-color: #fff; border-radius: 4px;}
 #user-login-form input[type="password"], #user-login-form input[type="text"]{ background:#f4f4f4}
 button, input[type="reset"], input[type="submit"], input[type="button"] {  border-radius:4px}
 
+video{ background:#fff !important}
+.video-js{background:transparent !important}
 .vjs-default-skin{ width:100% !important; height:auto !important}
 .video-js .vjs-tech{ position:relative !important;}
 .vjs-default-skin .vjs-big-play-button:before{ line-height:2.3; left:3px}
