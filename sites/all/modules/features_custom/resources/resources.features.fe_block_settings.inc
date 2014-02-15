@@ -19,12 +19,10 @@ function resources_default_fe_block_settings() {
     'delta' => 'resources-block',
     'module' => 'views',
     'node_types' => array(),
-    'pages' => 'node/19
-node/498',
+    'pages' => 'node/19',
     'roles' => array(
       'administrator' => 3,
       'advisor' => 4,
-      'client' => 5,
       'staff' => 6,
     ),
     'themes' => array(
@@ -38,7 +36,7 @@ node/498',
         'region' => 'content_bottom',
         'status' => 1,
         'theme' => 'westward',
-        'weight' => -31,
+        'weight' => -26,
       ),
     ),
     'title' => '',
@@ -67,11 +65,69 @@ node/498',
         'region' => 'content_bottom',
         'status' => 1,
         'theme' => 'westward',
-        'weight' => -21,
+        'weight' => -25,
       ),
     ),
     'title' => '',
     'visibility' => 1,
+  );
+
+  $export['views-resources-block_2'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'resources-block_2',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'node/498',
+    'roles' => array(
+      'administrator' => 3,
+      'client' => 5,
+      'staff' => 6,
+    ),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'westward' => array(
+        'region' => 'content_bottom',
+        'status' => 1,
+        'theme' => 'westward',
+        'weight' => -24,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
+  );
+
+  $export['views-resources-block_3'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'resources-block_3',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'node/498',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'westward' => array(
+        'region' => 'content_bottom',
+        'status' => 1,
+        'theme' => 'westward',
+        'weight' => -23,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
   );
 
   return $export;

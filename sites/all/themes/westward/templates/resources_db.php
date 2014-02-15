@@ -10,21 +10,20 @@ drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
 
 $uid = $_POST['uid'];
-$nid = $_POST['nid'];
+$fid = $_POST['fid'];
 $title = $_POST['title'];
 $date = strtotime('now');
 
-if(isset($_POST['uid']) && isset($_POST['nid'])){
+if(isset($_POST['uid']) && isset($_POST['fid'])){
 	
-	$file = db_insert('files')
-			->fields(array(
-			  'uid' => $uid,
-			  'nid' => $nid,
-			  'date' => $date
-			))
-			->execute();
-			//dpm($file);
-			
+	$resource = db_insert('resources')
+				->fields(array(
+				'uid' => $uid,
+				'fid' => $fid,
+				'date' => $date
+				))
+				->execute();
+				//dpm($resource);
 	
 	$userProfile = user_load($uid);
 	if(isset($userProfile->field_first_name['und'])){
@@ -44,9 +43,8 @@ if(isset($_POST['uid']) && isset($_POST['nid'])){
 	}
 	
 	$message = $firstname.' '.$lastname.' accessed '.$title;
-
-	mail('service@wstwardadvisors.com', 'A client file has been accessed', $message, "From: website@westwardadvisors.com");
-				
+	
+	mail('service@wstwardadvisors.com', 'A resource file has been accessed', $message, "From: website@westwardadvisors.com");				
 	
 }
 

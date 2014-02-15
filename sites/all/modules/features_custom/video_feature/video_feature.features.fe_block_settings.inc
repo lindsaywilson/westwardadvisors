@@ -32,11 +32,38 @@ function video_feature_default_fe_block_settings() {
         'region' => 'content_bottom',
         'status' => 1,
         'theme' => 'westward',
-        'weight' => -33,
+        'weight' => -34,
       ),
     ),
     'title' => '',
     'visibility' => 1,
+  );
+
+  $export['views-videos-block_1'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'videos-block_1',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'node/828',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'westward' => array(
+        'region' => 'content_bottom',
+        'status' => 1,
+        'theme' => 'westward',
+        'weight' => -33,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
   );
 
   return $export;

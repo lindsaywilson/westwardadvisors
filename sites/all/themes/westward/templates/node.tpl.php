@@ -17,7 +17,7 @@
       hide($content['comments']);
       hide($content['links']);
       print render($content);
-    ?>
+    ?>    
   </div>
   
   <div class="clearfix">

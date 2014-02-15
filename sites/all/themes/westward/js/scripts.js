@@ -57,7 +57,6 @@ jQuery(document).ready(function($){
 	
 	
 	// add when downloaded to files db table when user clicks on a client file
-	
 	$('a.client_file').mousedown( function(event){
 		
 		switch (event.which) {
@@ -71,14 +70,80 @@ jQuery(document).ready(function($){
 		
 		uid = $(this).parents('.views-row').find('.file-data').attr('data-uid');
 		nid = $(this).parents('.views-row').find('.file-data').attr('data-nid');
+		title = $(this).text();
 		url = $(this).attr('href');
 		
 		$.ajax({
 			type: "POST",
 			url: "/sites/all/themes/westward/templates/files_db.php",
-			data: { uid: uid, nid: nid},
+			data: { uid: uid, nid: nid, title:title},
 			success:function(){
 			  window.location = url;
+			}
+		});
+		
+        return false;
+		
+	});
+	
+	
+	// add when downloaded to resources db table when user clicks on a resource file
+	$('a.resource_file').mousedown( function(event){
+		
+		switch (event.which) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+   		}
+		
+		uid = $(this).attr('data-uid');
+		fid = $(this).attr('data-fid');
+		title = $(this).attr('title');
+		url = $(this).attr('href');
+		
+		$.ajax({
+			type: "POST",
+			url: "/sites/all/themes/westward/templates/resources_db.php",
+			data: { uid: uid, fid: fid, title: title},
+			success:function(){
+			  window.location = url;
+			  console.log('Database Updated');
+			}
+		});
+		
+        return false;
+		
+	});
+	
+	
+	// add when downloaded to videos db table when user watches a video
+	$('a.video_file').mousedown( function(event){
+		
+		switch (event.which) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+   		}
+		
+		uid = $(this).attr('data-uid');
+		nid = $(this).attr('data-nid');
+		title = $(this).parents('.views-row').find('h3 a').text();
+		url = $(this).attr('href');
+		
+		$.ajax({
+			type: "POST",
+			url: "/sites/all/themes/westward/templates/videos_db.php",
+			data: { uid: uid, nid: nid, title: title},
+			success:function(){
+				window.location = url;
+				console.log('Database Updated');
+				console.log(title);
 			}
 		});
 		

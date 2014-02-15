@@ -25,56 +25,45 @@
  */
  
  global $user;
- 
- $files[] = explode(',',$fields['field_video']->content);
- foreach ($files[0] as &$file) {
-    if(strpos($file, 'jpg') || strpos($file, 'jpeg') || strpos($file, 'gif') || strpos($file, 'png')){
-		$img = $file;
-		break;
-	}
- }
- 
- if(isset($fields['field_url_to_video']->content)){
-	 $path = $fields['field_url_to_video']->content;
-	 $target = '_blank';
- } else{
-	 $path = $fields['path']->content;
-	 $target = '';
- }
- 
+ //dpm($user);
+ //dpm($view);
+ //dpm($fields);
 ?>
-<?php foreach ($fields as $id => $field): ?>
-  <?php print $field->wrapper_prefix; ?>
-    <?php
+<?php foreach ($fields as $id => $field):  ?>
+  <?php if (!empty($field->separator)): ?>
+    <?php print $field->separator; ?>
+  <?php endif; ?>
 
+  <?php print $field->wrapper_prefix; ?>
+    <?php print $field->label_html; ?>
+    
+    <?php
+	
 	switch($field->class){
-	  
-	  case "field-video":
-	  	print '<div class="video-thumb"><a class="video_file" data-uid="'.$user->uid.'" data-nid="'.$fields['nid']->content.'" href="'.$path.'" target="'.$target.'"><img src="'.$file.'" /></a></div>';
-	  break;
-	  
-	  case "title":
-	  	print '<h3><a class="video_file" data-uid="'.$user->uid.'" href="'.$path.'" data-nid="'.$fields['nid']->content.'" target="'.$target.'">'.$field->content.'</a></h3>';
-	  break;
-	  
-	  case "field-url-to-video":
-	  case "path":
-	  break;
-	  
-	  case "nid":
-	  
-	 		 	// If admin, show who accessed the video
+		
+		case 'field-download':
+			
+			$count = $fields['counter']->content;
+			
+			print '<div class="item-list"><ul>';
+			
+			foreach( $view->result[$count]->field_field_download as $file ){
+				//dpm($file);
+				print '<li>';
+				print '<li><span class="file"><img src="/modules/file/icons/application-pdf.png" title="application/pdf" alt="" class="file-icon"><a class="resource_file" data-fid="'.$file['raw']['fid'].'" data-uid="'.$user->uid.'" title="'.$file['raw']['description'].'" type="'.$file['raw']['filemime'].'; length='.$file['raw']['filesize'].'" href="'.file_create_url($file['raw']['uri']).'">'.$file['raw']['description'].'</a></span>';
+				
+				// If admin, show who accessed the file
 				if (in_array('administrator', $user->roles)) {
-					$nid = $field->content;
+					$fid = $file['raw']['fid'];
 					$uids = array();
 					$dates = array();
 					$accessed = '';
-					$videos = db_query('SELECT * FROM {videos} n WHERE n.nid = :nid ORDER BY n.id DESC', array(':nid' => $nid));
+					$files = db_query('SELECT * FROM {resources} n WHERE n.fid = :fid ORDER BY n.id DESC', array(':fid' => $fid));
 					
-					foreach( $videos as $video){
-						if(array_search($video->uid, $uids) === false){
-							array_push($uids, $video->uid);
-							array_push($dates, $video->date);
+					foreach( $files as $file){
+						if(array_search($file->uid, $uids) === false){
+							array_push($uids, $file->uid);
+							array_push($dates, $file->date);
 						}	
 					}
 					
@@ -99,19 +88,29 @@
 					}
 					
 					if( $accessed != ''){
-						print '<div class="accessed-by" style="clear:both"><strong>Watched by:</strong> '.$accessed.'</div>';
+						print '<div class="accessed-by"><strong>Accessed by:</strong> '.$accessed.'</div>';
 					}
 					
 				}
-	  
-	  break;
-	  
-	  default:
-      	print $field->content;
-      break;
-	  
+				
+				
+				print '</li>';
+			}
+			
+			print '</ul></div>';
+		
+		break;
+		
+		case 'counter';
+		break;
+		
+		default:
+			print $field->content; 
+		break;
+		
 	}
 	
-	?>
+	?>    
+    
   <?php print $field->wrapper_suffix; ?>
 <?php endforeach; ?>

@@ -16,15 +16,14 @@ $date = strtotime('now');
 
 if(isset($_POST['uid']) && isset($_POST['nid'])){
 	
-	$file = db_insert('files')
-			->fields(array(
-			  'uid' => $uid,
-			  'nid' => $nid,
-			  'date' => $date
-			))
-			->execute();
-			//dpm($file);
-			
+	$video = db_insert('videos')
+				->fields(array(
+				'uid' => $uid,
+				'nid' => $nid,
+				'date' => $date
+				))
+				->execute();
+				//print $video;
 	
 	$userProfile = user_load($uid);
 	if(isset($userProfile->field_first_name['und'])){
@@ -43,10 +42,9 @@ if(isset($_POST['uid']) && isset($_POST['nid'])){
 		$username = '';	
 	}
 	
-	$message = $firstname.' '.$lastname.' accessed '.$title;
+	$message = $firstname.' '.$lastname.' watched '.$title;
 
-	mail('service@wstwardadvisors.com', 'A client file has been accessed', $message, "From: website@westwardadvisors.com");
-				
+	mail('service@wstwardadvisors.com', 'A video was watched', $message, "From: website@westwardadvisors.com");				
 	
 }
 
