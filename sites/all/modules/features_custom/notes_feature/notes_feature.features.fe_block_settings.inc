@@ -32,11 +32,11 @@ function notes_feature_default_fe_block_settings() {
         'region' => 'content_bottom',
         'status' => 1,
         'theme' => 'westward',
-        'weight' => -26,
+        'weight' => -31,
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['views-news_notes-clients'] = array(
@@ -59,11 +59,11 @@ function notes_feature_default_fe_block_settings() {
         'region' => 'content_bottom',
         'status' => 1,
         'theme' => 'westward',
-        'weight' => -25,
+        'weight' => -30,
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   return $export;

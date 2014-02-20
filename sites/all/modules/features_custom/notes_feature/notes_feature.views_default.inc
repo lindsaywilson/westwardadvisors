@@ -94,6 +94,12 @@ function notes_feature_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'news_notes' => 'news_notes',
   );
+  /* Filter criterion: Content: Delete Date (field_delete_date) */
+  $handler->display->display_options['filters']['field_delete_date_value']['id'] = 'field_delete_date_value';
+  $handler->display->display_options['filters']['field_delete_date_value']['table'] = 'field_data_field_delete_date';
+  $handler->display->display_options['filters']['field_delete_date_value']['field'] = 'field_delete_date_value';
+  $handler->display->display_options['filters']['field_delete_date_value']['operator'] = '>';
+  $handler->display->display_options['filters']['field_delete_date_value']['default_date'] = 'now';
 
   /* Display: Advisors */
   $handler = $view->new_display('block', 'Advisors', 'advisors');
@@ -114,41 +120,9 @@ function notes_feature_views_default_views() {
   $handler->display->display_options['arguments']['field_visible_to_advisors_uid']['validate_options']['roles'] = array(
     4 => '4',
   );
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'news_notes' => 'news_notes',
-  );
 
   /* Display: Clients */
   $handler = $view->new_display('block', 'Clients', 'clients');
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'news_notes' => 'news_notes',
-  );
   $export['news_notes'] = $view;
 
   return $export;

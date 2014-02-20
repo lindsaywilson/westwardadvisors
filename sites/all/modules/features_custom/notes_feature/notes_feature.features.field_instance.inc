@@ -51,7 +51,60 @@ function notes_feature_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 3,
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-news_notes-field_delete_date'
+  $field_instances['node-news_notes-field_delete_date'] = array(
+    'bundle' => 'news_notes',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_delete_date',
+    'label' => 'Delete Date',
+    'required' => 1,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'Y-m-d H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-0:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 1,
     ),
   );
 
@@ -135,7 +188,7 @@ function notes_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -219,7 +272,7 @@ function notes_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -228,6 +281,7 @@ function notes_feature_field_default_field_instances() {
   t('Body');
   t('Choose the advisors who can see this note.');
   t('Choose the clients can see this note');
+  t('Delete Date');
   t('Visible to Advisors');
   t('Visible to Clients');
 
