@@ -74,29 +74,18 @@ function userformalter_form_alter(&$form, $form_state, $form_id) {
   }
   
   
-  // reorder client list by lastname/firstname
-  if($form_id == 'client_file_node_form') {
-		$node = $form_state['node'];
-		if (!isset($node->nid) || isset($node->is_new)) {
-			$form['#after_build'][] = 'userformalter_after_build';
-		}
+  // reorder select lists by lastname/firstname
+  if(
+  $form_id == 'client_file_node_form' ||
+  $form_id == 'advisor_file_node_form' ||
+  $form_id == 'news_notes_node_form' ||
+  $form_id == 'user_register_form' ||
+  $form_id == 'user_profile_form'
+  ) {
+		$form['#after_build'][] = 'userformalter_after_build';
   }
+ 
   
-  // reorder advisor list by lastname/firstname
-  if($form_id == 'advisor_file_node_form') {
-		$node = $form_state['node'];
-		if (!isset($node->nid) || isset($node->is_new)) {
-			$form['#after_build'][] = 'userformalter_after_build';
-		}
-  }
-  
-  // reorder advisor list by lastname/firstname
-  if($form_id == 'news_notes_node_form') {
-		$node = $form_state['node'];
-		if (!isset($node->nid) || isset($node->is_new)) {
-			$form['#after_build'][] = 'userformalter_after_build';
-		}
-  }
   
 }
 
