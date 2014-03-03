@@ -8,14 +8,31 @@ jQuery(document).ready(function($){
 	deviceWidth: 740
   })
   
+  // Show/Hide toggle on client files groupings
   $('h2.user-toggle a').click(function(){
   	$(this).parents('.views-row').first().children().find('.view-client-files').slideToggle('fast');
 	return false;
   });
-  
   $('h2.advisor-toggle a').click(function(){
   	$(this).parents('.views-row').find('.views-field-uid').slideToggle('fast');
 	return false;
+  });
+  $('.view-client-files .view-grouping-header').click( function(){
+	  $(this).next().slideToggle('fast');
+  });
+  
+  // Add new file highlight to stage heading
+  $('.view-client-files .view-grouping-content').each( function(){
+	isrecent = 0;	  	
+	$(this).find('.views-row').each( function(){
+		if($(this).find('.red').length > 0){
+			isrecent = 1;
+		}
+	});
+	if(isrecent == 1){
+		header = $(this).prev().find('div');
+		header.html(header.text()+'<span class="new">New Document Added</span>');
+	}
   });
   
   $(window).resize(function(){
