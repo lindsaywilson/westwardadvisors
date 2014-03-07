@@ -253,9 +253,10 @@ h2.block-title{ margin-bottom:5px}
 .view-client-files .view-grouping-header .c-the-strategic-implementor{ background:#B2BB1C}
 .view-client-files .view-grouping-header .d-the-performance-optimizer{ background:#514E86}
 .view-client-files .view-grouping-header .e-other{ background:#ccc; color:#333}
-.view-client-files .view-grouping-content{ display:none}
-.view-client-files .view-grouping-content h3{ margin:0; padding:4px 8px 4px 30px; background:#eee; border-bottom:1px solid #ccc; border-top:1px solid #ccc;}
-.view-client-files .views-field-field-file .field-content{ padding:4px 8px 4px 45px; border-bottom:1px solid #CCCCCC; }
+.view-client-files .view-grouping-content,
+.view-client-files .view-grouping-content .views-rows{ display:none}
+.view-client-files .view-grouping-content h3{ margin:0; padding:4px 8px 4px 30px; background:#eee; border-bottom:1px solid #ccc; border-top:1px solid #ccc; cursor:pointer}
+.view-client-files .views-field-field-file .field-content{ padding:4px 75px 4px 45px; border-bottom:1px solid #CCCCCC; }
 .view-client-files .views-row-even{ background:#fbfbfb}
 .view-client-files .views-row-last .views-field-field-file .field-content{ border:none}
 
@@ -264,6 +265,11 @@ h2.block-title{ margin-bottom:5px}
 .view-client-files.view-display-id-admin .views-row{ border-bottom:1px solid #CCCCCC}
 .view-client-files.view-display-id-admin .views-field-nid{ padding:4px 8px 4px 60px}
 .view-client-files.view-display-id-admin .accessed{ margin-right:10px}
+
+
+.view-client-files .save{ display:block; position:absolute; right:3px; top:3px; z-index:99; line-height:1}
+.view-client-files .save a{ border-radius:0; text-decoration:none; text-transform:uppercase; font-size:.9em; display:block; padding:2px 4px;}
+.view-client-files .save a:hover{ background:#fff; }
 
 
 /* ----------- NEWS AND NOTES */

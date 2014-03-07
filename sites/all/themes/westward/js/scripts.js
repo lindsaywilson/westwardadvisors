@@ -8,18 +8,6 @@ jQuery(document).ready(function($){
 	deviceWidth: 740
   })
   
-  // Show/Hide toggle on client files groupings
-  $('h2.user-toggle a').click(function(){
-  	$(this).parents('.views-row').first().children().find('.view-client-files').slideToggle('fast');
-	return false;
-  });
-  $('h2.advisor-toggle a').click(function(){
-  	$(this).parents('.views-row').find('.views-field-uid').slideToggle('fast');
-	return false;
-  });
-  $('.view-client-files .view-grouping-header').click( function(){
-	  $(this).next().slideToggle('fast');
-  });
   
   // Add new file highlight to stage heading
   $('.view-client-files .view-grouping-content').each( function(){
@@ -32,8 +20,24 @@ jQuery(document).ready(function($){
 	if(isrecent == 1){
 		header = $(this).prev().find('div');
 		header.html(header.text()+'<span class="new">New Document Added</span>');
-	}
+	}	
   });
+
+  
+  // Show/Hide toggle on client files groupings
+  $('h2.user-toggle a').click(function(){
+  	$(this).parents('.views-row').first().children().find('.view-client-files').slideToggle('fast');
+	return false;
+  });
+  $('h2.advisor-toggle a').click(function(){
+  	$(this).parents('.views-row').find('.views-field-uid').slideToggle('fast');
+	return false;
+  });
+  $('.view-client-files .view-grouping-header, .view-client-files .view-grouping-content h3').click( function(){
+	  $(this).next().slideToggle('fast');
+  });
+  
+  
   
   $(window).resize(function(){
 	
@@ -87,7 +91,7 @@ jQuery(document).ready(function($){
 		
 		uid = $(this).parents('.views-row').find('.file-data').attr('data-uid');
 		nid = $(this).parents('.views-row').find('.file-data').attr('data-nid');
-		title = $(this).text();
+		title = $(this).attr('rel');
 		url = $(this).attr('href');
 		
 		$.ajax({
@@ -95,7 +99,7 @@ jQuery(document).ready(function($){
 			url: "/sites/all/themes/westward/templates/files_db.php",
 			data: { uid: uid, nid: nid, title:title},
 			success:function(){
-			  window.location = url;
+			  //window.location = url;
 			}
 		});
 		
@@ -127,7 +131,7 @@ jQuery(document).ready(function($){
 			data: { uid: uid, fid: fid, title: title},
 			success:function(){
 			  window.location = url;
-			  console.log('Database Updated');
+			  //console.log('Database Updated');
 			}
 		});
 		
@@ -159,8 +163,8 @@ jQuery(document).ready(function($){
 			data: { uid: uid, nid: nid, title: title},
 			success:function(){
 				window.location = url;
-				console.log('Database Updated');
-				console.log(title);
+				//console.log('Database Updated');
+				//console.log(title);
 			}
 		});
 		

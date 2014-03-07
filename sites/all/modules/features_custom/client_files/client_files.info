@@ -4,6 +4,7 @@ core = 7.x
 package = Features
 version = 7.x-1.0
 project = client_files
+dependencies[] = date
 dependencies[] = email_template_rules_feature
 dependencies[] = fe_block
 dependencies[] = file

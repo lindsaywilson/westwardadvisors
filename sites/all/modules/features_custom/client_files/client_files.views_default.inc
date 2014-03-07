@@ -205,14 +205,26 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['nid']['element_type'] = '0';
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: File */
+  $handler->display->display_options['fields']['field_file_1']['id'] = 'field_file_1';
+  $handler->display->display_options['fields']['field_file_1']['table'] = 'field_data_field_file';
+  $handler->display->display_options['fields']['field_file_1']['field'] = 'field_file';
+  $handler->display->display_options['fields']['field_file_1']['label'] = '';
+  $handler->display->display_options['fields']['field_file_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_file_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_file_1']['alter']['text'] = '<span class="save"><a href="[field_file_1]" class="client_file">Save File</a></span>';
+  $handler->display->display_options['fields']['field_file_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_file_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_file_1']['type'] = 'file_force_file_url_plain';
+  /* Field: Content: File */
   $handler->display->display_options['fields']['field_file']['id'] = 'field_file';
   $handler->display->display_options['fields']['field_file']['table'] = 'field_data_field_file';
   $handler->display->display_options['fields']['field_file']['field'] = 'field_file';
   $handler->display->display_options['fields']['field_file']['label'] = '';
   $handler->display->display_options['fields']['field_file']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_file']['alter']['text'] = 'Added: [created] - <a class="client_file" href="[field_file]" >[title]</a>
+  $handler->display->display_options['fields']['field_file']['alter']['text'] = 'Added: [created] - <a class="client_file" target="_blank" href="[field_file]" >[title]</a>
 <span class="dash">[field_file-description]</span>
-<strong>[field_progress]</strong>';
+<strong>[field_progress]</strong>
+[field_file_1]';
   $handler->display->display_options['fields']['field_file']['element_type'] = '0';
   $handler->display->display_options['fields']['field_file']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_file']['click_sort_column'] = 'fid';
@@ -317,17 +329,29 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['nid']['element_type'] = '0';
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: File */
+  $handler->display->display_options['fields']['field_file_1']['id'] = 'field_file_1';
+  $handler->display->display_options['fields']['field_file_1']['table'] = 'field_data_field_file';
+  $handler->display->display_options['fields']['field_file_1']['field'] = 'field_file';
+  $handler->display->display_options['fields']['field_file_1']['label'] = '';
+  $handler->display->display_options['fields']['field_file_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_file_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_file_1']['alter']['text'] = '<span class="save"><a href="[field_file_1]" class="client_file">Save File</a></span>';
+  $handler->display->display_options['fields']['field_file_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_file_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_file_1']['type'] = 'file_force_file_url_plain';
+  /* Field: Content: File */
   $handler->display->display_options['fields']['field_file']['id'] = 'field_file';
   $handler->display->display_options['fields']['field_file']['table'] = 'field_data_field_file';
   $handler->display->display_options['fields']['field_file']['field'] = 'field_file';
   $handler->display->display_options['fields']['field_file']['label'] = '';
   $handler->display->display_options['fields']['field_file']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_file']['alter']['text'] = 'Added: [created] - <a class="client_file" href="[field_file]" >[title]</a>
-<span>[field_file-description]</span>';
+<span>[field_file-description]</span>
+[field_file_1]';
   $handler->display->display_options['fields']['field_file']['element_type'] = '0';
   $handler->display->display_options['fields']['field_file']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_file']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_file']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_file']['type'] = 'file_force_file_url_plain';
   /* Field: Content: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -444,7 +468,7 @@ function client_files_views_default_views() {
 <strong>[field_progress]</strong>';
   $handler->display->display_options['fields']['field_file']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_file']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_file']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_file']['type'] = 'file_force_file_url_plain';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
