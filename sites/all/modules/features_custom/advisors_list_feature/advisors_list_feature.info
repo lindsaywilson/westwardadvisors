@@ -1,0 +1,13 @@
+name = Advisors List Feature
+description = Advisors list view
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = advisors_list_feature
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[fe_block_settings][] = views-advisors-block
+features[features_api][] = api:2
+features[views_view][] = advisors
+features_exclude[dependencies][ctools] = ctools
+features_exclude[dependencies][fe_block] = fe_block

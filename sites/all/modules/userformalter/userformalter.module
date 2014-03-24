@@ -13,15 +13,26 @@ function userformalter_form_alter(&$form, $form_state, $form_id) {
 			'data'  => 'Advisors',
 			'field' => 'n.advisors'
 		));
-		$form['admin']['nodes']['#header'] = $form['admin']['nodes']['#header'] +  $advisors_column;
+		$client_column = array('client' => array(
+			'data'  => 'Client',
+			'field' => 'n.client'
+		));
+		$form['admin']['nodes']['#header'] = $form['admin']['nodes']['#header'] +  $client_column + $advisors_column;
 
 		foreach($form['admin']['nodes']['#options'] as $key => $row) {
 			
 			$form['admin']['nodes']['#options'][$key]['advisors'] = '';
+			$form['admin']['nodes']['#options'][$key]['client'] = '';
 			
 			if($form['admin']['nodes']['#options'][$key]['type'] == 'Client File'){
 				$uid = db_query('SELECT field_client_uid FROM {field_data_field_client} WHERE entity_id = :entity_id', array(':entity_id' => $key))->fetchField();
 				$userProfile = user_load($uid);
+				
+				$clientFirstName = (isset($userProfile->field_first_name['und']) ? $userProfile->field_first_name['und'][0]['value'] : '');
+				$clientLastName = (isset($userProfile->field_last_name['und']) ? $userProfile->field_last_name['und'][0]['value'] : '');
+				$clientUserName = (isset($userProfile->name) ? str_replace(' ', '-', $userProfile->name) : '');
+				
+				$form['admin']['nodes']['#options'][$key]['client'] = '<a href="/users/'.$clientUserName.'">'.$clientFirstName.' '.$clientLastName.'</a>';
 
 				if(isset($userProfile->field_advisor['und'])){
 					foreach ($userProfile->field_advisor['und'] as $a){

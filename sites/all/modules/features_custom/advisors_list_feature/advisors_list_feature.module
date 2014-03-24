@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Advisors List Feature feature.
+ */
+
+include_once 'advisors_list_feature.features.inc';
