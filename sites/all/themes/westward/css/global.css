@@ -57,18 +57,6 @@ div.views-field-edit-node{ position:absolute; top:0; right:0; }
 
 /* ------------ ELEMENTS */
 
-@font-face {
-    font-family: 'ArialBlack';
-    src: url('../fonts/ariblk-webfont.eot');
-    src: url('../fonts/ariblk-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/ariblk-webfont.woff') format('woff'),
-         url('../fonts/ariblk-webfont.ttf') format('truetype'),
-         url('../fonts/ariblk-webfont.svg#ArialBlack') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset, blockquote{ margin-bottom:10px}
 h1, h2, h3, h4, h5, h6{ letter-spacing:normal; font-family:Arial, Helvetica, sans-serif;}
 h1{ color:#231f20; font-size:1.7em}
