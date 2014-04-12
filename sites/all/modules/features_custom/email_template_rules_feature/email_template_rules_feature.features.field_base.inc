@@ -13,7 +13,7 @@ function email_template_rules_feature_field_default_field_bases() {
   // Exported field_base: 'field_email_template'
   $field_bases['field_email_template'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_email_template',
@@ -31,7 +31,8 @@ function email_template_rules_feature_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         1 => 'Confirmation of Client Amendment Agreement',
-        2 => 'Client File Added - Generic Message',
+        2 => 'Client File Added - Generic Advisor Message',
+        3 => 'Client File Added - Generic Client Message',
       ),
       'allowed_values_function' => '',
     ),

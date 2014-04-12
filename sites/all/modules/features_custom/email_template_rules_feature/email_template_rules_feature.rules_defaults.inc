@@ -9,6 +9,37 @@
  */
 function email_template_rules_feature_default_rules_configuration() {
   $items = array();
+  $items['rules_email_client_file_added_generic_client_message'] = entity_import('rules_config', '{ "rules_email_client_file_added_generic_client_message" : {
+      "LABEL" : "Email: Client File Added - Generic Client Message",
+      "PLUGIN" : "reaction rule",
+      "REQUIRES" : [ "rules" ],
+      "ON" : [ "node_insert" ],
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
+        { "data_is" : {
+            "data" : [ "node:field-email-template" ],
+            "value" : { "value" : { "3" : "3" } }
+          }
+        }
+      ],
+      "DO" : [
+        { "mail" : {
+            "to" : [ "node:field-client:mail" ],
+            "subject" : "New File Posted in Your Client Pathway",
+            "message" : "This note has been sent automatically from your Westward Client Pathway. \\r\\n\\r\\nA new document has been posted to your personal portal related to your Westward tax and estate plan. Please download and review the materials at your earliest convenience. \\r\\n\\r\\nIf you have any questions or would like your login instructions sent to you please send a note to the contact below. Or, if you prefer to receive the documents via either email or regular mail just let us know. \\r\\n\\r\\nThanks. \\r\\nYour Performance Optimizer Team\\r\\n",
+            "from" : "service@westwardadvisors.com",
+            "language" : [ "" ]
+          }
+        },
+        { "drupal_message" : { "message" : "\\u0027Client File Added - Generic Client Message\\u0027 email has been sent to [node:field-client:field-first-name] [node:field-client:field-last-name] ([node:field-client:mail])" } }
+      ]
+    }
+  }');
   $items['rules_email_client_file_added_generic_message'] = entity_import('rules_config', '{ "rules_email_client_file_added_generic_message" : {
       "LABEL" : "Email: Client File Added - Generic Message",
       "PLUGIN" : "reaction rule",
@@ -36,7 +67,7 @@ function email_template_rules_feature_default_rules_configuration() {
                   "language" : [ "" ]
                 }
               },
-              { "drupal_message" : { "message" : "\\u0027Client File Added - Generic Message\\u0027 email has been sent to [advisor:field-first-name] [advisor:field-last-name] ([advisor:mail])" } }
+              { "drupal_message" : { "message" : "\\u0027Client File Added - Generic Advisor Message\\u0027 email has been sent to [advisor:field-first-name] [advisor:field-last-name] ([advisor:mail])" } }
             ]
           }
         }

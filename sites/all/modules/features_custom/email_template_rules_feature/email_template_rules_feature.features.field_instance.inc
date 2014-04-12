@@ -43,7 +43,7 @@ function email_template_rules_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 9,
+      'weight' => 11,
     ),
   );
 

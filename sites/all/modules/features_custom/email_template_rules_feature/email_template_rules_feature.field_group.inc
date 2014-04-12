@@ -21,7 +21,7 @@ function email_template_rules_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Email Templates',
-    'weight' => '9',
+    'weight' => '10',
     'children' => array(),
     'format_type' => 'fieldset',
     'format_settings' => array(
