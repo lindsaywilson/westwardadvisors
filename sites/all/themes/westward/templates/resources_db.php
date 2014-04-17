@@ -44,7 +44,7 @@ if(isset($_POST['uid']) && isset($_POST['fid'])){
 	
 	$message = $firstname.' '.$lastname.' accessed '.$title;
 	
-	mail('service@wstwardadvisors.com', 'A resource file has been accessed', $message, "From: website@westwardadvisors.com");				
+	mail('service@westwardadvisors.com', 'A resource file has been accessed', $message, "From: website@westwardadvisors.com");				
 	
 }
 

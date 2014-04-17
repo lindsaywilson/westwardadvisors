@@ -44,7 +44,7 @@ if(isset($_POST['uid']) && isset($_POST['nid'])){
 	
 	$message = $firstname.' '.$lastname.' watched '.$title;
 
-	mail('service@wstwardadvisors.com', 'A video was watched', $message, "From: website@westwardadvisors.com");				
+	mail('service@westwardadvisors.com', 'A video was watched', $message, "From: website@westwardadvisors.com");				
 	
 }
 
