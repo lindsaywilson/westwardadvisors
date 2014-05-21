@@ -37,21 +37,36 @@ foreach ($result as $record) {
 				// If true, seach files db table for records matching uid and nid
 				$result = db_query('SELECT uid FROM { files } n WHERE n.nid = :nid AND n.uid = :uid', array(':nid' => $nid, ':uid' => $client->uid) );
 				if($result->rowCount()==0){
-					// If no results, send email
-					$firstname = $client->field_first_name['und'][0]['value'];
-					$lastname = $client->field_last_name['und'][0]['value'];
-					print $node->title.' hasnt been viewed by '.$firstname.' '.$lastname.'<br>';
-					$message = $firstname.' '.$lastname.'<br><br>';
-					$message .= 'This note is being sent automatically from your Westward Pathway portal.<br><br>';
-					$message .= 'It is to remind you that new documents were posted to your portal on '.$created.'. Our portal administration records show that you have not yet accessed these documents. We encourage you to download them at your earliest convenience. <br><br>';
-					$message .= 'Please respond to the email contact below if you would like your login instructions sent to you, or if you prefer to receive the documents via either email or regular mail. <br><br>';
-					$message .= 'Thanks.<br> 
-								Your Performance Optimizer Team';
-					$message .= '<br><br>';
-					$headers  = 'MIME-Version: 1.0' . "\r\n";
-					$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-					$headers .= 'From: Westward Advisors <noreply@westwardadvisors.com>' . "\r\n";
-					mail($client->mail, 'Documents Added to Your Westward Pathway', $message, $headers);
+						
+						// Search reminder_email db table for records matching uid and nid
+						$result = db_query('SELECT id FROM { reminder_email } n WHERE n.nid = :nid AND n.uid = :uid', array(':nid' => $nid, ':uid' => $client->uid) );
+						if($result->rowCount()==0){
+						
+							// If no results, add row to reminder_email table
+							$file = db_insert('reminder_email')
+									->fields(array(
+									  'uid' => $client->uid,
+									  'nid' => $nid
+									))
+									->execute();
+							
+							// If no results, send email
+							$firstname = $client->field_first_name['und'][0]['value'];
+							$lastname = $client->field_last_name['und'][0]['value'];
+							print $node->title.' hasnt been viewed by '.$firstname.' '.$lastname.'<br>';
+							$message = $firstname.' '.$lastname.'<br><br>';
+							$message .= 'This note is being sent automatically from your Westward Pathway portal.<br><br>';
+							$message .= 'It is to remind you that new documents were posted to your portal on '.$created.'. Our portal administration records show that you have not yet accessed these documents. We encourage you to download them at your earliest convenience. <br><br>';
+							$message .= 'Please respond to the email contact below if you would like your login instructions sent to you, or if you prefer to receive the documents via either email or regular mail. <br><br>';
+							$message .= 'Thanks.<br> 
+										Your Performance Optimizer Team<br>
+										service@westwardadvisors.com';
+							$message .= '<br><br>';
+							$headers  = 'MIME-Version: 1.0' . "\r\n";
+							$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+							$headers .= 'From: Westward Advisors <noreply@westwardadvisors.com>' . "\r\n";
+							mail($client->mail, 'Documents Added to Your Westward Pathway', $message, $headers);
+						}
 				}
 			}
 		}
@@ -66,21 +81,35 @@ foreach ($result as $record) {
 					$advisor = user_load($adv['uid']);
 					$result = db_query('SELECT uid FROM { files } n WHERE n.nid = :nid AND n.uid = :uid', array(':nid' => $nid, ':uid' => $advisor->uid) );
 					if($result->rowCount()==0){
-						// If no results, send email
-						$firstname = $advisor->field_first_name['und'][0]['value'];
-						$lastname = $advisor->field_last_name['und'][0]['value'];
-						print $node->title.' hasnt been viewed by '.$firstname.' '.$lastname.'<br>';
-						$message = $firstname.' '.$lastname.'<br><br>';
-						$message .= 'This note is being sent automatically from your Westward Pathway portal.<br><br>';
-						$message .= 'It is to remind you that new documents were posted to your portal on '.$created.'. Our portal administration records show that you have not yet accessed these documents. We encourage you to download them at your earliest convenience. <br><br>';
-						$message .= 'Please respond to the email contact below if you would like your login instructions sent to you, or if you prefer to receive the documents via either email or regular mail. <br><br>';
-						$message .= 'Thanks.<br> 
-									Your Performance Optimizer Team';
-						$message .= '<br><br>';
-						$headers  = 'MIME-Version: 1.0' . "\r\n";
-						$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-						$headers .= 'From: Westward Advisors <noreply@westwardadvisors.com>' . "\r\n";
-						mail($advisor->mail, 'Documents Added to Your Westward Pathway', $message, $headers);
+						
+						// Search reminder_email db table for records matching uid and nid
+						$result = db_query('SELECT id FROM { reminder_email } n WHERE n.nid = :nid AND n.uid = :uid', array(':nid' => $nid, ':uid' => $advisor->uid) );
+						if($result->rowCount()==0){
+							// If no results, add row to reminder_email table
+							$file = db_insert('reminder_email')
+								->fields(array(
+								  'uid' => $advisor->uid,
+								  'nid' => $nid
+								))
+								->execute();
+							
+							// If no results, send email
+							$firstname = $advisor->field_first_name['und'][0]['value'];
+							$lastname = $advisor->field_last_name['und'][0]['value'];
+							print $node->title.' hasnt been viewed by '.$firstname.' '.$lastname.'<br>';
+							$message = $firstname.' '.$lastname.'<br><br>';
+							$message .= 'This note is being sent automatically from your Westward Pathway portal.<br><br>';
+							$message .= 'It is to remind you that new documents were posted to your portal on '.$created.'. Our portal administration records show that you have not yet accessed these documents. We encourage you to download them at your earliest convenience. <br><br>';
+							$message .= 'Please respond to the email contact below if you would like your login instructions sent to you, or if you prefer to receive the documents via either email or regular mail. <br><br>';
+							$message .= 'Thanks.<br> 
+										Your Performance Optimizer Team<br>
+										service@westwardadvisors.com';
+							$message .= '<br><br>';
+							$headers  = 'MIME-Version: 1.0' . "\r\n";
+							$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+							$headers .= 'From: Westward Advisors <noreply@westwardadvisors.com>' . "\r\n";
+							mail($advisor->mail, 'Documents Added to Your Westward Pathway', $message, $headers);
+						}
 					}
 				}
 			}
