@@ -33,6 +33,7 @@ function email_template_rules_feature_field_default_field_bases() {
         1 => 'Confirmation of Client Amendment Agreement',
         2 => 'Client File Added - Generic Advisor Message',
         3 => 'Client File Added - Generic Client Message',
+        4 => 'Advisor AR Complete Reply',
       ),
       'allowed_values_function' => '',
     ),

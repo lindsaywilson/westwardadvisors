@@ -9,6 +9,74 @@
  */
 function email_template_rules_feature_default_rules_configuration() {
   $items = array();
+  $items['rules_email_advisor_ar_complete_reply'] = entity_import('rules_config', '{ "rules_email_advisor_ar_complete_reply" : {
+      "LABEL" : "Email: Advisor AR Complete Reply",
+      "PLUGIN" : "reaction rule",
+      "REQUIRES" : [ "rules" ],
+      "ON" : [ "node_insert" ],
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "4" } }
+      ],
+      "DO" : [
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-client:field-advisor" ] },
+            "ITEM" : { "advisor" : "Advisor" },
+            "DO" : [
+              { "mail" : {
+                  "to" : [ "advisor:mail" ],
+                  "subject" : "Annual Review Ready for Download",
+                  "message" : "This letter is to notify you that annual review documents for [node:field-client:field-first-name] [node:field-client:field-last-name] are now ready for download from your portal on Westward\\u2019s website.  To access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login. New client files are highlighted. \\r\\n\\r\\nTo confirm that you now have all the statements to prepare your client\\u2019s tax return, please click the link below.\\r\\n\\r\\nhttp:\\/\\/westwardadvisors.com\\/cron\\/annual_review_confirmation.php?AID=[advisor:uid]\\u0026CID=[node:field-client:uid]\\r\\n\\r\\nA note will be sent to your client and associated advisors copied on this email confirming that you have received all tax reporting documents.   \\r\\n\\r\\nIf additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. If we have not received confirmation within one week, we will follow-up with a reminder email. \\r\\n\\r\\nThank you,\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.",
+                  "from" : "service@westwardadvisors.com",
+                  "language" : [ "" ]
+                }
+              },
+              { "drupal_message" : { "message" : "\\u0027Advisor AR Complete Reply\\u0027 email has been sent to [advisor:field-first-name] [advisor:field-last-name] ([advisor:mail])" } }
+            ]
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_email_advisor_ar_complete_reply_edited'] = entity_import('rules_config', '{ "rules_email_advisor_ar_complete_reply_edited" : {
+      "LABEL" : "Email: Advisor AR Complete Reply - Edited",
+      "PLUGIN" : "reaction rule",
+      "REQUIRES" : [ "rules" ],
+      "ON" : [ "node_update" ],
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "4" } }
+      ],
+      "DO" : [
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-client:field-advisor" ] },
+            "ITEM" : { "advisor" : "Advisor" },
+            "DO" : [
+              { "mail" : {
+                  "to" : [ "advisor:mail" ],
+                  "subject" : "Annual Review Ready for Download",
+                  "message" : "This letter is to notify you that annual review documents for [node:field-client:field-first-name] [node:field-client:field-last-name] are now ready for download from your portal on Westward\\u2019s website.  To access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login. New client files are highlighted. \\r\\n\\r\\nTo confirm that you now have all the statements to prepare your client\\u2019s tax return, please click the link below.\\r\\n\\r\\nhttp:\\/\\/westwardadvisors.com\\/cron\\/annual_review_confirmation.php?AID=[advisor:uid]\\u0026CID=[node:field-client:uid]\\r\\n\\r\\nA note will be sent to your client and associated advisors copied on this email confirming that you have received all tax reporting documents.   \\r\\n\\r\\nIf additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. If we have not received confirmation within one week, we will follow-up with a reminder email. \\r\\n\\r\\nThank you,\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.",
+                  "from" : "service@westwardadvisors.com",
+                  "language" : [ "" ]
+                }
+              },
+              { "drupal_message" : { "message" : "\\u0027Advisor AR Complete Reply\\u0027 email has been sent to [advisor:field-first-name] [advisor:field-last-name] ([advisor:mail])" } }
+            ]
+          }
+        }
+      ]
+    }
+  }');
   $items['rules_email_client_file_added_generic_client_message'] = entity_import('rules_config', '{ "rules_email_client_file_added_generic_client_message" : {
       "LABEL" : "Email: Client File Added - Generic Client Message",
       "PLUGIN" : "reaction rule",
@@ -21,11 +89,7 @@ function email_template_rules_feature_default_rules_configuration() {
           }
         },
         { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
-        { "data_is" : {
-            "data" : [ "node:field-email-template" ],
-            "value" : { "value" : { "3" : "3" } }
-          }
-        }
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "3" } }
       ],
       "DO" : [
         { "mail" : {
@@ -43,6 +107,7 @@ function email_template_rules_feature_default_rules_configuration() {
   $items['rules_email_client_file_added_generic_message'] = entity_import('rules_config', '{ "rules_email_client_file_added_generic_message" : {
       "LABEL" : "Email: Client File Added - Generic Message",
       "PLUGIN" : "reaction rule",
+      "ACTIVE" : false,
       "REQUIRES" : [ "rules" ],
       "ON" : [ "node_insert" ],
       "IF" : [
@@ -52,7 +117,7 @@ function email_template_rules_feature_default_rules_configuration() {
           }
         },
         { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
-        { "data_is" : { "data" : [ "node:field-email-template" ], "value" : "2" } }
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "2" } }
       ],
       "DO" : [
         { "LOOP" : {
@@ -77,6 +142,7 @@ function email_template_rules_feature_default_rules_configuration() {
   $items['rules_test'] = entity_import('rules_config', '{ "rules_test" : {
       "LABEL" : "Email: Confirmation of Client Amendment Agreement",
       "PLUGIN" : "reaction rule",
+      "ACTIVE" : false,
       "REQUIRES" : [ "rules" ],
       "ON" : [ "node_insert" ],
       "IF" : [

@@ -1,0 +1,9 @@
+<?php
+// $Id$
+
+function annual_review_table_views_api() {
+    return array(
+        'api' => '3.0-alpha1',
+        'path' => drupal_get_path('module','annual_review_table'). '/views',
+    );
+}

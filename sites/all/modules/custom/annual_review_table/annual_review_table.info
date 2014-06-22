@@ -1,0 +1,7 @@
+name = Annual Review Table
+description = Expose ar_confirmation table to views
+core=7.x
+version=VERSION
+dependencies[] = views
+files[] = annual_review_table.module
+files[] = views/annual_review_table.views.inc

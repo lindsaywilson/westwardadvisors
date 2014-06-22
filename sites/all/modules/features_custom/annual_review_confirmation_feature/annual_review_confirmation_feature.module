@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Annual Review Confirmation Feature feature.
+ */
+
+include_once 'annual_review_confirmation_feature.features.inc';
