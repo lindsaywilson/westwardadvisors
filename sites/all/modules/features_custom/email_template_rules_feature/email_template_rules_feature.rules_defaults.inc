@@ -12,8 +12,9 @@ function email_template_rules_feature_default_rules_configuration() {
   $items['rules_email_advisor_ar_complete_reply'] = entity_import('rules_config', '{ "rules_email_advisor_ar_complete_reply" : {
       "LABEL" : "Email: Advisor AR Complete Reply",
       "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
       "REQUIRES" : [ "rules" ],
-      "ON" : [ "node_insert" ],
+      "ON" : { "node_insert" : [] },
       "IF" : [
         { "node_is_of_type" : {
             "node" : [ "node" ],
@@ -30,8 +31,8 @@ function email_template_rules_feature_default_rules_configuration() {
             "DO" : [
               { "mail" : {
                   "to" : [ "advisor:mail" ],
-                  "subject" : "Annual Review Ready for Download",
-                  "message" : "This letter is to notify you that annual review documents for [node:field-client:field-first-name] [node:field-client:field-last-name] are now ready for download from your portal on Westward\\u2019s website.  To access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login. New client files are highlighted. \\r\\n\\r\\nTo confirm that you now have all the statements to prepare your client\\u2019s tax return, please click the link below.\\r\\n\\r\\nhttp:\\/\\/westwardadvisors.com\\/cron\\/annual_review_confirmation.php?AID=[advisor:uid]\\u0026CID=[node:field-client:uid]\\r\\n\\r\\nA note will be sent to your client and associated advisors copied on this email confirming that you have received all tax reporting documents.   \\r\\n\\r\\nIf additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. If we have not received confirmation within one week, we will follow-up with a reminder email. \\r\\n\\r\\nThank you,\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.",
+                  "subject" : "The LifeStep Process \\u2013 Annual Review Ready for Download",
+                  "message" : "This letter is to notify you that Annual Review documents for [node:field-client:field-first-name] [node:field-client:field-last-name] are now ready for download from your portal on Westward\\u0027s website. \\r\\n\\r\\nThe Annual Review documents contain the financial and tax reporting information required for you to prepare annual financial statements and tax returns regarding your client\\u2019s life insurance plan created by our LifeStep Process and managed by The Performance Optimizer.   \\r\\n\\r\\nTo access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login.\\r\\n\\r\\nTo confirm that you now have all the documents required to prepare your client\\u2019s tax return in respect of the life insurance plan, please click the link below.\\r\\n\\r\\nhttp:\\/\\/westwardadvisors.com\\/cron\\/annual_review_confirmation.php?aid=[advisor:uid]\\u0026cid=[node:field-client:uid]\\r\\n\\r\\nUpon receiving your confirmation, a note will be sent to your client and associated advisors confirming that you have received all tax reporting documents.\\r\\n\\r\\nIf additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThis note was sent automatically from Westward\\u0027s Advisor Pathway. If we have not received confirmation within one week, we will follow-up with a reminder email. \\r\\n\\r\\nThank you,\\r\\n\\r\\nYour Performance Optimizer Team\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.",
                   "from" : "service@westwardadvisors.com",
                   "language" : [ "" ]
                 }
@@ -46,8 +47,9 @@ function email_template_rules_feature_default_rules_configuration() {
   $items['rules_email_advisor_ar_complete_reply_edited'] = entity_import('rules_config', '{ "rules_email_advisor_ar_complete_reply_edited" : {
       "LABEL" : "Email: Advisor AR Complete Reply - Edited",
       "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
       "REQUIRES" : [ "rules" ],
-      "ON" : [ "node_update" ],
+      "ON" : { "node_update" : [] },
       "IF" : [
         { "node_is_of_type" : {
             "node" : [ "node" ],
@@ -64,8 +66,8 @@ function email_template_rules_feature_default_rules_configuration() {
             "DO" : [
               { "mail" : {
                   "to" : [ "advisor:mail" ],
-                  "subject" : "Annual Review Ready for Download",
-                  "message" : "This letter is to notify you that annual review documents for [node:field-client:field-first-name] [node:field-client:field-last-name] are now ready for download from your portal on Westward\\u2019s website.  To access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login. New client files are highlighted. \\r\\n\\r\\nTo confirm that you now have all the statements to prepare your client\\u2019s tax return, please click the link below.\\r\\n\\r\\nhttp:\\/\\/westwardadvisors.com\\/cron\\/annual_review_confirmation.php?AID=[advisor:uid]\\u0026CID=[node:field-client:uid]\\r\\n\\r\\nA note will be sent to your client and associated advisors copied on this email confirming that you have received all tax reporting documents.   \\r\\n\\r\\nIf additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. If we have not received confirmation within one week, we will follow-up with a reminder email. \\r\\n\\r\\nThank you,\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.",
+                  "subject" : "The LifeStep Process \\u2013 Annual Review Ready for Download",
+                  "message" : "This letter is to notify you that Annual Review documents for [node:field-client:field-first-name] [node:field-client:field-last-name] are now ready for download from your portal on Westward\\u0027s website. \\r\\n\\r\\nThe Annual Review documents contain the financial and tax reporting information required for you to prepare annual financial statements and tax returns regarding your client\\u2019s life insurance plan created by our LifeStep Process and managed by The Performance Optimizer.   \\r\\n\\r\\nTo access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login.\\r\\n\\r\\nTo confirm that you now have all the documents required to prepare your client\\u2019s tax return in respect of the life insurance plan, please click the link below.\\r\\n\\r\\nhttp:\\/\\/westwardadvisors.com\\/cron\\/annual_review_confirmation.php?aid=[advisor:uid]\\u0026cid=[node:field-client:uid]\\r\\n\\r\\nUpon receiving your confirmation, a note will be sent to your client and associated advisors confirming that you have received all tax reporting documents.\\r\\n\\r\\nIf additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThis note was sent automatically from Westward\\u0027s Advisor Pathway. If we have not received confirmation within one week, we will follow-up with a reminder email. \\r\\n\\r\\nThank you,\\r\\n\\r\\nYour Performance Optimizer Team\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.",
                   "from" : "service@westwardadvisors.com",
                   "language" : [ "" ]
                 }
@@ -80,8 +82,9 @@ function email_template_rules_feature_default_rules_configuration() {
   $items['rules_email_client_file_added_generic_client_message'] = entity_import('rules_config', '{ "rules_email_client_file_added_generic_client_message" : {
       "LABEL" : "Email: Client File Added - Generic Client Message",
       "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
       "REQUIRES" : [ "rules" ],
-      "ON" : [ "node_insert" ],
+      "ON" : { "node_insert" : [] },
       "IF" : [
         { "node_is_of_type" : {
             "node" : [ "node" ],
@@ -108,8 +111,9 @@ function email_template_rules_feature_default_rules_configuration() {
       "LABEL" : "Email: Client File Added - Generic Message",
       "PLUGIN" : "reaction rule",
       "ACTIVE" : false,
+      "OWNER" : "rules",
       "REQUIRES" : [ "rules" ],
-      "ON" : [ "node_insert" ],
+      "ON" : { "node_insert" : [] },
       "IF" : [
         { "node_is_of_type" : {
             "node" : [ "node" ],
@@ -139,12 +143,208 @@ function email_template_rules_feature_default_rules_configuration() {
       ]
     }
   }');
+  $items['rules_email_client_file_added_loan_renewal_industrial_alliance'] = entity_import('rules_config', '{ "rules_email_client_file_added_loan_renewal_industrial_alliance" : {
+      "LABEL" : "Email: Client File Added - Loan Renewal - Industrial Alliance",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules", "mimemail" ],
+      "ON" : { "node_insert" : [] },
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "5" } }
+      ],
+      "DO" : [
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-client:field-advisor" ] },
+            "ITEM" : { "advisor" : "Advisor" },
+            "DO" : [
+              { "drupal_message" : { "message" : "\\u0027Loan Renewal - Industrial Alliance\\u0027 email has been sent to [advisor:field-first-name] [advisor:field-last-name] ([advisor:mail])" } },
+              { "mimemail" : {
+                  "key" : "loan-industrial",
+                  "to" : [ "advisor:mail" ],
+                  "subject" : "Loan Renewal Forms - Please Download ASAP",
+                  "body" : "\\u003Cp\\u003EHi [node:field-client:field-first-name],\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EEverything to  renew your Industrial Alliance loan is now available in your client portal on  Westward\\u0026rsquo;s website. The date by which the completed documents are to be  returned to us for processing is highlighted. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ETo access the  files, simply login to your portal at \\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/login\\u0022\\u003Ehttp:\\/\\/westwardadvisors.com\\/login\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ERenewing the  loan is part of plan maintenance. It keeps the plan running smoothly so you can  achieve the full estate benefits and continue to increase your tax recovery. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThe renewal  process is straightforward. Step-by-step instructions are included. We\\u0026rsquo;ve also  prepared a short video outlining the steps and the benefits it delivers. You  can view the video by clicking on the link below: \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Cstrong\\u003E\\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\u0022\\u003EIndustrial  Alliance Loan Renewal Video\\u003C\\/a\\u003E\\u003C\\/strong\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThis note was  sent automatically from Westward\\u0026rsquo;s Advisor Pathway. \\u0026nbsp;Your advisor(s) are  copied. If additional documents are needed or if you have any questions, please  contact your Westward tax associate at your earliest convenience: \\u003Ca href=\\u0022mailto:michaell@westwardadvisors.com\\u0022\\u003Emichaell@westwardadvisors.com\\u003C\\/a\\u003E or \\u003Ca href=\\u0022mailto:viviank@westwardadvisors.com\\u0022\\u003Eviviank@westwardadvisors.com\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour  Performance Optimizer Team\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ECONFIDENTIALITY  DISCLAIMER\\u003Cbr\\u003E\\r\\n  This message  may contain confidential information and is intended only for the recipient named.  If you have received this email in error, please notify the sender immediately  via return email and then delete it. Unauthorized email distribution is  strictly prohibited. The sender does not accept liability for any errors or  omissions in the contents of this message.\\u003C\\/p\\u003E\\r\\n",
+                  "plaintext" : "Hi [node:field-client:field-first-name],\\r\\n\\r\\nEverything to renew your Industrial Alliance loan is now available in your client portal on Westward\\u2019s website. The date by which the completed documents are to be returned to us for processing is highlighted. \\r\\n\\r\\nTo access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login.\\r\\n\\r\\nRenewing the loan is part of plan maintenance. It keeps the plan running smoothly so you can achieve the full estate benefits and continue to increase your tax recovery. \\r\\n\\r\\nThe renewal process is straightforward. Step-by-step instructions are included. We\\u2019ve also prepared a short video outlining the steps and the benefits it delivers. You can view the video by clicking on the link below: \\r\\n\\r\\nIndustrial Alliance Loan Renewal Video\\r\\nhttp:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. Your advisor(s) are copied. If additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThank you,\\r\\n\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.\\r\\n\\r\\n",
+                  "language" : [ "" ]
+                }
+              }
+            ]
+          }
+        },
+        { "mimemail" : {
+            "key" : "loan-industrial-client",
+            "to" : [ "node:field-client:mail" ],
+            "bcc" : "service@westwardadvisors.com",
+            "from_name" : "Westward Advisors",
+            "subject" : "Loan Renewal Forms - Please Download ASAP",
+            "body" : "\\u003Cp\\u003EHi [node:field-client:field-first-name],\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EEverything to  renew your Industrial Alliance loan is now available in your client portal on  Westward\\u0026rsquo;s website. The date by which the completed documents are to be  returned to us for processing is highlighted. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ETo access the  files, simply login to your portal at \\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/login\\u0022\\u003Ehttp:\\/\\/westwardadvisors.com\\/login\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ERenewing the  loan is part of plan maintenance. It keeps the plan running smoothly so you can  achieve the full estate benefits and continue to increase your tax recovery. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThe renewal  process is straightforward. Step-by-step instructions are included. We\\u0026rsquo;ve also  prepared a short video outlining the steps and the benefits it delivers. You  can view the video by clicking on the link below: \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Cstrong\\u003E\\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\u0022\\u003EIndustrial  Alliance Loan Renewal Video\\u003C\\/a\\u003E\\u003C\\/strong\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThis note was  sent automatically from Westward\\u0026rsquo;s Advisor Pathway. \\u0026nbsp;Your advisor(s) are  copied. If additional documents are needed or if you have any questions, please  contact your Westward tax associate at your earliest convenience: \\u003Ca href=\\u0022mailto:michaell@westwardadvisors.com\\u0022\\u003Emichaell@westwardadvisors.com\\u003C\\/a\\u003E or \\u003Ca href=\\u0022mailto:viviank@westwardadvisors.com\\u0022\\u003Eviviank@westwardadvisors.com\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour  Performance Optimizer Team\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ECONFIDENTIALITY  DISCLAIMER\\u003Cbr\\u003E\\r\\n  This message  may contain confidential information and is intended only for the recipient named.  If you have received this email in error, please notify the sender immediately  via return email and then delete it. Unauthorized email distribution is  strictly prohibited. The sender does not accept liability for any errors or  omissions in the contents of this message.\\u003C\\/p\\u003E\\r\\n",
+            "plaintext" : "Hi [node:field-client:field-first-name],\\r\\n\\r\\nEverything to renew your Industrial Alliance loan is now available in your client portal on Westward\\u2019s website. The date by which the completed documents are to be returned to us for processing is highlighted. \\r\\n\\r\\nTo access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login.\\r\\n\\r\\nRenewing the loan is part of plan maintenance. It keeps the plan running smoothly so you can achieve the full estate benefits and continue to increase your tax recovery. \\r\\n\\r\\nThe renewal process is straightforward. Step-by-step instructions are included. We\\u2019ve also prepared a short video outlining the steps and the benefits it delivers. You can view the video by clicking on the link below: \\r\\n\\r\\nIndustrial Alliance Loan Renewal Video\\r\\nhttp:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. Your advisor(s) are copied. If additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThank you,\\r\\n\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.\\r\\n\\r\\n",
+            "language" : [ "" ]
+          }
+        },
+        { "drupal_message" : { "message" : "\\u0027Loan Renewal - Industrial Alliance\\u0027 email has been sent to [node:field-client:field-first-name] [node:field-client:field-last-name] ([node:field-client:mail])" } }
+      ]
+    }
+  }');
+  $items['rules_email_client_file_added_loan_renewal_rbc_insurance'] = entity_import('rules_config', '{ "rules_email_client_file_added_loan_renewal_rbc_insurance" : {
+      "LABEL" : "Email: Client File Added - Loan Renewal - RBC Insurance",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules", "mimemail" ],
+      "ON" : { "node_insert" : [] },
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "6" } }
+      ],
+      "DO" : [
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-client:field-advisor" ] },
+            "ITEM" : { "advisor" : "Advisor" },
+            "DO" : [
+              { "drupal_message" : { "message" : "\\u0027Loan Renewal - RBC Insurance\\u0027 email has been sent to [advisor:field-first-name] [advisor:field-last-name] ([advisor:mail])" } },
+              { "mimemail" : {
+                  "key" : "loan-rbc-advisor",
+                  "to" : [ "advisor:mail" ],
+                  "from_name" : "Westward Advisors",
+                  "subject" : "Loan Renewal Forms - Please Download ASAP",
+                  "body" : "\\u003Cp\\u003EHi [node:field-client:field-first-name],\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EEverything to  renew your RBC Insurance loan is now available in your client portal on  Westward\\u0026rsquo;s website. The date by which the completed documents are to be  returned to us for processing is highlighted. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ETo access the  files, simply login to your portal at \\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/login\\u0022\\u003Ehttp:\\/\\/westwardadvisors.com\\/login\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ERenewing the  loan is part of plan maintenance. It keeps the plan running smoothly so you can  achieve the full estate benefits and continue to increase your tax recovery. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThe renewal  process is straightforward. Step-by-step instructions are included. We\\u0026rsquo;ve also  prepared a short video outlining the steps and the benefits it delivers. You  can view the video by clicking on the link below:\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Cstrong\\u003E\\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/RBC-CF-Renewal_Video\\/RBC-CF-Renewal-Final.html\\u0022\\u003ERBC  Loan Renewal Video\\u003C\\/a\\u003E\\u003C\\/strong\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThis note was  sent automatically from Westward\\u0026rsquo;s Advisor Pathway. \\u0026nbsp;Your advisor(s) are  copied. If additional documents are needed or if you have any questions, please  contact your Westward tax associate at your earliest convenience: \\u003Ca href=\\u0022mailto:michaell@westwardadvisors.com\\u0022\\u003Emichaell@westwardadvisors.com\\u003C\\/a\\u003E or \\u003Ca href=\\u0022mailto:viviank@westwardadvisors.com\\u0022\\u003Eviviank@westwardadvisors.com\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour  Performance Optimizer Team\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ECONFIDENTIALITY  DISCLAIMER\\u003Cbr\\u003E\\r\\n  This message  may contain confidential information and is intended only for the recipient named.  If you have received this email in error, please notify the sender immediately  via return email and then delete it. Unauthorized email distribution is  strictly prohibited. The sender does not accept liability for any errors or  omissions in the contents of this message.\\u003C\\/p\\u003E\\r\\n",
+                  "plaintext" : "Hi [node:field-client:field-first-name],\\r\\n\\r\\nEverything to renew your RBC Insurance loan is now available in your client portal on Westward\\u2019s website. The date by which the completed documents are to be returned to us for processing is highlighted. \\r\\n\\r\\nTo access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login.\\r\\n\\r\\nRenewing the loan is part of plan maintenance. It keeps the plan running smoothly so you can achieve the full estate benefits and continue to increase your tax recovery. \\r\\n\\r\\nThe renewal process is straightforward. Step-by-step instructions are included. We\\u2019ve also prepared a short video outlining the steps and the benefits it delivers. You can view the video by clicking on the link below: \\r\\n\\r\\nRBC Loan Renewal Video\\r\\nhttp:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/RBC-CF-Renewal_Video\\/RBC-CF-Renewal-Final.html\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. Your advisor(s) are copied. If additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThank you,\\r\\n\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.\\r\\n\\r\\n",
+                  "language" : [ "" ]
+                }
+              }
+            ]
+          }
+        },
+        { "mimemail" : {
+            "key" : "loan-industrial-client",
+            "to" : [ "node:field-client:mail" ],
+            "bcc" : "service@westwardadvisors.com",
+            "from_name" : "Westward Advisors",
+            "subject" : "Loan Renewal Forms - Please Download ASAP",
+            "body" : "\\u003Cp\\u003EHi [node:field-client:field-first-name],\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EEverything to  renew your Industrial Alliance loan is now available in your client portal on  Westward\\u0026rsquo;s website. The date by which the completed documents are to be  returned to us for processing is highlighted. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ETo access the  files, simply login to your portal at \\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/login\\u0022\\u003Ehttp:\\/\\/westwardadvisors.com\\/login\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ERenewing the  loan is part of plan maintenance. It keeps the plan running smoothly so you can  achieve the full estate benefits and continue to increase your tax recovery. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThe renewal  process is straightforward. Step-by-step instructions are included. We\\u0026rsquo;ve also  prepared a short video outlining the steps and the benefits it delivers. You  can view the video by clicking on the link below: \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Cstrong\\u003E\\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\u0022\\u003EIndustrial  Alliance Loan Renewal Video\\u003C\\/a\\u003E\\u003C\\/strong\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThis note was  sent automatically from Westward\\u0026rsquo;s Advisor Pathway. \\u0026nbsp;Your advisor(s) are  copied. If additional documents are needed or if you have any questions, please  contact your Westward tax associate at your earliest convenience: \\u003Ca href=\\u0022mailto:michaell@westwardadvisors.com\\u0022\\u003Emichaell@westwardadvisors.com\\u003C\\/a\\u003E or \\u003Ca href=\\u0022mailto:viviank@westwardadvisors.com\\u0022\\u003Eviviank@westwardadvisors.com\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour  Performance Optimizer Team\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ECONFIDENTIALITY  DISCLAIMER\\u003Cbr\\u003E\\r\\n  This message  may contain confidential information and is intended only for the recipient named.  If you have received this email in error, please notify the sender immediately  via return email and then delete it. Unauthorized email distribution is  strictly prohibited. The sender does not accept liability for any errors or  omissions in the contents of this message.\\u003C\\/p\\u003E\\r\\n",
+            "plaintext" : "Hi [node:field-client:field-first-name],\\r\\n\\r\\nEverything to renew your Industrial Alliance loan is now available in your client portal on Westward\\u2019s website. The date by which the completed documents are to be returned to us for processing is highlighted. \\r\\n\\r\\nTo access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login.\\r\\n\\r\\nRenewing the loan is part of plan maintenance. It keeps the plan running smoothly so you can achieve the full estate benefits and continue to increase your tax recovery. \\r\\n\\r\\nThe renewal process is straightforward. Step-by-step instructions are included. We\\u2019ve also prepared a short video outlining the steps and the benefits it delivers. You can view the video by clicking on the link below: \\r\\n\\r\\nIndustrial Alliance Loan Renewal Video\\r\\nhttp:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. Your advisor(s) are copied. If additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThank you,\\r\\n\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.\\r\\n\\r\\n",
+            "language" : [ "" ]
+          }
+        },
+        { "drupal_message" : { "message" : "\\u0027Loan Renewal - RBC Insurance\\u0027 email has been sent to [node:field-client:field-first-name] [node:field-client:field-last-name] ([node:field-client:mail])" } }
+      ]
+    }
+  }');
+  $items['rules_email_client_file_edited_loan_renewal_industrial_alliance'] = entity_import('rules_config', '{ "rules_email_client_file_edited_loan_renewal_industrial_alliance" : {
+      "LABEL" : "Email: Client File Edited- Loan Renewal - Industrial Alliance",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules", "mimemail" ],
+      "ON" : { "node_update--client_file" : { "bundle" : "client_file" } },
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "5" } }
+      ],
+      "DO" : [
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-client:field-advisor" ] },
+            "ITEM" : { "advisor" : "Advisor" },
+            "DO" : [
+              { "drupal_message" : { "message" : "\\u0027Loan Renewal - Industrial Alliance\\u0027 email has been sent to [advisor:field-first-name] [advisor:field-last-name] ([advisor:mail])" } },
+              { "mimemail" : {
+                  "key" : "loan-industrial-advisor",
+                  "to" : [ "advisor:mail" ],
+                  "from_name" : "Westward Advisors",
+                  "subject" : "Loan Renewal Forms - Please Download ASAP",
+                  "body" : "\\u003Cp\\u003EHi [node:field-client:field-first-name],\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EEverything to  renew your Industrial Alliance loan is now available in your client portal on  Westward\\u0026rsquo;s website. The date by which the completed documents are to be  returned to us for processing is highlighted. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ETo access the  files, simply login to your portal at \\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/login\\u0022\\u003Ehttp:\\/\\/westwardadvisors.com\\/login\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ERenewing the  loan is part of plan maintenance. It keeps the plan running smoothly so you can  achieve the full estate benefits and continue to increase your tax recovery. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThe renewal  process is straightforward. Step-by-step instructions are included. We\\u0026rsquo;ve also  prepared a short video outlining the steps and the benefits it delivers. You  can view the video by clicking on the link below: \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Cstrong\\u003E\\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\u0022\\u003EIndustrial  Alliance Loan Renewal Video\\u003C\\/a\\u003E\\u003C\\/strong\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThis note was  sent automatically from Westward\\u0026rsquo;s Advisor Pathway. \\u0026nbsp;Your advisor(s) are  copied. If additional documents are needed or if you have any questions, please  contact your Westward tax associate at your earliest convenience: \\u003Ca href=\\u0022mailto:michaell@westwardadvisors.com\\u0022\\u003Emichaell@westwardadvisors.com\\u003C\\/a\\u003E or \\u003Ca href=\\u0022mailto:viviank@westwardadvisors.com\\u0022\\u003Eviviank@westwardadvisors.com\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour  Performance Optimizer Team\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ECONFIDENTIALITY  DISCLAIMER\\u003Cbr\\u003E\\r\\n  This message  may contain confidential information and is intended only for the recipient named.  If you have received this email in error, please notify the sender immediately  via return email and then delete it. Unauthorized email distribution is  strictly prohibited. The sender does not accept liability for any errors or  omissions in the contents of this message.\\u003C\\/p\\u003E\\r\\n",
+                  "plaintext" : "Hi [node:field-client:field-first-name],\\r\\n\\r\\nEverything to renew your Industrial Alliance loan is now available in your client portal on Westward\\u2019s website. The date by which the completed documents are to be returned to us for processing is highlighted. \\r\\n\\r\\nTo access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login.\\r\\n\\r\\nRenewing the loan is part of plan maintenance. It keeps the plan running smoothly so you can achieve the full estate benefits and continue to increase your tax recovery. \\r\\n\\r\\nThe renewal process is straightforward. Step-by-step instructions are included. We\\u2019ve also prepared a short video outlining the steps and the benefits it delivers. You can view the video by clicking on the link below: \\r\\n\\r\\nIndustrial Alliance Loan Renewal Video\\r\\nhttp:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. Your advisor(s) are copied. If additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThank you,\\r\\n\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.\\r\\n\\r\\n",
+                  "language" : [ "" ]
+                }
+              }
+            ]
+          }
+        },
+        { "mimemail" : {
+            "key" : "loan-industrial-client",
+            "to" : [ "node:field-client:mail" ],
+            "bcc" : "service@westwardadvisors.com",
+            "from_name" : "Westward Advisors",
+            "subject" : "Loan Renewal Forms - Please Download ASAP",
+            "body" : "\\u003Cp\\u003EHi [node:field-client:field-first-name],\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EEverything to  renew your Industrial Alliance loan is now available in your client portal on  Westward\\u0026rsquo;s website. The date by which the completed documents are to be  returned to us for processing is highlighted. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ETo access the  files, simply login to your portal at \\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/login\\u0022\\u003Ehttp:\\/\\/westwardadvisors.com\\/login\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ERenewing the  loan is part of plan maintenance. It keeps the plan running smoothly so you can  achieve the full estate benefits and continue to increase your tax recovery. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThe renewal  process is straightforward. Step-by-step instructions are included. We\\u0026rsquo;ve also  prepared a short video outlining the steps and the benefits it delivers. You  can view the video by clicking on the link below: \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Cstrong\\u003E\\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\u0022\\u003EIndustrial  Alliance Loan Renewal Video\\u003C\\/a\\u003E\\u003C\\/strong\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThis note was  sent automatically from Westward\\u0026rsquo;s Advisor Pathway. \\u0026nbsp;Your advisor(s) are  copied. If additional documents are needed or if you have any questions, please  contact your Westward tax associate at your earliest convenience: \\u003Ca href=\\u0022mailto:michaell@westwardadvisors.com\\u0022\\u003Emichaell@westwardadvisors.com\\u003C\\/a\\u003E or \\u003Ca href=\\u0022mailto:viviank@westwardadvisors.com\\u0022\\u003Eviviank@westwardadvisors.com\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour  Performance Optimizer Team\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ECONFIDENTIALITY  DISCLAIMER\\u003Cbr\\u003E\\r\\n  This message  may contain confidential information and is intended only for the recipient named.  If you have received this email in error, please notify the sender immediately  via return email and then delete it. Unauthorized email distribution is  strictly prohibited. The sender does not accept liability for any errors or  omissions in the contents of this message.\\u003C\\/p\\u003E\\r\\n",
+            "plaintext" : "Hi [node:field-client:field-first-name],\\r\\n\\r\\nEverything to renew your Industrial Alliance loan is now available in your client portal on Westward\\u2019s website. The date by which the completed documents are to be returned to us for processing is highlighted. \\r\\n\\r\\nTo access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login.\\r\\n\\r\\nRenewing the loan is part of plan maintenance. It keeps the plan running smoothly so you can achieve the full estate benefits and continue to increase your tax recovery. \\r\\n\\r\\nThe renewal process is straightforward. Step-by-step instructions are included. We\\u2019ve also prepared a short video outlining the steps and the benefits it delivers. You can view the video by clicking on the link below: \\r\\n\\r\\nIndustrial Alliance Loan Renewal Video\\r\\nhttp:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. Your advisor(s) are copied. If additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThank you,\\r\\n\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.\\r\\n\\r\\n",
+            "language" : [ "" ]
+          }
+        },
+        { "drupal_message" : { "message" : "\\u0027Loan Renewal - Industrial Alliance\\u0027 email has been sent to [node:field-client:field-first-name] [node:field-client:field-last-name] ([node:field-client:mail])" } }
+      ]
+    }
+  }');
+  $items['rules_email_client_file_edited_loan_renewal_rbc_insurance'] = entity_import('rules_config', '{ "rules_email_client_file_edited_loan_renewal_rbc_insurance" : {
+      "LABEL" : "Email: Client File Edited- Loan Renewal - RBC Insurance",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules", "mimemail" ],
+      "ON" : { "node_update--client_file" : { "bundle" : "client_file" } },
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "6" } }
+      ],
+      "DO" : [
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-client:field-advisor" ] },
+            "ITEM" : { "advisor" : "Advisor" },
+            "DO" : [
+              { "drupal_message" : { "message" : "\\u0027Loan Renewal - RBC Insurance\\u0027 email has been sent to [advisor:field-first-name] [advisor:field-last-name] ([advisor:mail])" } },
+              { "mimemail" : {
+                  "key" : "loan-rbc-advisor",
+                  "to" : [ "advisor:mail" ],
+                  "from_name" : "Westward Advisors",
+                  "subject" : "Loan Renewal Forms - Please Download ASAP",
+                  "body" : "\\u003Cp\\u003EHi [node:field-client:field-first-name],\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EEverything to  renew your RBC Insurance loan is now available in your client portal on  Westward\\u0026rsquo;s website. The date by which the completed documents are to be  returned to us for processing is highlighted. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ETo access the  files, simply login to your portal at \\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/login\\u0022\\u003Ehttp:\\/\\/westwardadvisors.com\\/login\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ERenewing the  loan is part of plan maintenance. It keeps the plan running smoothly so you can  achieve the full estate benefits and continue to increase your tax recovery. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThe renewal  process is straightforward. Step-by-step instructions are included. We\\u0026rsquo;ve also  prepared a short video outlining the steps and the benefits it delivers. You  can view the video by clicking on the link below:\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Cstrong\\u003E\\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/RBC-CF-Renewal_Video\\/RBC-CF-Renewal-Final.html\\u0022\\u003ERBC  Loan Renewal Video\\u003C\\/a\\u003E\\u003C\\/strong\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThis note was  sent automatically from Westward\\u0026rsquo;s Advisor Pathway. \\u0026nbsp;Your advisor(s) are  copied. If additional documents are needed or if you have any questions, please  contact your Westward tax associate at your earliest convenience: \\u003Ca href=\\u0022mailto:michaell@westwardadvisors.com\\u0022\\u003Emichaell@westwardadvisors.com\\u003C\\/a\\u003E or \\u003Ca href=\\u0022mailto:viviank@westwardadvisors.com\\u0022\\u003Eviviank@westwardadvisors.com\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour  Performance Optimizer Team\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ECONFIDENTIALITY  DISCLAIMER\\u003Cbr\\u003E\\r\\n  This message  may contain confidential information and is intended only for the recipient named.  If you have received this email in error, please notify the sender immediately  via return email and then delete it. Unauthorized email distribution is  strictly prohibited. The sender does not accept liability for any errors or  omissions in the contents of this message.\\u003C\\/p\\u003E\\r\\n",
+                  "plaintext" : "Hi [node:field-client:field-first-name],\\r\\n\\r\\nEverything to renew your RBC Insurance loan is now available in your client portal on Westward\\u2019s website. The date by which the completed documents are to be returned to us for processing is highlighted. \\r\\n\\r\\nTo access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login.\\r\\n\\r\\nRenewing the loan is part of plan maintenance. It keeps the plan running smoothly so you can achieve the full estate benefits and continue to increase your tax recovery. \\r\\n\\r\\nThe renewal process is straightforward. Step-by-step instructions are included. We\\u2019ve also prepared a short video outlining the steps and the benefits it delivers. You can view the video by clicking on the link below: \\r\\n\\r\\nRBC Loan Renewal Video\\r\\nhttp:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/RBC-CF-Renewal_Video\\/RBC-CF-Renewal-Final.html\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. Your advisor(s) are copied. If additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThank you,\\r\\n\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.\\r\\n\\r\\n",
+                  "language" : [ "" ]
+                }
+              }
+            ]
+          }
+        },
+        { "mimemail" : {
+            "key" : "loan-industrial-client",
+            "to" : [ "node:field-client:mail" ],
+            "bcc" : "service@westwardadvisors.com",
+            "from_name" : "Westward Advisors",
+            "subject" : "Loan Renewal Forms - Please Download ASAP",
+            "body" : "\\u003Cp\\u003EHi [node:field-client:field-first-name],\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EEverything to  renew your Industrial Alliance loan is now available in your client portal on  Westward\\u0026rsquo;s website. The date by which the completed documents are to be  returned to us for processing is highlighted. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ETo access the  files, simply login to your portal at \\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/login\\u0022\\u003Ehttp:\\/\\/westwardadvisors.com\\/login\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ERenewing the  loan is part of plan maintenance. It keeps the plan running smoothly so you can  achieve the full estate benefits and continue to increase your tax recovery. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThe renewal  process is straightforward. Step-by-step instructions are included. We\\u0026rsquo;ve also  prepared a short video outlining the steps and the benefits it delivers. You  can view the video by clicking on the link below: \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Cstrong\\u003E\\u003Ca href=\\u0022http:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\u0022\\u003EIndustrial  Alliance Loan Renewal Video\\u003C\\/a\\u003E\\u003C\\/strong\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThis note was  sent automatically from Westward\\u0026rsquo;s Advisor Pathway. \\u0026nbsp;Your advisor(s) are  copied. If additional documents are needed or if you have any questions, please  contact your Westward tax associate at your earliest convenience: \\u003Ca href=\\u0022mailto:michaell@westwardadvisors.com\\u0022\\u003Emichaell@westwardadvisors.com\\u003C\\/a\\u003E or \\u003Ca href=\\u0022mailto:viviank@westwardadvisors.com\\u0022\\u003Eviviank@westwardadvisors.com\\u003C\\/a\\u003E.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour  Performance Optimizer Team\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ECONFIDENTIALITY  DISCLAIMER\\u003Cbr\\u003E\\r\\n  This message  may contain confidential information and is intended only for the recipient named.  If you have received this email in error, please notify the sender immediately  via return email and then delete it. Unauthorized email distribution is  strictly prohibited. The sender does not accept liability for any errors or  omissions in the contents of this message.\\u003C\\/p\\u003E\\r\\n",
+            "plaintext" : "Hi [node:field-client:field-first-name],\\r\\n\\r\\nEverything to renew your Industrial Alliance loan is now available in your client portal on Westward\\u2019s website. The date by which the completed documents are to be returned to us for processing is highlighted. \\r\\n\\r\\nTo access the files, simply login to your portal at http:\\/\\/westwardadvisors.com\\/login.\\r\\n\\r\\nRenewing the loan is part of plan maintenance. It keeps the plan running smoothly so you can achieve the full estate benefits and continue to increase your tax recovery. \\r\\n\\r\\nThe renewal process is straightforward. Step-by-step instructions are included. We\\u2019ve also prepared a short video outlining the steps and the benefits it delivers. You can view the video by clicking on the link below: \\r\\n\\r\\nIndustrial Alliance Loan Renewal Video\\r\\nhttp:\\/\\/westwardadvisors.com\\/westwardadvisors.com\\/Video\\/IA-CF-Renewal_Video\\/IA-CF-Renewal.html\\r\\n\\r\\nThis note was sent automatically from Westward\\u2019s Advisor Pathway. Your advisor(s) are copied. If additional documents are needed or if you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.\\r\\n\\r\\nThank you,\\r\\n\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.\\r\\n\\r\\n",
+            "language" : [ "" ]
+          }
+        },
+        { "drupal_message" : { "message" : "\\u0027Loan Renewal - RBC Insurance\\u0027 email has been sent to [node:field-client:field-first-name] [node:field-client:field-last-name] ([node:field-client:mail])" } }
+      ]
+    }
+  }');
   $items['rules_test'] = entity_import('rules_config', '{ "rules_test" : {
       "LABEL" : "Email: Confirmation of Client Amendment Agreement",
       "PLUGIN" : "reaction rule",
       "ACTIVE" : false,
+      "OWNER" : "rules",
       "REQUIRES" : [ "rules" ],
-      "ON" : [ "node_insert" ],
+      "ON" : { "node_insert" : [] },
       "IF" : [
         { "node_is_of_type" : {
             "node" : [ "node" ],

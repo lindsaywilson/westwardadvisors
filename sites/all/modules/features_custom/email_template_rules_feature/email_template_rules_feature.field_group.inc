@@ -28,7 +28,7 @@ function email_template_rules_feature_field_group_info() {
       'formatter' => 'collapsible',
       'instance_settings' => array(
         'description' => '',
-        'classes' => '',
+        'classes' => ' group-email-templates field-group-fieldset',
         'required_fields' => 1,
       ),
     ),

@@ -34,6 +34,8 @@ function email_template_rules_feature_field_default_field_bases() {
         2 => 'Client File Added - Generic Advisor Message',
         3 => 'Client File Added - Generic Client Message',
         4 => 'Advisor AR Complete Reply',
+        5 => 'Loan Renewal - Industrial Alliance',
+        6 => 'Loan Renewal - RBC Insurance',
       ),
       'allowed_values_function' => '',
     ),
