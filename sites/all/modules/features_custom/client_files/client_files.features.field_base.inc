@@ -132,6 +132,39 @@ function client_files_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_reminder_date'
+  $field_bases['field_reminder_date'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_reminder_date',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'date',
+    'settings' => array(
+      'cache_count' => 4,
+      'cache_enabled' => 0,
+      'granularity' => array(
+        'day' => 'day',
+        'hour' => 0,
+        'minute' => 0,
+        'month' => 'month',
+        'second' => 0,
+        'year' => 'year',
+      ),
+      'timezone_db' => '',
+      'todate' => '',
+      'tz_handling' => 'none',
+    ),
+    'translatable' => 0,
+    'type' => 'datetime',
+  );
+
   // Exported field_base: 'field_stage'
   $field_bases['field_stage'] = array(
     'active' => 1,
@@ -139,6 +172,9 @@ function client_files_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_stage',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -153,6 +189,7 @@ function client_files_field_default_field_bases() {
         'b-the-strategy-builder' => 'The Strategy Builder',
         'c-the-strategic-implementor' => 'The Strategic Implementor',
         'd-the-performance-optimizer' => 'The Performance Optimizer',
+        'f-policy-documents' => 'Policy Documents',
         'e-other' => 'Other',
       ),
       'allowed_values_function' => '',

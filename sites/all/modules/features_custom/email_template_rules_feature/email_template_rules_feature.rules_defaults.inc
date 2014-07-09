@@ -79,6 +79,36 @@ function email_template_rules_feature_default_rules_configuration() {
       ]
     }
   }');
+  $items['rules_email_client_file_added_email_attachment'] = entity_import('rules_config', '{ "rules_email_client_file_added_email_attachment" : {
+      "LABEL" : "Email: Client File Added -  Email Attachment",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules", "mimemail" ],
+      "ON" : { "node_insert" : [] },
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "data_is" : { "data" : [ "node:field-client:field-email-attachments" ], "value" : 1 } }
+      ],
+      "DO" : [
+        { "mimemail" : {
+            "key" : "client-file-attachment",
+            "to" : [ "node:field-client:mail" ],
+            "bcc" : "service@westwardadvisors.com",
+            "from_name" : "Westward Advisors",
+            "subject" : "A file has been added to your Westward Portal",
+            "body" : "The attached file has been added to your Westward Portal",
+            "attachments" : "\\/system\\/files\\/client-files\\/[node:field-file:file:name]",
+            "language" : [ "" ]
+          }
+        },
+        { "drupal_message" : { "message" : "Email attachment has been sent to [node:field-client:field-first-name] [node:field-client:field-last-name] ([node:field-client:mail])\\r\\n\\/system\\/files\\/client-files\\/[node:field-file:file:name]" } }
+      ]
+    }
+  }');
   $items['rules_email_client_file_added_generic_client_message'] = entity_import('rules_config', '{ "rules_email_client_file_added_generic_client_message" : {
       "LABEL" : "Email: Client File Added - Generic Client Message",
       "PLUGIN" : "reaction rule",

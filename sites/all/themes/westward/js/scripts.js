@@ -22,6 +22,20 @@ jQuery(document).ready(function($){
 		header.html(header.text()+'<span class="new">New Document Added</span>');
 	}	
   });
+  
+  // Add new file highlight to Policy Doc heading
+  $('.view-client-files.view-display-id-policy_documents').each( function(){
+	isrecent = 0;	  	
+	$(this).find('.views-row').each( function(){
+		if($(this).find('.red').length > 0){
+			isrecent = 1;
+		}
+	});
+	if(isrecent == 1){
+		header = $(this).find('h3 div');
+		header.html(header.text()+'<span class="new">New Document Added</span>');
+	}	
+  });
 
   
   // Show/Hide toggle on client files groupings
@@ -33,7 +47,7 @@ jQuery(document).ready(function($){
   	$(this).parents('.views-row').find('.views-field-uid').slideToggle('fast');
 	return false;
   });
-  $('.view-client-files .view-grouping-header, .view-client-files .view-grouping-content h3').click( function(){
+  $('.view-client-files .view-grouping-header, .view-client-files .view-grouping-content h3, .view-client-files.view-display-id-policy_documents h3').click( function(){
 	  $(this).next().slideToggle('fast');
   });
   

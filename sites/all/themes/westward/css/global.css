@@ -70,7 +70,7 @@ blockquote{ color:#5e8193; font-size:1.2em}
 .red{color:#ff0000; font-weight:bold}
 
 img{ width:100%; max-width:100%}
-img#logo, #forum img, .file img, .feed-icon img, .feed-link img, .krumo-root img{ width:auto; max-width:auto}
+img#logo, #forum img, .file img, .feed-icon img, .feed-link img, .krumo-root img, .mollom-image-captcha img{ width:auto; max-width:auto}
 
 .a-dashes:before { content: "// ";}
 .small{ font-size:.9em}
@@ -233,20 +233,28 @@ h2.block-title{ margin-bottom:5px}
 
 .view-client-files .views-field-field-file span.dash:before{ content:'- ';}
 .view-client-files{ display:none; border:1px solid #CCCCCC; border-bottom:none; }
-.view-client-files .view-grouping-header{ cursor:pointer}
-.view-client-files .view-grouping-header div{ padding:4px 8px 4px 20px; color:#fff; position:relative}
-.view-client-files .view-grouping-header .new{ position:absolute; right:10px; font-weight:bold}
+.view-client-files .view-grouping-header,
+.view-client-files h3{ cursor:pointer}
+.view-client-files .view-grouping-header div,
+.view-client-files h3 div{ padding:4px 8px 4px 20px; color:#fff; position:relative}
+.view-client-files .view-grouping-header .new,
+.view-client-files h3 .new{ position:absolute; right:10px; font-weight:bold}
 .view-client-files .view-grouping-header .a-the-discovery-process{background:#F58026;}
 .view-client-files .view-grouping-header .b-the-strategy-builder{ background:#0073AE}
 .view-client-files .view-grouping-header .c-the-strategic-implementor{ background:#B2BB1C}
 .view-client-files .view-grouping-header .d-the-performance-optimizer{ background:#514E86}
 .view-client-files .view-grouping-header .e-other{ background:#ccc; color:#333}
+.view-client-files .view-grouping-header .f-policy-documents,
+.view-client-files h3 .f-policy-documents{ background:#002D56}
 .view-client-files .view-grouping-content,
-.view-client-files .view-grouping-content .views-rows{ display:none}
+.view-client-files .view-grouping-content .views-rows,
+.view-client-files.view-display-id-policy_documents .views-rows{ display:none}
 .view-client-files .view-grouping-content h3{ margin:0; padding:4px 8px 4px 30px; background:#eee; border-bottom:1px solid #ccc; border-top:1px solid #ccc; cursor:pointer}
 .view-client-files .views-field-field-file .field-content{ padding:4px 75px 4px 45px; border-bottom:1px solid #CCCCCC; }
 .view-client-files .views-row-even{ background:#fbfbfb}
 .view-client-files .views-row-last .views-field-field-file .field-content{ border:none}
+
+.view-client-files.view-display-id-policy_documents{ border:none}
 
 .view-clients.view-display-id-admin .views-field-uid .view-client-files{ display:none}
 .view-client-files.view-display-id-admin .views-field-field-file .field-content{  border-bottom:none}
@@ -410,3 +418,9 @@ h2.block-title{ margin-bottom:5px}
 .page-node-44 .block-address{ margin-top:20px}
 #block-views-staff-block{ border-top:none}
 #block-views-staff-block .block-title{ border-bottom:1px solid #9AAFBA; margin-bottom:0; padding-bottom:5px}
+
+/* Registration Form */
+#user-profile-form #edit-mimemail,
+#user-profile-form #edit-comment-notify-settings,
+.profile h3, .profile dl.user-profile-category{ display:none}
+.profile .field-name-field-advisor.field-label-inline .field-item{ display:block}
