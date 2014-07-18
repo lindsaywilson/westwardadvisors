@@ -79,6 +79,37 @@ function email_template_rules_feature_default_rules_configuration() {
       ]
     }
   }');
+  $items['rules_email_advisor_file_added_email_attachment'] = entity_import('rules_config', '{ "rules_email_advisor_file_added_email_attachment" : {
+      "LABEL" : "Email: Advisor File Added - Email Attachment",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules", "mimemail" ],
+      "ON" : { "node_insert--advisor_file" : { "bundle" : "advisor_file" } },
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "advisor_file" : "advisor_file" } }
+          }
+        },
+        { "data_is" : { "data" : [ "node:field-adv:field-email-attachments" ], "value" : 1 } }
+      ],
+      "DO" : [
+        { "mimemail" : {
+            "key" : "advisor-file-attachment",
+            "to" : [ "node:field-adv:mail" ],
+            "bcc" : "service@westwardadvisors.com",
+            "from_name" : "Westward Advisors",
+            "subject" : "Attached File Posted to Your Westward Portal",
+            "body" : "\\u003Cp\\u003EAs requested, new files added to your Westward portal are  also automatically emailed to you.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EPlease review the document at your earliest convenience.  Other files related to your Westward tax and estate plan are also posted in  your portal. You can access these files here \\u003Ca href=\\u0022http:\\/\\/www.westwardadvisors.com\\/login\\u0022\\u003Ehttp:\\/\\/www.westwardadvisors.com\\/login\\u003C\\/a\\u003E. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EIf you have any questions or would like your login  instructions sent to you please send a note to \\u003Ca href=\\u0022mailto:service@westwardadvisors.com\\u0022\\u003Eservice@westwardadvisors.com\\u003C\\/a\\u003E. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThanks.\\u003Cbr\\u003E\\r\\n  Your Performance Optimizer Team\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ECONFIDENTIALITY  DISCLAIMER\\u003Cbr\\u003E\\r\\n  This message may contain confidential information and is intended only for the  recipient named. If you have received this email in error, please notify the  sender immediately via return email and then delete it. Unauthorized email  distribution is strictly prohibited. The sender does not accept liability for  any errors or omissions in the contents of this message.\\u003C\\/p\\u003E\\r\\n",
+            "plaintext" : "As requested, new files added to your Westward portal are also automatically emailed to you. \\r\\n\\r\\nPlease review the document at your earliest convenience. Other files related to your Westward tax and estate plan are also posted in your portal. You can access these files here http:\\/\\/www.westwardadvisors.com\\/login. \\r\\n\\r\\nIf you have any questions or would like your login instructions sent to you please send a note to service@westwardadvisors.com. \\r\\n\\r\\nThanks.\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.",
+            "attachments" : "sites\\/default\\/files\\/private\\/advisor-files\\/[node:field-file:file:name]",
+            "language" : [ "" ]
+          }
+        },
+        { "drupal_message" : { "message" : "Email attachment has been sent to [node:field-adv:field-first-name] [node:field-adv:field-last-name] ([node:field-adv:mail])" } }
+      ]
+    }
+  }');
   $items['rules_email_client_file_added_email_attachment'] = entity_import('rules_config', '{ "rules_email_client_file_added_email_attachment" : {
       "LABEL" : "Email: Client File Added -  Email Attachment",
       "PLUGIN" : "reaction rule",
@@ -91,6 +122,7 @@ function email_template_rules_feature_default_rules_configuration() {
             "type" : { "value" : { "client_file" : "client_file" } }
           }
         },
+        { "data_is" : { "data" : [ "node:field-visible-to-client" ], "value" : 1 } },
         { "data_is" : { "data" : [ "node:field-client:field-email-attachments" ], "value" : 1 } }
       ],
       "DO" : [
@@ -99,13 +131,49 @@ function email_template_rules_feature_default_rules_configuration() {
             "to" : [ "node:field-client:mail" ],
             "bcc" : "service@westwardadvisors.com",
             "from_name" : "Westward Advisors",
-            "subject" : "A file has been added to your Westward Portal",
-            "body" : "The attached file has been added to your Westward Portal",
-            "attachments" : "\\/system\\/files\\/client-files\\/[node:field-file:file:name]",
+            "subject" : "Attached File Posted to Your Westward Portal",
+            "body" : "\\u003Cp\\u003EAs requested, new files added to your Westward portal are  also automatically emailed to you.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EPlease review the document at your earliest convenience.  Other files related to your Westward tax and estate plan are also posted in  your portal. You can access these files here \\u003Ca href=\\u0022http:\\/\\/www.westwardadvisors.com\\/login\\u0022\\u003Ehttp:\\/\\/www.westwardadvisors.com\\/login\\u003C\\/a\\u003E. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EIf you have any questions or would like your login  instructions sent to you please send a note to \\u003Ca href=\\u0022mailto:service@westwardadvisors.com\\u0022\\u003Eservice@westwardadvisors.com\\u003C\\/a\\u003E. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ENote: you will receive another confirmation note that the file is posted to your client portal. Please disregard the message. The newly posted file is attached to this email. \\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThanks.\\u003Cbr\\u003E\\r\\n  Your Performance Optimizer Team\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u0026nbsp;\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003ECONFIDENTIALITY  DISCLAIMER\\u003Cbr\\u003E\\r\\n  This message may contain confidential information and is intended only for the  recipient named. If you have received this email in error, please notify the  sender immediately via return email and then delete it. Unauthorized email  distribution is strictly prohibited. The sender does not accept liability for  any errors or omissions in the contents of this message.\\u003C\\/p\\u003E\\r\\n",
+            "plaintext" : "As requested, new files added to your Westward portal are also automatically emailed to you. \\r\\n\\r\\nPlease review the document at your earliest convenience. Other files related to your Westward tax and estate plan are also posted in your portal. You can access these files here http:\\/\\/www.westwardadvisors.com\\/login. \\r\\n\\r\\nIf you have any questions or would like your login instructions sent to you please send a note to service@westwardadvisors.com. \\r\\n\\r\\nNote: you will receive another confirmation note that the file is posted to your client portal. Please disregard the message. The newly posted file is attached to this email. \\r\\n\\r\\nThanks.\\r\\nYour Performance Optimizer Team\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.",
+            "attachments" : "sites\\/default\\/files\\/private\\/client-files\\/[node:field-file:file:name]",
             "language" : [ "" ]
           }
         },
-        { "drupal_message" : { "message" : "Email attachment has been sent to [node:field-client:field-first-name] [node:field-client:field-last-name] ([node:field-client:mail])\\r\\n\\/system\\/files\\/client-files\\/[node:field-file:file:name]" } }
+        { "drupal_message" : { "message" : "Email attachment has been sent to [node:field-client:field-first-name] [node:field-client:field-last-name] ([node:field-client:mail])" } }
+      ]
+    }
+  }');
+  $items['rules_email_client_file_added_generic_advisor_message'] = entity_import('rules_config', '{ "rules_email_client_file_added_generic_advisor_message" : {
+      "LABEL" : "Email: Client File Added - Generic Advisor Message",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules" ],
+      "ON" : { "node_insert" : [] },
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "2" } }
+      ],
+      "DO" : [
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-client:field-advisor" ] },
+            "ITEM" : { "advisor" : "Advisor" },
+            "DO" : [
+              { "mail" : {
+                  "to" : [ "advisor:mail" ],
+                  "subject" : "Client File Added to Westward Advisor Pathway",
+                  "message" : "[advisor:field-first-name] [advisor:field-last-name]\\r\\n\\r\\nA new document for [node:field-client:field-first-name] [node:field-client:field-last-name] is posted in Westward\\u0027s Advisor Pathway and ready for download. You can login to your account at: http:\\/\\/www.westwardadvisors.com\\/login\\r\\n\\r\\nThis note has been sent automatically from Westward\\u0027s Advisor Pathway. If you have any questions, please contact service@westwardadvisors.com. \\r\\n\\r\\nThank you\\r\\nWestward Advisors\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.\\r\\n\\r\\n",
+                  "from" : "service@westwardadvisors.com",
+                  "language" : [ "" ]
+                }
+              },
+              { "drupal_message" : { "message" : "\\u0027Client File Added - Generic Advisor Message\\u0027 email has been sent to [advisor:field-first-name] [advisor:field-last-name] ([advisor:mail])" } }
+            ]
+          }
+        }
       ]
     }
   }');
@@ -121,6 +189,7 @@ function email_template_rules_feature_default_rules_configuration() {
             "type" : { "value" : { "client_file" : "client_file" } }
           }
         },
+        { "data_is" : { "data" : [ "node:field-visible-to-client" ], "value" : 1 } },
         { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
         { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "3" } }
       ],
@@ -128,7 +197,7 @@ function email_template_rules_feature_default_rules_configuration() {
         { "mail" : {
             "to" : [ "node:field-client:mail" ],
             "subject" : "New File Posted in Your Client Pathway",
-            "message" : "This note has been sent automatically from your Westward Client Pathway. \\r\\n\\r\\nA new document has been posted to your personal portal related to your Westward tax and estate plan. Please download and review the materials at your earliest convenience. \\r\\n\\r\\nIf you have any questions or would like your login instructions sent to you please send a note to the contact below. Or, if you prefer to receive the documents via either email or regular mail just let us know. \\r\\n\\r\\nThanks. \\r\\nYour Performance Optimizer Team\\r\\n",
+            "message" : "This note has been sent automatically from your Westward Client Pathway. \\r\\n\\r\\nA new document has been posted to your personal portal related to your Westward tax and estate plan. Please download and review the materials at your earliest convenience. \\r\\n\\r\\nIf you have any questions or would like your login instructions sent to you please send a note to the contact below. Or, if you prefer to receive the documents via either email or regular mail just let us know. \\r\\n\\r\\nThanks. \\r\\nYour Performance Optimizer Team\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.",
             "from" : "service@westwardadvisors.com",
             "language" : [ "" ]
           }
@@ -267,6 +336,70 @@ function email_template_rules_feature_default_rules_configuration() {
           }
         },
         { "drupal_message" : { "message" : "\\u0027Loan Renewal - RBC Insurance\\u0027 email has been sent to [node:field-client:field-first-name] [node:field-client:field-last-name] ([node:field-client:mail])" } }
+      ]
+    }
+  }');
+  $items['rules_email_client_file_edited_generic_advisor_message'] = entity_import('rules_config', '{ "rules_email_client_file_edited_generic_advisor_message" : {
+      "LABEL" : "Email: Client File Edited - Generic Advisor Message",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules" ],
+      "ON" : { "node_update" : [] },
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "2" } }
+      ],
+      "DO" : [
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-client:field-advisor" ] },
+            "ITEM" : { "advisor" : "Advisor" },
+            "DO" : [
+              { "mail" : {
+                  "to" : [ "advisor:mail" ],
+                  "subject" : "Client File Added to Westward Advisor Pathway",
+                  "message" : "[advisor:field-first-name] [advisor:field-last-name]\\r\\n\\r\\nA new document for [node:field-client:field-first-name] [node:field-client:field-last-name] is posted in Westward\\u0027s Advisor Pathway and ready for download. You can login to your account at: http:\\/\\/www.westwardadvisors.com\\/login\\r\\n\\r\\nThis note has been sent automatically from Westward\\u0027s Advisor Pathway. If you have any questions, please contact service@westwardadvisors.com. \\r\\n\\r\\nThank you\\r\\nWestward Advisors\\r\\n\\r\\n\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.\\r\\n\\r\\n",
+                  "from" : "service@westwardadvisors.com",
+                  "language" : [ "" ]
+                }
+              },
+              { "drupal_message" : { "message" : "\\u0027Client File Added - Generic Advisor Message\\u0027 email has been sent to [advisor:field-first-name] [advisor:field-last-name] ([advisor:mail])" } }
+            ]
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_email_client_file_edited_generic_client_message'] = entity_import('rules_config', '{ "rules_email_client_file_edited_generic_client_message" : {
+      "LABEL" : "Email: Client File Edited - Generic Client Message",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules" ],
+      "ON" : { "node_update" : [] },
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "client_file" : "client_file" } }
+          }
+        },
+        { "data_is" : { "data" : [ "node:field-visible-to-client" ], "value" : 1 } },
+        { "NOT data_is_empty" : { "data" : [ "node:field-email-template" ] } },
+        { "list_contains" : { "list" : [ "node:field-email-template" ], "item" : "3" } }
+      ],
+      "DO" : [
+        { "mail" : {
+            "to" : [ "node:field-client:mail" ],
+            "subject" : "New File Posted in Your Client Pathway",
+            "message" : "This note has been sent automatically from your Westward Client Pathway. \\r\\n\\r\\nA new document has been posted to your personal portal related to your Westward tax and estate plan. Please download and review the materials at your earliest convenience. \\r\\n\\r\\nIf you have any questions or would like your login instructions sent to you please send a note to the contact below. Or, if you prefer to receive the documents via either email or regular mail just let us know. \\r\\n\\r\\nThanks. \\r\\nYour Performance Optimizer Team\\r\\n\\r\\nCONFIDENTIALITY DISCLAIMER\\r\\nThis message may contain confidential information and is intended only for the recipient named. If you have received this email in error, please notify the sender immediately via return email and then delete it. Unauthorized email distribution is strictly prohibited. The sender does not accept liability for any errors or omissions in the contents of this message.",
+            "from" : "service@westwardadvisors.com",
+            "language" : [ "" ]
+          }
+        },
+        { "drupal_message" : { "message" : "\\u0027Client File Added - Generic Client Message\\u0027 email has been sent to [node:field-client:field-first-name] [node:field-client:field-last-name] ([node:field-client:mail])" } }
       ]
     }
   }');
