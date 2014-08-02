@@ -74,7 +74,7 @@ $cid = $_GET["cid"];
 	
 	if (in_array($aid, $advisors)):
 		
-		$message = 'Good news. We have received confirmation from '.$advisorFirstname.' '.$advisorLastname.' that all documents needed to prepare your tax return are in hand.';
+		$message = 'Good news. We have received confirmation from '.$advisorFirstname.' '.$advisorLastname.' that all documents needed to prepare your tax return are in hand.<br><br>';
 		$message .= 'The Annual Review documents contain the financial and tax reporting information required by your advisor to prepare your annual financial statements and tax returns regarding your life insurance plan created by our LifeStep Process and managed by The Performance Optimizer.<br><br>';
 		$message .= 'This update was automatically issued from Westward\'s Advisor Pathway portal. If you have any questions, please contact your Westward tax associate at your earliest convenience: michaell@westwardadvisors.com or viviank@westwardadvisors.com.<br><br>';
 		$message .='Thank you,<br><br>';

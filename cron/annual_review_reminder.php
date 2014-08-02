@@ -67,7 +67,7 @@ foreach ($result as $record) {
 			foreach($client->field_advisor['und'] as $adv){
 				$adv = user_load($adv['uid']); 
 				
-				$message = 'This letter is to notify you that Annual Review documents for '.$clientFirstname.' '.$clientLastname.' are now ready for download from your portal on Westward\'s website<br><br>.';
+				$message = 'This letter is to notify you that Annual Review documents for '.$clientFirstname.' '.$clientLastname.' are now ready for download from your portal on Westward\'s website.<br><br>';
 				$message .= 'The Annual Review documents contain the financial and tax reporting information required for you to prepare annual financial statements and tax returns regarding your client\'s life insurance plan created by our LifeStep Process and managed by The Performance Optimizer. <br><br>';
 				$message .= 'To access the files, simply login to your portal at http://westwardadvisors.com/login.<br><br>';
 				$message .= 'To confirm that you now have all the documents required to prepare your client\'s tax return in respect of the life insurance plan, please click the link below.<br><br>';
@@ -85,7 +85,7 @@ foreach ($result as $record) {
 				$headers  = 'MIME-Version: 1.0' . "\r\n";
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				$headers .= 'From: Westward Advisors <noreply@westwardadvisors.com>' . "\r\n";
-				mail($adv->mail, 'REMINDER - The LifeStep Process – Annual Review Ready for Download', $message, $headers);
+				mail($adv->mail, 'REMINDER - The LifeStep Process - Annual Review Ready for Download', $message, $headers);
 				
 				print 'Reminder email sent to '. $adv->mail.'<br>';
 				
