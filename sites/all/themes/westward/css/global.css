@@ -227,7 +227,8 @@ h2.block-title{ margin-bottom:5px}
 .view-clients .views-row-last{ border-bottom: 1px solid #CCCCCC}
 .view-clients h2 a{ text-decoration:none; display:block; color:#333}
 .view-clients h2 span.advisor{ font-size:.9em; position:absolute; left:30%; top:6px}
-.view-clients h3{ font-size:1em; margin:0}
+.view-clients h3,
+.view-client-files h3{ font-size:1em; margin:0}
 .view-clients div.views-field-edit-node{ top:4px; right:8px}
 .view-clients.view-display-id-block .views-field-uid{ position:absolute; top:5px; right:10px; color:#ff0000; font-weight:bold}
 
@@ -246,15 +247,24 @@ h2.block-title{ margin-bottom:5px}
 .view-client-files .view-grouping-header .e-other{ background:#ccc; color:#333}
 .view-client-files .view-grouping-header .f-policy-documents,
 .view-client-files h3 .f-policy-documents{ background:#002D56}
+.view-client-files .view-grouping-header .g-loan-documents,
+.view-client-files h3 .g-loan-documents{ background:#00407a}
 .view-client-files .view-grouping-content,
 .view-client-files .view-grouping-content .views-rows,
-.view-client-files.view-display-id-policy_documents .views-rows{ display:none}
+.view-client-files.view-display-id-policy_documents_advisor .views-rows,
+.view-client-files.view-display-id-policy_documents_client .views-rows,
+.view-client-files.view-display-id-loan_documents_advisor .views-rows,
+.view-client-files.view-display-id-loan_documents_client .views-rows{ display:none}
 .view-client-files .view-grouping-content h3{ margin:0; padding:4px 8px 4px 30px; background:#eee; border-bottom:1px solid #ccc; border-top:1px solid #ccc; cursor:pointer}
 .view-client-files .views-field-field-file .field-content{ padding:4px 75px 4px 45px; border-bottom:1px solid #CCCCCC; }
 .view-client-files .views-row-even{ background:#fbfbfb}
 .view-client-files .views-row-last .views-field-field-file .field-content{ border:none}
 
-.view-client-files.view-display-id-policy_documents{ border:none}
+.view-client-files.view-display-id-policy_documents_client,
+.view-client-files.view-display-id-loan_documents_client{ display:block; border:none}
+
+.view-client-files.view-display-id-policy_documents_advisor,
+.view-client-files.view-display-id-loan_documents_advisor{ border:none}
 
 .view-clients.view-display-id-admin .views-field-uid .view-client-files{ display:none}
 .view-client-files.view-display-id-admin .views-field-field-file .field-content{  border-bottom:none}

@@ -23,8 +23,8 @@ jQuery(document).ready(function($){
 	}	
   });
   
-  // Add new file highlight to Policy Doc heading
-  $('.view-client-files.view-display-id-policy_documents').each( function(){
+  // Add new file highlight to Policy/Loan Doc heading
+  $('.view-client-files.view-display-id-policy_documents_advisor, .view-client-files.view-display-id-policy_documents_client, .view-client-files.view-display-id-loan_documents_advisor, .view-client-files.view-display-id-loan_documents_client').each( function(){
 	isrecent = 0;	  	
 	$(this).find('.views-row').each( function(){
 		if($(this).find('.red').length > 0){
@@ -37,6 +37,7 @@ jQuery(document).ready(function($){
 	}	
   });
 
+
   
   // Show/Hide toggle on client files groupings
   $('h2.user-toggle a').click(function(){
@@ -47,7 +48,7 @@ jQuery(document).ready(function($){
   	$(this).parents('.views-row').find('.views-field-uid').slideToggle('fast');
 	return false;
   });
-  $('.view-client-files .view-grouping-header, .view-client-files .view-grouping-content h3, .view-client-files.view-display-id-policy_documents h3').click( function(){
+  $('.view-client-files .view-grouping-header, .view-client-files .view-grouping-content h3, .view-client-files.view-display-id-policy_documents_advisor h3, .view-client-files.view-display-id-policy_documents_client h3, .view-client-files.view-display-id-loan_documents_advisor h3, .view-client-files.view-display-id-loan_documents_client h3').click( function(){
 	  $(this).next().slideToggle('fast');
   });
   

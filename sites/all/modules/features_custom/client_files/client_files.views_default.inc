@@ -167,8 +167,14 @@ function client_files_views_default_views() {
   $handler->display->display_options['footer']['view']['id'] = 'view';
   $handler->display->display_options['footer']['view']['table'] = 'views';
   $handler->display->display_options['footer']['view']['field'] = 'view';
-  $handler->display->display_options['footer']['view']['view_to_insert'] = 'client_files:policy_documents';
+  $handler->display->display_options['footer']['view']['view_to_insert'] = 'client_files:policy_documents_advisor';
   $handler->display->display_options['footer']['view']['inherit_arguments'] = TRUE;
+  /* Footer: Global: View area */
+  $handler->display->display_options['footer']['view_1']['id'] = 'view_1';
+  $handler->display->display_options['footer']['view_1']['table'] = 'views';
+  $handler->display->display_options['footer']['view_1']['field'] = 'view';
+  $handler->display->display_options['footer']['view_1']['view_to_insert'] = 'client_files:loan_documents_advisor';
+  $handler->display->display_options['footer']['view_1']['inherit_arguments'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
@@ -285,6 +291,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['field_stage_value']['operator'] = 'not';
   $handler->display->display_options['filters']['field_stage_value']['value'] = array(
     'f-policy-documents' => 'f-policy-documents',
+    'g-loan-documents' => 'g-loan-documents',
   );
 
   /* Display: Client Files -  Client */
@@ -297,11 +304,36 @@ function client_files_views_default_views() {
   );
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_stage',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    1 => array(
+      'field' => 'created_1',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
   $handler->display->display_options['style_options']['row_class'] = '[field_stage-value]';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: View area */
+  $handler->display->display_options['footer']['view']['id'] = 'view';
+  $handler->display->display_options['footer']['view']['table'] = 'views';
+  $handler->display->display_options['footer']['view']['field'] = 'view';
+  $handler->display->display_options['footer']['view']['view_to_insert'] = 'client_files:policy_documents_client';
+  $handler->display->display_options['footer']['view']['inherit_arguments'] = TRUE;
+  /* Footer: Global: View area */
+  $handler->display->display_options['footer']['view_1']['id'] = 'view_1';
+  $handler->display->display_options['footer']['view_1']['table'] = 'views';
+  $handler->display->display_options['footer']['view_1']['field'] = 'view';
+  $handler->display->display_options['footer']['view_1']['view_to_insert'] = 'client_files:loan_documents_client';
+  $handler->display->display_options['footer']['view_1']['inherit_arguments'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -329,6 +361,15 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Stage */
+  $handler->display->display_options['fields']['field_stage']['id'] = 'field_stage';
+  $handler->display->display_options['fields']['field_stage']['table'] = 'field_data_field_stage';
+  $handler->display->display_options['fields']['field_stage']['field'] = 'field_stage';
+  $handler->display->display_options['fields']['field_stage']['label'] = '';
+  $handler->display->display_options['fields']['field_stage']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_stage']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_stage']['alter']['text'] = '<div class="[field_stage-value]">[field_stage]</div>';
+  $handler->display->display_options['fields']['field_stage']['element_label_colon'] = FALSE;
   /* Field: Content: Progress */
   $handler->display->display_options['fields']['field_progress']['id'] = 'field_progress';
   $handler->display->display_options['fields']['field_progress']['table'] = 'field_data_field_progress';
@@ -374,6 +415,18 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'Edit File';
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
+  $handler->display->display_options['fields']['created_1']['table'] = 'node';
+  $handler->display->display_options['fields']['created_1']['field'] = 'created';
+  $handler->display->display_options['fields']['created_1']['label'] = '';
+  $handler->display->display_options['fields']['created_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['created_1']['alter']['text'] = '[created_1] Correspondence';
+  $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'Y';
+  $handler->display->display_options['fields']['created_1']['second_date_format'] = 'long';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Client (field_client) */
   $handler->display->display_options['arguments']['field_client_uid']['id'] = 'field_client_uid';
@@ -413,6 +466,15 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['field_visible_to_client_value']['field'] = 'field_visible_to_client_value';
   $handler->display->display_options['filters']['field_visible_to_client_value']['value'] = array(
     1 => '1',
+  );
+  /* Filter criterion: Content: Stage (field_stage) */
+  $handler->display->display_options['filters']['field_stage_value']['id'] = 'field_stage_value';
+  $handler->display->display_options['filters']['field_stage_value']['table'] = 'field_data_field_stage';
+  $handler->display->display_options['filters']['field_stage_value']['field'] = 'field_stage_value';
+  $handler->display->display_options['filters']['field_stage_value']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_stage_value']['value'] = array(
+    'f-policy-documents' => 'f-policy-documents',
+    'g-loan-documents' => 'g-loan-documents',
   );
 
   /* Display: Client Files -  Admin */
@@ -511,8 +573,8 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'Y';
 
-  /* Display: Policy Documents */
-  $handler = $view->new_display('block', 'Policy Documents', 'policy_documents');
+  /* Display: Policy Documents - Advisor */
+  $handler = $view->new_display('block', 'Policy Documents - Advisor', 'policy_documents_advisor');
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -618,6 +680,400 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['field_stage_value']['value'] = array(
     'f-policy-documents' => 'f-policy-documents',
   );
+  /* Filter criterion: Content: Visible to Advisors (field_visible_to_advisor) */
+  $handler->display->display_options['filters']['field_visible_to_advisor_value']['id'] = 'field_visible_to_advisor_value';
+  $handler->display->display_options['filters']['field_visible_to_advisor_value']['table'] = 'field_data_field_visible_to_advisor';
+  $handler->display->display_options['filters']['field_visible_to_advisor_value']['field'] = 'field_visible_to_advisor_value';
+  $handler->display->display_options['filters']['field_visible_to_advisor_value']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_visible_to_advisor_value']['value'] = array(
+    0 => '0',
+  );
+
+  /* Display: Policy Documents - Client */
+  $handler = $view->new_display('block', 'Policy Documents - Client', 'policy_documents_client');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    5 => '5',
+  );
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['element_type'] = '0';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'm_d_y';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Stage */
+  $handler->display->display_options['fields']['field_stage']['id'] = 'field_stage';
+  $handler->display->display_options['fields']['field_stage']['table'] = 'field_data_field_stage';
+  $handler->display->display_options['fields']['field_stage']['field'] = 'field_stage';
+  $handler->display->display_options['fields']['field_stage']['label'] = '';
+  $handler->display->display_options['fields']['field_stage']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_stage']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_stage']['alter']['text'] = '<div class="[field_stage-value]">[field_stage]</div>';
+  $handler->display->display_options['fields']['field_stage']['element_label_colon'] = FALSE;
+  /* Field: Content: Progress */
+  $handler->display->display_options['fields']['field_progress']['id'] = 'field_progress';
+  $handler->display->display_options['fields']['field_progress']['table'] = 'field_data_field_progress';
+  $handler->display->display_options['fields']['field_progress']['field'] = 'field_progress';
+  $handler->display->display_options['fields']['field_progress']['label'] = '';
+  $handler->display->display_options['fields']['field_progress']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_progress']['element_label_colon'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['element_type'] = '0';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: File */
+  $handler->display->display_options['fields']['field_file_1']['id'] = 'field_file_1';
+  $handler->display->display_options['fields']['field_file_1']['table'] = 'field_data_field_file';
+  $handler->display->display_options['fields']['field_file_1']['field'] = 'field_file';
+  $handler->display->display_options['fields']['field_file_1']['label'] = '';
+  $handler->display->display_options['fields']['field_file_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_file_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_file_1']['alter']['text'] = '<span class="save"><a href="[field_file_1]" rel="[title]" class="client_file">Save File</a></span>';
+  $handler->display->display_options['fields']['field_file_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_file_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_file_1']['type'] = 'file_force_file_url_plain';
+  /* Field: Content: File */
+  $handler->display->display_options['fields']['field_file']['id'] = 'field_file';
+  $handler->display->display_options['fields']['field_file']['table'] = 'field_data_field_file';
+  $handler->display->display_options['fields']['field_file']['field'] = 'field_file';
+  $handler->display->display_options['fields']['field_file']['label'] = '';
+  $handler->display->display_options['fields']['field_file']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_file']['alter']['text'] = 'Added: [created] - <a class="client_file" target="_blank" href="[field_file]" rel="[title]" >[title]</a>
+<span class="dash">[field_file-description]</span>
+<strong>[field_progress]</strong>
+[field_file_1]';
+  $handler->display->display_options['fields']['field_file']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_file']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_file']['type'] = 'file_url_plain';
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit File';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Client (field_client) */
+  $handler->display->display_options['arguments']['field_client_uid']['id'] = 'field_client_uid';
+  $handler->display->display_options['arguments']['field_client_uid']['table'] = 'field_data_field_client';
+  $handler->display->display_options['arguments']['field_client_uid']['field'] = 'field_client_uid';
+  $handler->display->display_options['arguments']['field_client_uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_client_uid']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['field_client_uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_client_uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_client_uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_client_uid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_client_uid']['validate']['type'] = 'user';
+  $handler->display->display_options['arguments']['field_client_uid']['validate_options']['restrict_roles'] = TRUE;
+  $handler->display->display_options['arguments']['field_client_uid']['validate_options']['roles'] = array(
+    5 => '5',
+  );
+  $handler->display->display_options['arguments']['field_client_uid']['validate']['fail'] = 'empty';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'client_file' => 'client_file',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Visible to Clients (field_visible_to_client) */
+  $handler->display->display_options['filters']['field_visible_to_client_value']['id'] = 'field_visible_to_client_value';
+  $handler->display->display_options['filters']['field_visible_to_client_value']['table'] = 'field_data_field_visible_to_client';
+  $handler->display->display_options['filters']['field_visible_to_client_value']['field'] = 'field_visible_to_client_value';
+  $handler->display->display_options['filters']['field_visible_to_client_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_visible_to_client_value']['group'] = 1;
+  /* Filter criterion: Content: Stage (field_stage) */
+  $handler->display->display_options['filters']['field_stage_value']['id'] = 'field_stage_value';
+  $handler->display->display_options['filters']['field_stage_value']['table'] = 'field_data_field_stage';
+  $handler->display->display_options['filters']['field_stage_value']['field'] = 'field_stage_value';
+  $handler->display->display_options['filters']['field_stage_value']['value'] = array(
+    'f-policy-documents' => 'f-policy-documents',
+  );
+  $handler->display->display_options['filters']['field_stage_value']['group'] = 1;
+
+  /* Display: Loan Documents - Advisor */
+  $handler = $view->new_display('block', 'Loan Documents - Advisor', 'loan_documents_advisor');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    4 => '4',
+  );
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['element_type'] = '0';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'm_d_y';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Stage */
+  $handler->display->display_options['fields']['field_stage']['id'] = 'field_stage';
+  $handler->display->display_options['fields']['field_stage']['table'] = 'field_data_field_stage';
+  $handler->display->display_options['fields']['field_stage']['field'] = 'field_stage';
+  $handler->display->display_options['fields']['field_stage']['label'] = '';
+  $handler->display->display_options['fields']['field_stage']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_stage']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_stage']['alter']['text'] = '<div class="[field_stage-value]">[field_stage]</div>';
+  $handler->display->display_options['fields']['field_stage']['element_label_colon'] = FALSE;
+  /* Field: Content: Progress */
+  $handler->display->display_options['fields']['field_progress']['id'] = 'field_progress';
+  $handler->display->display_options['fields']['field_progress']['table'] = 'field_data_field_progress';
+  $handler->display->display_options['fields']['field_progress']['field'] = 'field_progress';
+  $handler->display->display_options['fields']['field_progress']['label'] = '';
+  $handler->display->display_options['fields']['field_progress']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_progress']['element_label_colon'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['element_type'] = '0';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: File */
+  $handler->display->display_options['fields']['field_file_1']['id'] = 'field_file_1';
+  $handler->display->display_options['fields']['field_file_1']['table'] = 'field_data_field_file';
+  $handler->display->display_options['fields']['field_file_1']['field'] = 'field_file';
+  $handler->display->display_options['fields']['field_file_1']['label'] = '';
+  $handler->display->display_options['fields']['field_file_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_file_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_file_1']['alter']['text'] = '<span class="save"><a href="[field_file_1]" rel="[title]" class="client_file">Save File</a></span>';
+  $handler->display->display_options['fields']['field_file_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_file_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_file_1']['type'] = 'file_force_file_url_plain';
+  /* Field: Content: File */
+  $handler->display->display_options['fields']['field_file']['id'] = 'field_file';
+  $handler->display->display_options['fields']['field_file']['table'] = 'field_data_field_file';
+  $handler->display->display_options['fields']['field_file']['field'] = 'field_file';
+  $handler->display->display_options['fields']['field_file']['label'] = '';
+  $handler->display->display_options['fields']['field_file']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_file']['alter']['text'] = 'Added: [created] - <a class="client_file" target="_blank" href="[field_file]" rel="[title]" >[title]</a>
+<span class="dash">[field_file-description]</span>
+<strong>[field_progress]</strong>
+[field_file_1]';
+  $handler->display->display_options['fields']['field_file']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_file']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_file']['type'] = 'file_url_plain';
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit File';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'client_file' => 'client_file',
+  );
+  /* Filter criterion: Content: Stage (field_stage) */
+  $handler->display->display_options['filters']['field_stage_value']['id'] = 'field_stage_value';
+  $handler->display->display_options['filters']['field_stage_value']['table'] = 'field_data_field_stage';
+  $handler->display->display_options['filters']['field_stage_value']['field'] = 'field_stage_value';
+  $handler->display->display_options['filters']['field_stage_value']['value'] = array(
+    'g-loan-documents' => 'g-loan-documents',
+  );
+  /* Filter criterion: Content: Visible to Advisors (field_visible_to_advisor) */
+  $handler->display->display_options['filters']['field_visible_to_advisor_value']['id'] = 'field_visible_to_advisor_value';
+  $handler->display->display_options['filters']['field_visible_to_advisor_value']['table'] = 'field_data_field_visible_to_advisor';
+  $handler->display->display_options['filters']['field_visible_to_advisor_value']['field'] = 'field_visible_to_advisor_value';
+  $handler->display->display_options['filters']['field_visible_to_advisor_value']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_visible_to_advisor_value']['value'] = array(
+    0 => '0',
+  );
+
+  /* Display: Loan Documents - Client */
+  $handler = $view->new_display('block', 'Loan Documents - Client', 'loan_documents_client');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    5 => '5',
+  );
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['element_type'] = '0';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'm_d_y';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Stage */
+  $handler->display->display_options['fields']['field_stage']['id'] = 'field_stage';
+  $handler->display->display_options['fields']['field_stage']['table'] = 'field_data_field_stage';
+  $handler->display->display_options['fields']['field_stage']['field'] = 'field_stage';
+  $handler->display->display_options['fields']['field_stage']['label'] = '';
+  $handler->display->display_options['fields']['field_stage']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_stage']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_stage']['alter']['text'] = '<div class="[field_stage-value]">[field_stage]</div>';
+  $handler->display->display_options['fields']['field_stage']['element_label_colon'] = FALSE;
+  /* Field: Content: Progress */
+  $handler->display->display_options['fields']['field_progress']['id'] = 'field_progress';
+  $handler->display->display_options['fields']['field_progress']['table'] = 'field_data_field_progress';
+  $handler->display->display_options['fields']['field_progress']['field'] = 'field_progress';
+  $handler->display->display_options['fields']['field_progress']['label'] = '';
+  $handler->display->display_options['fields']['field_progress']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_progress']['element_label_colon'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['element_type'] = '0';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: File */
+  $handler->display->display_options['fields']['field_file_1']['id'] = 'field_file_1';
+  $handler->display->display_options['fields']['field_file_1']['table'] = 'field_data_field_file';
+  $handler->display->display_options['fields']['field_file_1']['field'] = 'field_file';
+  $handler->display->display_options['fields']['field_file_1']['label'] = '';
+  $handler->display->display_options['fields']['field_file_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_file_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_file_1']['alter']['text'] = '<span class="save"><a href="[field_file_1]" rel="[title]" class="client_file">Save File</a></span>';
+  $handler->display->display_options['fields']['field_file_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_file_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_file_1']['type'] = 'file_force_file_url_plain';
+  /* Field: Content: File */
+  $handler->display->display_options['fields']['field_file']['id'] = 'field_file';
+  $handler->display->display_options['fields']['field_file']['table'] = 'field_data_field_file';
+  $handler->display->display_options['fields']['field_file']['field'] = 'field_file';
+  $handler->display->display_options['fields']['field_file']['label'] = '';
+  $handler->display->display_options['fields']['field_file']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_file']['alter']['text'] = 'Added: [created] - <a class="client_file" target="_blank" href="[field_file]" rel="[title]" >[title]</a>
+<span class="dash">[field_file-description]</span>
+<strong>[field_progress]</strong>
+[field_file_1]';
+  $handler->display->display_options['fields']['field_file']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_file']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_file']['type'] = 'file_url_plain';
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit File';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Client (field_client) */
+  $handler->display->display_options['arguments']['field_client_uid']['id'] = 'field_client_uid';
+  $handler->display->display_options['arguments']['field_client_uid']['table'] = 'field_data_field_client';
+  $handler->display->display_options['arguments']['field_client_uid']['field'] = 'field_client_uid';
+  $handler->display->display_options['arguments']['field_client_uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_client_uid']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['field_client_uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_client_uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_client_uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_client_uid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_client_uid']['validate']['type'] = 'user';
+  $handler->display->display_options['arguments']['field_client_uid']['validate_options']['restrict_roles'] = TRUE;
+  $handler->display->display_options['arguments']['field_client_uid']['validate_options']['roles'] = array(
+    5 => '5',
+  );
+  $handler->display->display_options['arguments']['field_client_uid']['validate']['fail'] = 'empty';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'client_file' => 'client_file',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Visible to Clients (field_visible_to_client) */
+  $handler->display->display_options['filters']['field_visible_to_client_value']['id'] = 'field_visible_to_client_value';
+  $handler->display->display_options['filters']['field_visible_to_client_value']['table'] = 'field_data_field_visible_to_client';
+  $handler->display->display_options['filters']['field_visible_to_client_value']['field'] = 'field_visible_to_client_value';
+  $handler->display->display_options['filters']['field_visible_to_client_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_visible_to_client_value']['group'] = 1;
+  /* Filter criterion: Content: Stage (field_stage) */
+  $handler->display->display_options['filters']['field_stage_value']['id'] = 'field_stage_value';
+  $handler->display->display_options['filters']['field_stage_value']['table'] = 'field_data_field_stage';
+  $handler->display->display_options['filters']['field_stage_value']['field'] = 'field_stage_value';
+  $handler->display->display_options['filters']['field_stage_value']['value'] = array(
+    'g-loan-documents' => 'g-loan-documents',
+  );
+  $handler->display->display_options['filters']['field_stage_value']['group'] = 1;
   $export['client_files'] = $view;
 
   $view = new view();

@@ -190,6 +190,7 @@ function client_files_field_default_field_bases() {
         'c-the-strategic-implementor' => 'The Strategic Implementor',
         'd-the-performance-optimizer' => 'The Performance Optimizer',
         'f-policy-documents' => 'Policy Documents',
+        'g-loan-documents' => 'Loan Documents',
         'e-other' => 'Other',
       ),
       'allowed_values_function' => '',
