@@ -130,7 +130,7 @@ function video_feature_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'video' => 'video',
   );
-  /* Filter criterion: Content: Visible to Advisors (field_visible_to_advisor) */
+  /* Filter criterion: Content: Visible to Advisor (field_visible_to_advisor) */
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['id'] = 'field_visible_to_advisor_value';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['table'] = 'field_data_field_visible_to_advisor';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['field'] = 'field_visible_to_advisor_value';
@@ -156,12 +156,55 @@ function video_feature_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'video' => 'video',
   );
-  /* Filter criterion: Content: Visible to Clients (field_visible_to_client) */
+  /* Filter criterion: Content: Visible to Client (field_visible_to_client) */
   $handler->display->display_options['filters']['field_visible_to_client_value']['id'] = 'field_visible_to_client_value';
   $handler->display->display_options['filters']['field_visible_to_client_value']['table'] = 'field_data_field_visible_to_client';
   $handler->display->display_options['filters']['field_visible_to_client_value']['field'] = 'field_visible_to_client_value';
   $handler->display->display_options['filters']['field_visible_to_client_value']['value'] = array(
     1 => '1',
+  );
+
+  /* Display: Specific - Client */
+  $handler = $view->new_display('block', 'Specific - Client', 'specific_client');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Videos';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Visible to Clients (field_visible_to_clients) */
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['id'] = 'field_visible_to_clients_uid';
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['table'] = 'field_data_field_visible_to_clients';
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['field'] = 'field_visible_to_clients_uid';
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['validate']['type'] = 'user';
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['validate_options']['restrict_roles'] = TRUE;
+  $handler->display->display_options['arguments']['field_visible_to_clients_uid']['validate_options']['roles'] = array(
+    5 => '5',
+  );
+
+  /* Display: Specific - Advisor */
+  $handler = $view->new_display('block', 'Specific - Advisor', 'specific_advisor');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Videos';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Field: Advisor (field_advisor) */
+  $handler->display->display_options['arguments']['field_advisor_uid']['id'] = 'field_advisor_uid';
+  $handler->display->display_options['arguments']['field_advisor_uid']['table'] = 'field_data_field_advisor';
+  $handler->display->display_options['arguments']['field_advisor_uid']['field'] = 'field_advisor_uid';
+  $handler->display->display_options['arguments']['field_advisor_uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_advisor_uid']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['field_advisor_uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_advisor_uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_advisor_uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_advisor_uid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_advisor_uid']['validate']['type'] = 'user';
+  $handler->display->display_options['arguments']['field_advisor_uid']['validate_options']['type'] = 'either';
+  $handler->display->display_options['arguments']['field_advisor_uid']['validate_options']['restrict_roles'] = TRUE;
+  $handler->display->display_options['arguments']['field_advisor_uid']['validate_options']['roles'] = array(
+    4 => '4',
   );
   $export['videos'] = $view;
 

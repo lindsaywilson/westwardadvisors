@@ -48,7 +48,90 @@ function video_feature_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 6,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-video-field_advisor'
+  $field_instances['node-video-field_advisor'] = array(
+    'bundle' => 'video',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_advisor',
+    'label' => 'Visible to specific Advisors',
+    'required' => 0,
+    'settings' => array(
+      'nodeaccess_userreference' => array(
+        'all' => array(
+          'view' => 0,
+        ),
+        'all_published' => 0,
+        'author' => array(
+          'delete' => 0,
+          'update' => 0,
+          'view' => 0,
+        ),
+        'author_published' => 0,
+        'create' => array(
+          'advisor_file' => 0,
+          'case_study' => 0,
+          'client_file' => 0,
+          'executive' => 0,
+          'forum' => 0,
+          'home_page' => 0,
+          'hot_topic' => 0,
+          'job' => 0,
+          'news' => 0,
+          'news_notes' => 0,
+          'page' => 0,
+          'resource' => 0,
+          'staff' => 0,
+          'support_staff' => 0,
+          'testimonial' => 0,
+          'video' => 0,
+          'viewpoint' => 0,
+          'webform' => 0,
+        ),
+        'priority' => 0,
+        'referenced' => array(
+          'delete' => 0,
+          'deny_delete' => 0,
+          'deny_update' => 0,
+          'deny_view' => 0,
+          'update' => 0,
+          'view' => 0,
+        ),
+        'referenced_published' => 0,
+        'unused' => 0,
+        'views' => array(
+          'view' => '',
+          'view_args' => '',
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 3,
     ),
   );
 
@@ -88,7 +171,7 @@ function video_feature_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 5,
     ),
   );
 
@@ -135,7 +218,7 @@ function video_feature_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 4,
+      'weight' => 6,
     ),
   );
 
@@ -165,7 +248,7 @@ function video_feature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_visible_to_advisor',
-    'label' => 'Visible to Advisors',
+    'label' => 'Visible to all Advisors',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -196,7 +279,7 @@ function video_feature_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -207,7 +290,7 @@ function video_feature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_visible_to_client',
-    'label' => 'Visible to Clients',
+    'label' => 'Visible to all Clients',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -223,14 +306,99 @@ function video_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-video-field_visible_to_clients'
+  $field_instances['node-video-field_visible_to_clients'] = array(
+    'bundle' => 'video',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_visible_to_clients',
+    'label' => 'Visible to specific Clients',
+    'required' => 0,
+    'settings' => array(
+      'nodeaccess_userreference' => array(
+        'all' => array(
+          'view' => 0,
+        ),
+        'all_published' => 0,
+        'author' => array(
+          'delete' => 0,
+          'update' => 0,
+          'view' => 0,
+        ),
+        'author_published' => 0,
+        'create' => array(
+          'advisor_file' => 0,
+          'case_study' => 0,
+          'client_file' => 0,
+          'executive' => 0,
+          'forum' => 0,
+          'home_page' => 0,
+          'hot_topic' => 0,
+          'job' => 0,
+          'news' => 0,
+          'news_notes' => 0,
+          'page' => 0,
+          'resource' => 0,
+          'staff' => 0,
+          'support_staff' => 0,
+          'testimonial' => 0,
+          'video' => 0,
+          'viewpoint' => 0,
+          'webform' => 0,
+        ),
+        'priority' => 0,
+        'referenced' => array(
+          'delete' => 0,
+          'deny_delete' => 0,
+          'deny_update' => 0,
+          'deny_view' => 0,
+          'update' => 0,
+          'view' => 0,
+        ),
+        'referenced_published' => 0,
+        'unused' => 0,
+        'views' => array(
+          'view' => '',
+          'view_args' => '',
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 4,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Description');
   t('Enter either a URL to a video file and upload an image below, or upload a video and image below.');
   t('URL to video');
   t('Video');
-  t('Visible to Advisors');
-  t('Visible to Clients');
+  t('Visible to all Advisors');
+  t('Visible to all Clients');
+  t('Visible to specific Advisors');
+  t('Visible to specific Clients');
 
   return $field_instances;
 }

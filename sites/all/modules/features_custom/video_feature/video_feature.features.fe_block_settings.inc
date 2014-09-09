@@ -32,7 +32,7 @@ function video_feature_default_fe_block_settings() {
         'region' => 'content_bottom',
         'status' => 1,
         'theme' => 'westward',
-        'weight' => -34,
+        'weight' => -38,
       ),
     ),
     'title' => '',
@@ -59,11 +59,65 @@ function video_feature_default_fe_block_settings() {
         'region' => 'content_bottom',
         'status' => 1,
         'theme' => 'westward',
-        'weight' => -33,
+        'weight' => -37,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
+  );
+
+  $export['views-videos-specific_advisor'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'videos-specific_advisor',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'node/15',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'westward' => array(
+        'region' => 'content_bottom',
+        'status' => 1,
+        'theme' => 'westward',
+        'weight' => -14,
       ),
     ),
     'title' => '',
     'visibility' => 0,
+  );
+
+  $export['views-videos-specific_client'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'videos-specific_client',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'node/494',
+    'roles' => array(),
+    'themes' => array(
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'westward' => array(
+        'region' => 'content_bottom',
+        'status' => 1,
+        'theme' => 'westward',
+        'weight' => -13,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
   );
 
   return $export;

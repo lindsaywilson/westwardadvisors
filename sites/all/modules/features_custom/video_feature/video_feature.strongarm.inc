@@ -90,10 +90,10 @@ function video_feature_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '9',
         ),
         'redirect' => array(
-          'weight' => '5',
+          'weight' => '7',
         ),
       ),
       'display' => array(),

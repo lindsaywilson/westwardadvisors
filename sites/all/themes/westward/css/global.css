@@ -209,6 +209,10 @@ h2.block-title{ margin-bottom:5px}
 
 #block-multiblock-2{ display:none}
 
+/* VIdeos */
+.block-videos-specific-client,
+.block-videos-specific-advisor{ margin-top:30px}
+
 /* Advisor Files */
 .view-advisor-files .view-content{ border:1px solid #ccc}
 .view-advisor-files .view-header h2{ margin-bottom:5px}
