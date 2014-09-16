@@ -276,7 +276,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'client_file' => 'client_file',
   );
-  /* Filter criterion: Content: Visible to Advisors (field_visible_to_advisor) */
+  /* Filter criterion: Content: Visible to all Advisors (field_visible_to_advisor) */
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['id'] = 'field_visible_to_advisor_value';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['table'] = 'field_data_field_visible_to_advisor';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['field'] = 'field_visible_to_advisor_value';
@@ -460,7 +460,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'client_file' => 'client_file',
   );
-  /* Filter criterion: Content: Visible to Clients (field_visible_to_client) */
+  /* Filter criterion: Content: Visible to all Clients (field_visible_to_client) */
   $handler->display->display_options['filters']['field_visible_to_client_value']['id'] = 'field_visible_to_client_value';
   $handler->display->display_options['filters']['field_visible_to_client_value']['table'] = 'field_data_field_visible_to_client';
   $handler->display->display_options['filters']['field_visible_to_client_value']['field'] = 'field_visible_to_client_value';
@@ -581,6 +581,25 @@ function client_files_views_default_views() {
     3 => '3',
     4 => '4',
   );
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_stage',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    1 => array(
+      'field' => 'field_tags',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['row_class'] = '[field_stage-value]';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Post date */
@@ -657,6 +676,14 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'Edit File';
+  /* Field: Content: Policy/Loan name */
+  $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['label'] = '';
+  $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -680,7 +707,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['field_stage_value']['value'] = array(
     'f-policy-documents' => 'f-policy-documents',
   );
-  /* Filter criterion: Content: Visible to Advisors (field_visible_to_advisor) */
+  /* Filter criterion: Content: Visible to all Advisors (field_visible_to_advisor) */
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['id'] = 'field_visible_to_advisor_value';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['table'] = 'field_data_field_visible_to_advisor';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['field'] = 'field_visible_to_advisor_value';
@@ -697,6 +724,25 @@ function client_files_views_default_views() {
     3 => '3',
     5 => '5',
   );
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_stage',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    1 => array(
+      'field' => 'field_tags',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['row_class'] = '[field_stage-value]';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Post date */
@@ -773,6 +819,14 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'Edit File';
+  /* Field: Content: Policy/Loan name */
+  $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['label'] = '';
+  $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Client (field_client) */
   $handler->display->display_options['arguments']['field_client_uid']['id'] = 'field_client_uid';
@@ -807,7 +861,7 @@ function client_files_views_default_views() {
     'client_file' => 'client_file',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Visible to Clients (field_visible_to_client) */
+  /* Filter criterion: Content: Visible to all Clients (field_visible_to_client) */
   $handler->display->display_options['filters']['field_visible_to_client_value']['id'] = 'field_visible_to_client_value';
   $handler->display->display_options['filters']['field_visible_to_client_value']['table'] = 'field_data_field_visible_to_client';
   $handler->display->display_options['filters']['field_visible_to_client_value']['field'] = 'field_visible_to_client_value';
@@ -832,6 +886,25 @@ function client_files_views_default_views() {
     3 => '3',
     4 => '4',
   );
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_stage',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    1 => array(
+      'field' => 'field_tags',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['row_class'] = '[field_stage-value]';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Post date */
@@ -908,6 +981,14 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'Edit File';
+  /* Field: Content: Policy/Loan name */
+  $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['label'] = '';
+  $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -931,7 +1012,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['field_stage_value']['value'] = array(
     'g-loan-documents' => 'g-loan-documents',
   );
-  /* Filter criterion: Content: Visible to Advisors (field_visible_to_advisor) */
+  /* Filter criterion: Content: Visible to all Advisors (field_visible_to_advisor) */
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['id'] = 'field_visible_to_advisor_value';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['table'] = 'field_data_field_visible_to_advisor';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['field'] = 'field_visible_to_advisor_value';
@@ -948,6 +1029,25 @@ function client_files_views_default_views() {
     3 => '3',
     5 => '5',
   );
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_stage',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+    1 => array(
+      'field' => 'field_tags',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['row_class'] = '[field_stage-value]';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Post date */
@@ -1024,6 +1124,15 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'Edit File';
+  /* Field: Content: Policy/Loan name */
+  $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['label'] = '';
+  $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_tags']['alter']['text'] = 'tag: [field_tags]';
+  $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Client (field_client) */
   $handler->display->display_options['arguments']['field_client_uid']['id'] = 'field_client_uid';
@@ -1058,7 +1167,7 @@ function client_files_views_default_views() {
     'client_file' => 'client_file',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Visible to Clients (field_visible_to_client) */
+  /* Filter criterion: Content: Visible to all Clients (field_visible_to_client) */
   $handler->display->display_options['filters']['field_visible_to_client_value']['id'] = 'field_visible_to_client_value';
   $handler->display->display_options['filters']['field_visible_to_client_value']['table'] = 'field_data_field_visible_to_client';
   $handler->display->display_options['filters']['field_visible_to_client_value']['field'] = 'field_visible_to_client_value';
@@ -1151,7 +1260,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
   $handler->display->display_options['sorts']['field_last_name_value']['table'] = 'field_data_field_last_name';
   $handler->display->display_options['sorts']['field_last_name_value']['field'] = 'field_last_name_value';
-  /* Contextual filter: User: Advisor (field_advisor) */
+  /* Contextual filter: Field: Advisor (field_advisor) */
   $handler->display->display_options['arguments']['field_advisor_uid']['id'] = 'field_advisor_uid';
   $handler->display->display_options['arguments']['field_advisor_uid']['table'] = 'field_data_field_advisor';
   $handler->display->display_options['arguments']['field_advisor_uid']['field'] = 'field_advisor_uid';
@@ -1188,7 +1297,7 @@ function client_files_views_default_views() {
     3 => '3',
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: User: Advisor */
+  /* Field: Field: Advisor */
   $handler->display->display_options['fields']['field_advisor']['id'] = 'field_advisor';
   $handler->display->display_options['fields']['field_advisor']['table'] = 'field_data_field_advisor';
   $handler->display->display_options['fields']['field_advisor']['field'] = 'field_advisor';

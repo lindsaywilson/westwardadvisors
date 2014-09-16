@@ -88,6 +88,7 @@ function userformalter_form_alter(&$form, $form_state, $form_id) {
   // reorder select lists by lastname/firstname
   if(
   $form_id == 'client_file_node_form' ||
+  $form_id == 'video_node_form' ||
   $form_id == 'advisor_file_node_form' ||
   $form_id == 'news_notes_node_form' ||
   $form_id == 'user_register_form' ||
