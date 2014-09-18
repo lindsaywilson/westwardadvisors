@@ -260,6 +260,22 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'Y';
+  /* Field: Content: Updated date */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'node';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['label'] = '';
+  $handler->display->display_options['fields']['changed']['element_type'] = '0';
+  $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['changed']['date_format'] = 'm_d_y';
+  $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+  /* Field: Content: Mark as updated */
+  $handler->display->display_options['fields']['field_mark_as_updated']['id'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['table'] = 'field_data_field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['field'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['label'] = '';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -427,6 +443,22 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'Y';
   $handler->display->display_options['fields']['created_1']['second_date_format'] = 'long';
+  /* Field: Content: Updated date */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'node';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['label'] = '';
+  $handler->display->display_options['fields']['changed']['element_type'] = '0';
+  $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['changed']['date_format'] = 'm_d_y';
+  $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+  /* Field: Content: Mark as updated */
+  $handler->display->display_options['fields']['field_mark_as_updated']['id'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['table'] = 'field_data_field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['field'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['label'] = '';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Client (field_client) */
   $handler->display->display_options['arguments']['field_client_uid']['id'] = 'field_client_uid';
@@ -684,6 +716,22 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Updated date */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'node';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['label'] = '';
+  $handler->display->display_options['fields']['changed']['element_type'] = '0';
+  $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['changed']['date_format'] = 'm_d_y';
+  $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+  /* Field: Content: Mark as updated */
+  $handler->display->display_options['fields']['field_mark_as_updated']['id'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['table'] = 'field_data_field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['field'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['label'] = '';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -827,6 +875,22 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Updated date */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'node';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['label'] = '';
+  $handler->display->display_options['fields']['changed']['element_type'] = '0';
+  $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['changed']['date_format'] = 'm_d_y';
+  $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+  /* Field: Content: Mark as updated */
+  $handler->display->display_options['fields']['field_mark_as_updated']['id'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['table'] = 'field_data_field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['field'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['label'] = '';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Client (field_client) */
   $handler->display->display_options['arguments']['field_client_uid']['id'] = 'field_client_uid';
@@ -989,6 +1053,22 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Updated date */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'node';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['label'] = '';
+  $handler->display->display_options['fields']['changed']['element_type'] = '0';
+  $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['changed']['date_format'] = 'm_d_y';
+  $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+  /* Field: Content: Mark as updated */
+  $handler->display->display_options['fields']['field_mark_as_updated']['id'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['table'] = 'field_data_field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['field'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['label'] = '';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -1133,6 +1213,22 @@ function client_files_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['alter']['text'] = 'tag: [field_tags]';
   $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Updated date */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'node';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['label'] = '';
+  $handler->display->display_options['fields']['changed']['element_type'] = '0';
+  $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['changed']['date_format'] = 'm_d_y';
+  $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+  /* Field: Content: Mark as updated */
+  $handler->display->display_options['fields']['field_mark_as_updated']['id'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['table'] = 'field_data_field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['field'] = 'field_mark_as_updated';
+  $handler->display->display_options['fields']['field_mark_as_updated']['label'] = '';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_mark_as_updated']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Client (field_client) */
   $handler->display->display_options['arguments']['field_client_uid']['id'] = 'field_client_uid';

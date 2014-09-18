@@ -39,7 +39,7 @@
 	switch($field->class){
 		
 		case "uid":
-
+			/*
 			$uid = $field->content;
 			$isrecent = 0;
 			$timeframe = strtotime('-2 week');
@@ -65,6 +65,7 @@
 			if($isrecent == 1){
 				print 'New Document Added';
 			}
+			*/
 			
 		break;
 		

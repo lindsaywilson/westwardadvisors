@@ -26,13 +26,21 @@
 
  global $user;
  $nid = $fields['nid']->content;
+ $marked = (isset($fields['field_mark_as_updated']) ? $fields['field_mark_as_updated']->content : '');
  $isrecent = '';
+ $isupdated = '';
  $created = strtotime($fields['created']->content);
+ $updated = (isset($fields['changed']) ? strtotime($fields['changed']->content) : '');
  $timeframe = strtotime('-2 week');
  $uids = array();
- 
+ $updated_uids = array();
+
  if($created >= $timeframe){
- 	$isrecent = '<span class="red">NEW </span>';
+ 	$isrecent = '<span class="red new-file">NEW </span>';
+ }
+ if($updated != '' && $updated >= $timeframe && $updated > $created && $marked == 'yes'){
+ 	$isrecent = '';
+	$isupdated = '<span class="red updated-file">UPDATED </span>';
  }
  
  $query = db_query('SELECT uid FROM {files} n WHERE n.nid = :nid', array(':nid' => $nid));
@@ -42,6 +50,16 @@
  foreach ($uids as $uid){
  	if($uid == $user->uid){
 		$isrecent = '';
+	}
+ }
+ 
+ $query = db_query('SELECT uid FROM {files_updated} n WHERE n.nid = :nid', array(':nid' => $nid));
+ foreach ($query as $file) {
+	 array_push($updated_uids, $file->uid);	
+ }
+ foreach ($updated_uids as $uid){
+ 	if($uid == $user->uid){
+		$isupdated = '';
 	}
  }
  
@@ -55,8 +73,10 @@
   <?php print $field->wrapper_prefix; ?>
     <?php print $field->label_html; ?>
     
-    <?php
-
+    <?php 
+	
+	//dpm($field->class);
+	
 	switch($field->class){
 		
 		case "nid":
@@ -64,10 +84,12 @@
 		break;
 		
 		case "field-file":
-			print '<div class="field-content">'.$isrecent.$field->content.'</div>';
+			print '<div class="field-content">'.$isrecent.$isupdated.$field->content.'</div>';
 		break;
 		
 		case "created":
+		case "changed":
+		case "field-mark-as-updated":
 		break;
 		
 		default:

@@ -9,11 +9,23 @@ jQuery(document).ready(function($){
   })
   
   
+  // Add updated file highlight to client name heading
+  $('.view-clients .view-content .views-row').each( function(){
+  	html = $(this).html();
+	if(html.search('new-file') != -1){
+		$(this).find('.views-field-uid').empty().text('New Document Added');
+	}
+	if(html.search('updated-file') != -1){
+		$(this).find('.views-field-uid').empty().text('Document Updated');
+	}
+  });
+  
+  
   // Add new file highlight to stage heading
   $('.view-client-files .view-grouping-content').each( function(){
 	isrecent = 0;	  	
 	$(this).find('.views-row').each( function(){
-		if($(this).find('.red').length > 0){
+		if($(this).find('.new-file').length > 0){
 			isrecent = 1;
 		}
 	});
@@ -23,17 +35,50 @@ jQuery(document).ready(function($){
 	}	
   });
   
+  // Add updated file highlight to stage heading
+  $('.view-client-files .view-grouping-content').each( function(){
+	isupdated = 0;	  	
+	$(this).find('.views-row').each( function(){
+		if($(this).find('.updated-file').length > 0){
+			isupdated = 1;
+			$(this).find('a.client_file').addClass('updated');
+		}
+	});
+	if(isupdated == 1){
+		header = $(this).prev().find('div');
+		header.find('.new').empty();
+		header.html(header.text()+'<span class="new">Document Updated</span>');
+	}	
+  });
+  
+  
   // Add new file highlight to Policy/Loan Doc heading
   $('.view-client-files.view-display-id-policy_documents_advisor, .view-client-files.view-display-id-policy_documents_client, .view-client-files.view-display-id-loan_documents_advisor, .view-client-files.view-display-id-loan_documents_client').each( function(){
 	isrecent = 0;	  	
 	$(this).find('.views-row').each( function(){
-		if($(this).find('.red').length > 0){
+		if($(this).find('.new-file').length > 0){
 			isrecent = 1;
 		}
 	});
 	if(isrecent == 1){
 		header = $(this).find('h3 div');
 		header.html(header.text()+'<span class="new">New Document Added</span>');
+	}	
+  });
+  
+  // Add updated file highlight to Policy/Loan Doc heading
+  $('.view-client-files.view-display-id-policy_documents_advisor, .view-client-files.view-display-id-policy_documents_client, .view-client-files.view-display-id-loan_documents_advisor, .view-client-files.view-display-id-loan_documents_client').each( function(){
+	isupdated = 0;	  	
+	$(this).find('.views-row').each( function(){
+		if($(this).find('.updated-file').length > 0){
+			isupdated = 1;
+			$(this).find('a.client_file').addClass('updated');
+		}
+	});
+	if(isupdated == 1){
+		header = $(this).find('h3 div');
+		header.find('.new').empty();
+		header.html(header.text()+'<span class="new">Document Updated</span>');
 	}	
   });
 
@@ -112,6 +157,36 @@ jQuery(document).ready(function($){
 		$.ajax({
 			type: "POST",
 			url: "/sites/all/themes/westward/templates/files_db.php",
+			data: { uid: uid, nid: nid, title:title},
+			success:function(){
+			  //window.location = url;
+			}
+		});
+		
+        return false;
+		
+	});
+	
+	// add when update file is downloaded to files db table when user clicks on a client file
+	$('a.client_file.updated').mousedown( function(event){
+		
+		switch (event.which) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+   		}
+		
+		uid = $(this).parents('.views-row').find('.file-data').attr('data-uid');
+		nid = $(this).parents('.views-row').find('.file-data').attr('data-nid');
+		title = $(this).attr('rel');
+		url = $(this).attr('href');
+		
+		$.ajax({
+			type: "POST",
+			url: "/sites/all/themes/westward/templates/files_updated_db.php",
 			data: { uid: uid, nid: nid, title:title},
 			success:function(){
 			  //window.location = url;
