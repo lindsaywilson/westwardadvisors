@@ -1,0 +1,12 @@
+name = Users Export Feature
+description = Users export view
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = users_export_feature
+dependencies[] = views
+dependencies[] = views_data_export
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = users_export
+features_exclude[dependencies][ctools] = ctools
