@@ -1,0 +1,5 @@
+name = Loan Renewal Mail
+description = Send loan renewal emails when client files are added
+core=7.x
+version=VERSION
+files[] = loan_renewal_mail.module

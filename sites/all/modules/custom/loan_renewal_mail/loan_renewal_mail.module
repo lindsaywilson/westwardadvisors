@@ -1,0 +1,97 @@
+<?php
+
+function loan_renewal_mail_node_insert($node) {
+    
+	switch ($node->type) {
+		case 'client_file':
+			
+			if(isset($node->field_email_template['und'][0]) && isset($node->field_visible_to_client['und'][0])){ 
+			if($node->field_visible_to_client['und'][0]['value'] == 1){ 
+				//dpm($node);
+				$cid = $node->field_client['und'][0]['uid'];
+				$client = user_load($cid);
+				//dpm($client);
+				$advisors = array();
+				foreach($client->field_advisor['und'] as &$aid){
+					$advisor = user_load($aid);
+					array_push($advisors,$advisor->mail);
+				}
+				$advisors_emails = implode(",", $advisors);
+				
+				$message = '<html><head></head><body>';
+			
+				if($node->field_email_template['und'][0]['value'] == 5){
+					
+					$to      = $client->mail;
+					$subject = 'Industrial Alliance Annual Loan Renewal - Time Sensitive';
+					$message .= '<p>Hi '.$client->field_first_name['und'][0]['value'].',</p>
+								<p>Everything to  renew your Industrial Alliance loan is now available in your client portal on  Westward&rsquo;s website. The date by which the completed documents are to be  returned to us for processing is highlighted. </p>
+								<p>To access the  files, simply login to your portal at <a href="http://westwardadvisors.com/login">http://westwardadvisors.com/login</a>.</p>
+								<p>Renewing the  loan is part of plan maintenance. It keeps the plan running smoothly so you can  achieve the full estate benefits and continue to increase your tax recovery. </p>
+								<p>The renewal  process is straightforward. Step-by-step instructions are included. We&rsquo;ve also  prepared a short video outlining the steps and the benefits it delivers. You  can view the video by clicking on the link below: </p>
+								<p><strong><a href="http://westwardadvisors.com/westwardadvisors.com/Video/IA-CF-Renewal_Video/IA-CF-Renewal.html">Industrial  Alliance Loan Renewal Video</a></strong></p>
+								<p>This note was  sent automatically from Westward&rsquo;s Advisor Pathway. &nbsp;Your advisor(s) are  copied. If additional documents are needed or if you have any questions, please  contact your Westward tax associate at your earliest convenience: <a href="mailto:heleno@westwardadvisors.com">heleno@westwardadvisors.com</a> or <a href="mailto:viviank@westwardadvisors.com">viviank@westwardadvisors.com</a>.</p>
+								<p>Thank you,</p>
+								<p>Your  Performance Optimizer Team</p>
+								<p>&nbsp;</p>
+								<p>CONFIDENTIALITY  DISCLAIMER<br>
+								  This message  may contain confidential information and is intended only for the recipient named.  If you have received this email in error, please notify the sender immediately  via return email and then delete it. Unauthorized email distribution is  strictly prohibited. The sender does not accept liability for any errors or  omissions in the contents of this message.</p>
+								';
+					$message .= '</body></html>';
+					$headers = 'From: Westward Advisors <service@westwardadvisors.com>' . "\r\n" .
+								'CC:'. $advisors_emails . "\r\n" .
+								'BCC: service@westwardadvisors.com' . "\r\n" .
+								'MIME-Version: 1.0' . "\r\n" .
+								'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+					
+					mail($to, $subject, $message, $headers);
+					
+					drupal_set_message('Industrial Alliance Annual Loan Renewal email sent to '.$client->mail.', CC:'.$advisors_emails);
+				}
+				
+				if($node->field_email_template['und'][0]['value'] == 6){
+					
+					$to      = $client->mail;
+					$subject = 'RBC Annual Loan Renewal - Time Sensitive';
+					$message .= '<p>Hi '.$client->field_first_name['und'][0]['value'].',</p>
+								<p>Everything  to renew your RBC Insurance loan is now available in your client portal  on Westward&rsquo;s website.&nbsp;</p>
+								<p>ACTIONS  REQUIRED within the next two weeks:</p>
+								<ol>
+								  <li>Please login to your portal and download your loan renewal file</li>
+								  <li>Print and sign the loan renewal forms<br>
+								   </li>
+								  <li>Attach your loan renewal cheques</li>
+								  <li>Call us to pick up the completed package&nbsp;</li>
+								</ol>
+								<p>To  access your files, simply login to your portal at&nbsp;<a href="http://westwardadvisors.com/login">http://westwardadvisors.com/login</a>.<br>
+								Renewing  the loan is part of your annual plan maintenance. It keeps the plan running  smoothly so you can achieve the full estate benefits and continue to increase  your tax recovery.</p>
+								<p>Please  note, no action is required on the loan renewal package that you will receive  directly from RBC Insurance by regular mail. &nbsp;It is a duplicate, so  please discard it.&nbsp;</p>
+								<p>We&rsquo;ve  also prepared a short video outlining your loan renewal steps and the benefits  it delivers. You can view the video by clicking on the link below:</p>
+								<p><strong><a href="http://westwardadvisors.com/Video/RBC-CF-Renewal_Video/RBC-CF-Renewal-Final.html">RBC Loan Renewal Video</a></strong> </p>
+								<p>This  note was sent automatically from Westward&rsquo;s Advisor Pathway. &nbsp;Your  advisor(s) are copied. If you have any questions, please contact your Westward  tax associate at your earliest convenience:&nbsp;<a href="mailto:heleno@westwardadvisors.com">heleno@westwardadvisors.com</a>&nbsp;or <a href="mailto:viviank@westwardadvisors.com">viviank@westwardadvisors.com</a></p>
+								<p>Thank  you,<br>
+								  Your  Performance Optimizer Team</p>
+								<p>&nbsp;</p>
+								<p>CONFIDENTIALITY  DISCLAIMER<br>
+								This message may contain confidential information and is intended only for the  recipient named. If you have received this email in error, please notify the  sender immediately via return email and then delete it. Unauthorized email  distribution is strictly prohibited. The sender does not accept liability for  any errors or omissions in the contents of this message.</p>
+								
+								';
+					$message .= '</body></html>';
+					$headers = 'From: Westward Advisors <service@westwardadvisors.com>' . "\r\n" .
+								'CC:'. $advisors_emails . "\r\n" .
+								'BCC: service@westwardadvisors.com' . "\r\n" .
+								'MIME-Version: 1.0' . "\r\n" .
+								'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+					
+					mail($to, $subject, $message, $headers);
+					
+					drupal_set_message('RBC Annual Loan Renewal email sent to '.$client->mail.', CC:'.$advisors_emails);
+				}
+				
+			}
+			}
+		break;
+	}
+	
+	
+}

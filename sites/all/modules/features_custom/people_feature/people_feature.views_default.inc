@@ -129,7 +129,7 @@ function people_feature_views_default_views() {
   $handler->display->display_options['fields']['field_company']['id'] = 'field_company';
   $handler->display->display_options['fields']['field_company']['table'] = 'field_data_field_company';
   $handler->display->display_options['fields']['field_company']['field'] = 'field_company';
-  /* Field: User: Advisor */
+  /* Field: Field: Advisor */
   $handler->display->display_options['fields']['field_advisor']['id'] = 'field_advisor';
   $handler->display->display_options['fields']['field_advisor']['table'] = 'field_data_field_advisor';
   $handler->display->display_options['fields']['field_advisor']['field'] = 'field_advisor';
@@ -204,32 +204,39 @@ function people_feature_views_default_views() {
   $handler->display->display_options['filters']['rid']['group_info']['label'] = 'Roles';
   $handler->display->display_options['filters']['rid']['group_info']['identifier'] = 'rid';
   $handler->display->display_options['filters']['rid']['group_info']['group_items'] = array(
-    2 => array(
+    1 => array(
       'title' => 'Advisor',
       'operator' => 'or',
       'value' => array(
         4 => '4',
       ),
     ),
-    3 => array(
+    2 => array(
       'title' => 'Client',
       'operator' => 'or',
       'value' => array(
         5 => '5',
       ),
     ),
-    4 => array(
+    3 => array(
       'title' => 'Staff',
       'operator' => 'or',
       'value' => array(
         6 => '6',
       ),
     ),
-    5 => array(
+    4 => array(
       'title' => 'Advisor Assistant',
       'operator' => 'or',
       'value' => array(
         7 => '7',
+      ),
+    ),
+    5 => array(
+      'title' => 'Admin',
+      'operator' => 'or',
+      'value' => array(
+        3 => '3',
       ),
     ),
   );
@@ -260,7 +267,121 @@ function people_feature_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'admin/people';
+  $handler->display->display_options['path'] = 'admin/people/list';
+
+  /* Display: Email Addresses */
+  $handler = $view->new_display('page', 'Email Addresses', 'email');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Client/Advisor Email Addresses';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'name' => 'name',
+    'mail' => 'mail',
+    'field_advisor' => 'field_advisor',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'mail' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_advisor' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = 'Client Username';
+  $handler->display->display_options['fields']['name']['element_type'] = '0';
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Field: User: E-mail */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'users';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['label'] = 'CLIENT EMAIL';
+  $handler->display->display_options['fields']['mail']['alter']['text'] = '<a href="mailto:[mail]">[mail]</a>';
+  /* Field: Field: Advisor */
+  $handler->display->display_options['fields']['field_advisor']['id'] = 'field_advisor';
+  $handler->display->display_options['fields']['field_advisor']['table'] = 'field_data_field_advisor';
+  $handler->display->display_options['fields']['field_advisor']['field'] = 'field_advisor';
+  $handler->display->display_options['fields']['field_advisor']['label'] = 'ADVISORS';
+  $handler->display->display_options['fields']['field_advisor']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_advisor']['element_label_type'] = 'span';
+  $handler->display->display_options['fields']['field_advisor']['type'] = 'user_reference_uid';
+  $handler->display->display_options['fields']['field_advisor']['settings'] = array(
+    'user_reference_view_mode' => 'full',
+  );
+  $handler->display->display_options['fields']['field_advisor']['delta_offset'] = '0';
+  /* Field: Field: Advisor */
+  $handler->display->display_options['fields']['field_advisor_1']['id'] = 'field_advisor_1';
+  $handler->display->display_options['fields']['field_advisor_1']['table'] = 'field_data_field_advisor';
+  $handler->display->display_options['fields']['field_advisor_1']['field'] = 'field_advisor';
+  $handler->display->display_options['fields']['field_advisor_1']['label'] = 'Emails';
+  $handler->display->display_options['fields']['field_advisor_1']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_advisor_1']['type'] = 'user_reference_uid';
+  $handler->display->display_options['fields']['field_advisor_1']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: User: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'users';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: User: Name */
+  $handler->display->display_options['filters']['uid']['id'] = 'uid';
+  $handler->display->display_options['filters']['uid']['table'] = 'users';
+  $handler->display->display_options['filters']['uid']['field'] = 'uid';
+  $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Name';
+  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+  );
+  /* Filter criterion: User: Roles */
+  $handler->display->display_options['filters']['rid']['id'] = 'rid';
+  $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
+  $handler->display->display_options['filters']['rid']['field'] = 'rid';
+  $handler->display->display_options['filters']['rid']['value'] = array(
+    5 => '5',
+  );
+  $handler->display->display_options['path'] = 'admin/email-addresses';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Email Addresses';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'management';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['people'] = $view;
 
   return $export;
