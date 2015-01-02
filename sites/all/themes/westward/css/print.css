@@ -1,0 +1,38 @@
+.page-cnt{
+	font-size:9px;
+	width:100%;
+}
+
+.page-cnt p{
+	font-size:9px;
+}
+.page-cnt img {
+    /* width: 100% !important; */
+}
+
+
+#page-cnt-title {
+font-size: 14px
+}
+
+.page-top-banner-img {
+width: 100%;
+}
+
+.plan-image {
+float: left;
+width: 20%;
+}
+
+.custom-grid2{
+	width: 27% !important;
+	}
+.custom-grid3{
+	width: 65% !important;
+	}
+
+tr{
+	border:0px !important;
+}
+
+

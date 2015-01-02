@@ -36,6 +36,8 @@ function email_template_rules_feature_field_default_field_bases() {
         4 => 'Advisor AR Complete Reply',
         5 => 'Loan Renewal - Industrial Alliance',
         6 => 'Loan Renewal - RBC Insurance',
+        7 => 'RBC Insurance – FATCA Compliance',
+        8 => 'Test',
       ),
       'allowed_values_function' => '',
     ),

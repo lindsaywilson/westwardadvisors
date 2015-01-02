@@ -172,7 +172,7 @@ function client_files_field_default_field_instances() {
     'settings' => array(
       'description_field' => 1,
       'file_directory' => 'client-files',
-      'file_extensions' => 'pdf doc docx ppt xls xlsx pptx pub jpg jpeg zip',
+      'file_extensions' => 'pdf doc docx ppt xls xlsx pptx pub jpg jpeg zip pps ppsx',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),

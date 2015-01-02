@@ -292,7 +292,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'client_file' => 'client_file',
   );
-  /* Filter criterion: Content: Visible to all Advisors (field_visible_to_advisor) */
+  /* Filter criterion: Content: Visible to Advisor (field_visible_to_advisor) */
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['id'] = 'field_visible_to_advisor_value';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['table'] = 'field_data_field_visible_to_advisor';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['field'] = 'field_visible_to_advisor_value';
@@ -492,7 +492,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'client_file' => 'client_file',
   );
-  /* Filter criterion: Content: Visible to all Clients (field_visible_to_client) */
+  /* Filter criterion: Content: Visible to Client (field_visible_to_client) */
   $handler->display->display_options['filters']['field_visible_to_client_value']['id'] = 'field_visible_to_client_value';
   $handler->display->display_options['filters']['field_visible_to_client_value']['table'] = 'field_data_field_visible_to_client';
   $handler->display->display_options['filters']['field_visible_to_client_value']['field'] = 'field_visible_to_client_value';
@@ -755,7 +755,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['field_stage_value']['value'] = array(
     'f-policy-documents' => 'f-policy-documents',
   );
-  /* Filter criterion: Content: Visible to all Advisors (field_visible_to_advisor) */
+  /* Filter criterion: Content: Visible to Advisor (field_visible_to_advisor) */
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['id'] = 'field_visible_to_advisor_value';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['table'] = 'field_data_field_visible_to_advisor';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['field'] = 'field_visible_to_advisor_value';
@@ -925,7 +925,7 @@ function client_files_views_default_views() {
     'client_file' => 'client_file',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Visible to all Clients (field_visible_to_client) */
+  /* Filter criterion: Content: Visible to Client (field_visible_to_client) */
   $handler->display->display_options['filters']['field_visible_to_client_value']['id'] = 'field_visible_to_client_value';
   $handler->display->display_options['filters']['field_visible_to_client_value']['table'] = 'field_data_field_visible_to_client';
   $handler->display->display_options['filters']['field_visible_to_client_value']['field'] = 'field_visible_to_client_value';
@@ -1092,7 +1092,7 @@ function client_files_views_default_views() {
   $handler->display->display_options['filters']['field_stage_value']['value'] = array(
     'g-loan-documents' => 'g-loan-documents',
   );
-  /* Filter criterion: Content: Visible to all Advisors (field_visible_to_advisor) */
+  /* Filter criterion: Content: Visible to Advisor (field_visible_to_advisor) */
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['id'] = 'field_visible_to_advisor_value';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['table'] = 'field_data_field_visible_to_advisor';
   $handler->display->display_options['filters']['field_visible_to_advisor_value']['field'] = 'field_visible_to_advisor_value';
@@ -1263,7 +1263,7 @@ function client_files_views_default_views() {
     'client_file' => 'client_file',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Visible to all Clients (field_visible_to_client) */
+  /* Filter criterion: Content: Visible to Client (field_visible_to_client) */
   $handler->display->display_options['filters']['field_visible_to_client_value']['id'] = 'field_visible_to_client_value';
   $handler->display->display_options['filters']['field_visible_to_client_value']['table'] = 'field_data_field_visible_to_client';
   $handler->display->display_options['filters']['field_visible_to_client_value']['field'] = 'field_visible_to_client_value';
