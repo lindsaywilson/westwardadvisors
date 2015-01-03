@@ -1146,7 +1146,7 @@ function _node_export_file_field_import_file(&$file) {
 
     if (!empty($query)) {
       watchdog('node_export', 'kept existing managed file at uri "%uri"', array('%uri' => $file->uri), WATCHDOG_NOTICE);
-      $file = file_load(array_shift($query));
+      $file = (object) array_merge((array) $file, (array) file_load(array_shift($query)));
     }
 
     $file = file_save($file);

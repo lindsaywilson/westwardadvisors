@@ -69,6 +69,8 @@ blockquote{ color:#5e8193; font-size:1.2em}
 .node ul li{ padding-left:1.2em; background:url(../images/bg_li.gif) 0 5px no-repeat}
 .red{color:#ff0000; font-weight:bold}
 
+.node .node-links ul li{ background:none}
+
 img{ width:100%; max-width:100%}
 img#logo, #forum img, .file img, .feed-icon img, .feed-link img, .krumo-root img, .mollom-image-captcha img{ width:auto; max-width:auto}
 
